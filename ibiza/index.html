@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イビサ・フェスティバル ドバイ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Italiana&family=Manrope:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400&family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ── tokens ── this page commits to one nocturnal world, so every colour is explicit ── */
+:root{
+  --night:#060d16; --night-2:#0b1726; --card:#101d2d;
+  --ember:#e8541f; --ember-soft:#f5814f; --gold:#c2a678; --gold-deep:#a8874f;
+  --ink:#f6f1e8; --ink-soft:#9fb0c2; --ink-dim:#6b7f93;
+  --line:rgba(246,241,232,.16); --line-soft:rgba(246,241,232,.08);
+
+  --ff-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --ff-logo:"Italiana",Georgia,serif;
+  --ff-body:"Manrope","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  --ff-jp:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  --ff-it:"Cormorant Garamond",Georgia,serif;
+
+  --wrap:1200px; --gut:clamp(20px,4.2vw,56px); --pad-y:clamp(70px,8vw,128px);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--night); color:var(--ink);
+  font-family:var(--ff-body); font-size:clamp(15px,1.02vw,16.5px);
+  font-weight:300; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+:root[data-lang="ja"] body{font-weight:400; line-height:1.85}
+img{display:block; max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0; font-weight:300; text-wrap:balance}
+p{margin:0}
+:root[data-lang="ja"] .lang-en{display:none !important}
+:root[data-lang="en"] .lang-ja{display:none !important}
+:focus-visible{outline:2px solid var(--ember); outline-offset:3px}
+
+.wrap{max-width:var(--wrap); margin:0 auto; padding-inline:var(--gut)}
+.sec{padding-block:var(--pad-y)}
+.eyebrow{
+  font-size:11.5px; font-weight:700; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--ember); display:flex; align-items:center; gap:14px;
+}
+.eyebrow::before{content:""; width:30px; height:1px; background:var(--ember); flex:none}
+.h2{font-family:var(--ff-display); font-size:clamp(27px,3.5vw,46px); line-height:1.14; margin-top:22px}
+:root[data-lang="ja"] .h2{font-family:var(--ff-jp); font-weight:400; line-height:1.34; font-size:clamp(24px,3vw,40px); word-break:keep-all; line-break:strict}
+.h2 em{font-family:var(--ff-it); font-style:italic; color:var(--ember-soft)}
+:root[data-lang="ja"] .h2 em{font-family:inherit; font-style:normal; color:var(--ember-soft)}
+.lede{margin-top:20px; max-width:62ch; color:var(--ink-soft)}
+.note{margin-top:18px; font-size:11.5px; line-height:1.7; color:var(--ink-dim)}
+
+.btn{
+  display:inline-flex; align-items:center; gap:12px; cursor:pointer; text-decoration:none;
+  font-size:12px; font-weight:600; letter-spacing:.24em; text-transform:uppercase;
+  padding:15px 30px; border:1px solid var(--ember); background:transparent; color:var(--ink);
+  transition:background .5s var(--ease), color .5s var(--ease);
+}
+:root[data-lang="ja"] .btn{letter-spacing:.14em; font-size:12.5px; text-transform:none}
+.btn:hover{background:var(--ember); color:#0a0603}
+.btn-solid{background:var(--ember); color:#0a0603}
+.btn-solid:hover{background:transparent; color:var(--ink)}
+.btn-quiet{border-color:var(--line); color:var(--ink-soft)}
+.btn-quiet:hover{background:transparent; border-color:var(--gold); color:var(--gold)}
+
+/* ── header ── */
+header{position:sticky; top:0; z-index:50; background:rgba(6,13,22,.92); backdrop-filter:blur(14px); border-bottom:1px solid var(--line-soft)}
+.bar{display:flex; align-items:center; gap:clamp(10px,1.6vw,26px); height:64px}
+.mark{font-family:var(--ff-logo); font-size:21px; letter-spacing:.34em; text-decoration:none; white-space:nowrap}
+.bar nav{display:none; gap:18px; margin-inline-start:auto}
+.bar nav a{font-size:11.5px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; color:var(--ink-soft)}
+:root[data-lang="ja"] .bar nav a{letter-spacing:.04em; font-size:12px; text-transform:none}
+.bar nav a:hover{color:var(--ember-soft)}
+.langs{display:flex; gap:2px; margin-inline-start:auto; border:1px solid var(--line)}
+.langs button{font-family:var(--ff-body); font-size:11px; font-weight:600; letter-spacing:.16em; padding:7px 11px; background:transparent; border:0; color:var(--ink-dim); cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--ember); color:#0a0603}
+.bar .btn{display:none; padding:11px 18px; font-size:11px}
+@media(min-width:1300px){.bar .btn{display:inline-flex}}
+@media(min-width:1040px){.bar nav{display:flex} .langs{margin-inline-start:0}}
+
+/* ── hero ── */
+.hero{position:relative; overflow:hidden; background:var(--night)}
+.hero-img{position:absolute; inset:0}
+.hero-img img,.hero-img video{width:100%; height:100%; object-fit:cover; object-position:50% 58%}
+.hero-img::after{content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(6,13,22,.86) 0%,rgba(6,13,22,.5) 40%,rgba(6,13,22,.95) 100%)}
+.hero-body{position:relative; padding-block:clamp(84px,13vw,150px)}
+.hero h1{font-family:var(--ff-display); font-size:clamp(35px,5.4vw,70px); line-height:1.06; margin-top:24px; max-width:16ch; letter-spacing:-.015em}
+:root[data-lang="ja"] .hero h1{font-family:var(--ff-jp); font-weight:400; line-height:1.28; font-size:clamp(29px,4.4vw,58px); max-width:none; word-break:keep-all; line-break:strict}
+.hero h1 em{font-family:var(--ff-it); font-style:italic; color:var(--ember-soft)}
+:root[data-lang="ja"] .hero h1 em{font-family:inherit; font-style:normal}
+.hero .lede{color:rgba(246,241,232,.84); max-width:52ch}
+.hero-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:36px}
+.hero-meta{margin-top:34px; padding-top:16px; border-top:1px solid var(--line); font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft)}
+:root[data-lang="ja"] .hero-meta{letter-spacing:.1em; text-transform:none; font-size:12.5px}
+@media(prefers-reduced-motion:no-preference){
+  .hero .eyebrow,.hero h1,.hero .lede,.hero-cta,.hero-meta{animation:rise 1s var(--ease) both}
+  .hero h1{animation-delay:.08s} .hero .lede{animation-delay:.16s}
+  .hero-cta{animation-delay:.24s} .hero-meta{animation-delay:.32s}
+}
+@keyframes rise{from{opacity:.001; transform:translateY(14px)} to{opacity:1; transform:none}}
+
+/* ── stat row ── */
+.stats{display:grid; gap:1px; background:var(--line-soft); border-block:1px solid var(--line-soft)}
+@media(min-width:560px){.stats{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--night-2); padding:clamp(22px,3vw,34px); display:grid; gap:6px; align-content:start}
+.stat .f{font-family:var(--ff-display); font-size:clamp(34px,4.4vw,50px); line-height:1; color:var(--ember); font-variant-numeric:tabular-nums}
+.stat .f small{font-size:.34em; letter-spacing:.1em; color:var(--ink-soft); margin-inline-start:.35em}
+.stat .l{font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink)}
+:root[data-lang="ja"] .stat .l{letter-spacing:.06em; text-transform:none; font-size:13px}
+.stat .b{font-size:.85rem; color:var(--ink-dim); line-height:1.6}
+
+/* ── programme ── */
+.prog{display:grid; gap:clamp(30px,4vw,62px); align-items:center; margin-top:clamp(36px,4.5vw,60px)}
+@media(min-width:960px){.prog{grid-template-columns:minmax(0,.95fr) minmax(0,1fr)}}
+.dial{width:100%; height:auto; display:block}
+.dial .track{fill:none; stroke:rgba(246,241,232,.09); stroke-width:24}
+.dial .track-in{fill:none; stroke:rgba(246,241,232,.06); stroke-width:16}
+.dial .seg{fill:none; stroke-width:24; stroke-linecap:butt}
+.dial .seg-in{fill:none; stroke-width:16; stroke-linecap:butt}
+.dial text{font-family:"Manrope",sans-serif}
+.slots{list-style:none; margin:0; padding:0}
+.slots li{display:grid; grid-template-columns:auto minmax(0,1fr); gap:4px 18px; padding:16px 0; border-bottom:1px solid var(--line-soft)}
+.slots li:first-child{border-top:1px solid var(--line-soft)}
+.slots .sw{width:10px; height:10px; margin-top:9px; border-radius:50%}
+.slots .nm{font-size:1.02rem; color:var(--ink)}
+:root[data-lang="ja"] .slots .nm{font-family:var(--ff-jp)}
+.slots .tm{grid-column:2; font-family:var(--ff-display); font-size:.95rem; color:var(--ember-soft); font-variant-numeric:tabular-nums; letter-spacing:.04em}
+.gapline{margin-top:26px; padding:18px 20px; border:1px solid var(--line); display:grid; gap:4px}
+.gapline b{font-family:var(--ff-display); font-weight:400; color:var(--gold); font-size:1.05rem}
+
+/* ── lineup ── */
+.lineup{background:var(--night-2); border-block:1px solid var(--line-soft)}
+.djs{display:grid; gap:1px; background:var(--line-soft); margin-top:clamp(32px,4vw,54px); border:1px solid var(--line-soft)}
+@media(min-width:620px){.djs{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.djs{grid-template-columns:repeat(4,1fr)}}
+.dj{background:var(--night-2); padding:clamp(26px,3.4vw,40px) clamp(20px,2.4vw,28px); display:grid; gap:8px; align-content:center; justify-items:center; text-align:center; min-height:150px}
+.dj .r{font-size:10.5px; letter-spacing:.34em; color:var(--ink-dim)}
+.dj .n{font-family:var(--ff-display); font-size:clamp(22px,2.6vw,30px); line-height:1.05; color:var(--ink); letter-spacing:.01em}
+.credit{margin-top:26px; display:flex; flex-wrap:wrap; gap:10px 26px; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-dim)}
+
+/* ── venues ── */
+.venues{display:grid; gap:10px; margin-top:clamp(34px,4vw,56px); grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){.venues{grid-template-columns:repeat(3,1fr)}}
+.venue{position:relative; margin:0}
+.venue img,.venue video{width:100%; aspect-ratio:4/3; object-fit:cover; background:var(--card); display:block}
+.venue figcaption{
+  position:absolute; inset-inline:0; bottom:0; padding:14px 16px;
+  background:linear-gradient(180deg,rgba(6,13,22,0),rgba(6,13,22,.88));
+  font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink);
+}
+:root[data-lang="ja"] .venue figcaption{letter-spacing:.06em; text-transform:none; font-size:12.5px}
+
+/* ── video wall ── */
+.wall-out{margin-top:clamp(34px,4.5vw,58px); width:100vw; margin-inline:calc(50% - 50vw); padding-inline:clamp(6px,1vw,14px)}
+.wall{display:grid; gap:clamp(6px,0.8vw,12px); grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.wall{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.wall{grid-template-columns:repeat(2,1fr)}}
+.t{position:relative; margin:0; overflow:hidden; background:var(--card); aspect-ratio:9/16}
+.t video{width:100%; height:100%; object-fit:cover; display:block; transition:transform 1.2s var(--ease)}
+.t:hover video{transform:scale(1.035)}
+.t::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,13,22,.28) 0%,rgba(6,13,22,0) 22%,rgba(6,13,22,0) 62%,rgba(6,13,22,.85) 100%)}
+.t figcaption{position:absolute; left:0; right:0; bottom:0; z-index:2; padding:16px 16px 18px;
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink)}
+:root[data-lang="ja"] .t figcaption{letter-spacing:.06em; text-transform:none; font-size:14px}
+
+/* ── scenes ── */
+.scenes{display:grid; gap:6px; margin-top:clamp(30px,4vw,50px); grid-template-columns:repeat(2,1fr)}
+@media(min-width:640px){.scenes{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.scenes{grid-template-columns:repeat(4,1fr)}}
+.scene{position:relative; margin:0; overflow:hidden}
+.scene img,.scene video{width:100%; aspect-ratio:3/2; object-fit:cover; background:var(--card); filter:saturate(1.06); display:block}
+.scene span{
+  position:absolute; left:0; top:0; padding:4px 9px; background:rgba(6,13,22,.72);
+  font-size:9.5px; font-weight:600; letter-spacing:.2em; color:var(--ember-soft);
+}
+
+/* ── why it matters ── */
+.why{display:grid; gap:1px; background:var(--line-soft); margin-top:clamp(34px,4vw,56px); border:1px solid var(--line-soft)}
+@media(min-width:860px){.why{grid-template-columns:repeat(3,1fr)}}
+.why > div{background:var(--night); padding:clamp(24px,3vw,34px); display:grid; gap:10px; align-content:start}
+.why .n{font-family:var(--ff-display); font-size:13px; letter-spacing:.2em; color:var(--ember)}
+.why h3{font-size:1.05rem; font-family:var(--ff-display); font-weight:400}
+:root[data-lang="ja"] .why h3{font-family:var(--ff-jp); font-weight:600}
+.why p{font-size:.88rem; color:var(--ink-soft); line-height:1.7}
+
+/* ── book ── */
+.book-grid{display:grid; gap:clamp(28px,4vw,56px); margin-top:clamp(32px,4vw,52px)}
+@media(min-width:880px){.book-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.kv{display:grid; gap:4px; padding-bottom:18px; border-bottom:1px solid var(--line-soft); margin-bottom:18px}
+.kv:last-child{border-bottom:0; margin-bottom:0}
+.kv dt{font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-dim)}
+:root[data-lang="ja"] .kv dt{letter-spacing:.06em; text-transform:none; font-size:12.5px}
+.kv dd{margin:0; font-size:1rem; white-space:pre-line}
+.kv dd a{color:var(--ember-soft); text-decoration:none; border-bottom:1px solid rgba(245,129,79,.4)}
+.cross{border:1px solid var(--line); padding:clamp(24px,3vw,34px); display:grid; gap:16px; align-content:start; background:var(--night-2)}
+.cross .h{font-family:var(--ff-display); font-size:clamp(20px,2.2vw,26px); line-height:1.25}
+:root[data-lang="ja"] .cross .h{font-family:var(--ff-jp); font-weight:600}
+
+/* ── footer ── */
+footer{border-top:1px solid var(--line-soft); padding-block:clamp(40px,5vw,64px); font-size:.85rem; color:var(--ink-dim)}
+.f-mark{font-family:var(--ff-logo); font-size:20px; letter-spacing:.34em; color:var(--ink)}
+.f-disc{margin-top:24px; font-size:11.5px; line-height:1.8}
+.f-disc p+p{margin-top:9px}
+
+/* ── official posters ── */
+.poster{margin:clamp(34px,5vw,64px) auto 0; max-width:480px; text-align:center}
+.poster-row{display:flex; flex-wrap:wrap; gap:clamp(18px,2.6vw,36px); justify-content:center; align-items:flex-start; margin-top:clamp(34px,5vw,64px)}
+.poster-row .poster{margin-top:0; flex:1 1 320px; max-width:430px}
+.poster.poster-wide{max-width:540px}
+.poster a, .poster figure{display:block; margin:0}
+.poster img{width:100%; height:auto; display:block; border:1px solid rgba(194,166,120,.4);
+  box-shadow:0 34px 80px -34px rgba(0,0,0,.8); transition:transform .8s var(--ease), box-shadow .8s var(--ease)}
+.poster:hover img{transform:translateY(-4px); box-shadow:0 44px 96px -34px rgba(0,0,0,.85)}
+.poster figcaption{margin-top:15px; font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-dim)}
+:root[data-lang="ja"] .poster figcaption{letter-spacing:.08em; text-transform:none; font-size:12.5px}
+.book-kv{margin:0 auto clamp(8px,2vw,20px); max-width:460px}
+@media(min-width:880px){
+  .book-with-kv{display:grid; grid-template-columns:minmax(0,420px) minmax(0,1fr); gap:clamp(30px,4vw,60px); align-items:start; margin-top:clamp(32px,4vw,52px)}
+  .book-with-kv .poster{margin-top:0}
+  .book-with-kv .book-grid{margin-top:0}
+}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">ANAWAK</a>
+    <nav aria-label="Sections">
+      <a href="#programme"><span class="lang-ja">1日のプログラム</span><span class="lang-en">Programme</span></a>
+      <a href="#venues"><span class="lang-ja">会場</span><span class="lang-en">Venues</span></a>
+      <a href="#book"><span class="lang-ja">予約</span><span class="lang-en">Reservations</span></a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang-set="en" aria-pressed="false">English</button>
+      <button type="button" data-lang-set="ja" aria-pressed="true">日本語</button>
+    </div>
+    <a class="btn btn-quiet" href="../"><span class="lang-ja">ANAWAK 本サイト</span><span class="lang-en">ANAWAK main site</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-img">
+      <video autoplay muted loop playsinline poster="assets/img/hero_video_poster.jpg"
+             aria-label="プールを埋め尽くすフォームパーティの映像">
+        <source src="assets/video/party.mp4" type="video/mp4">
+        <img src="assets/img/hero.jpg" alt="夕暮れに染まるコート・ダジュールのファサードとプールサイド">
+      </video>
+    </div>
+    <div class="wrap hero-body">
+      <p class="eyebrow">European Summer '25 · July 31 — Oct 15</p>
+      <h1>
+        <span class="lang-ja">一日22時間、<br><em>島は鳴りやまない。</em></span>
+        <span class="lang-en">The island plays <em>22 hours a day.</em></span>
+      </h1>
+      <p class="lede">
+        <span class="lang-ja">朝9時のアフターパーティ・ブレックファストから、翌朝7時のパーティスイートまで。ハート・オブ・ヨーロッパの「イビサ・フェスティバル」は、6つのプログラムが切れ目なく続く娯楽エリアです。</span>
+        <span class="lang-en">From the after-party breakfast at 9am to the party suites at 7am the next morning, the Ibiza Festival at The Heart of Europe runs six programmes back to back, with barely a pause.</span>
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#programme"><span class="lang-ja">1日のプログラムを見る</span><span class="lang-en">See the daily programme</span></a>
+        <a class="btn" href="#book"><span class="lang-ja">予約・お問い合わせ</span><span class="lang-en">Reservations</span></a>
+      </div>
+      <p class="hero-meta">
+        <span class="lang-ja">voco Dubai Monaco ー ザ・ハート・オブ・ヨーロッパ（IHG）／ エンターテインメント設計 NU'ART</span>
+        <span class="lang-en">voco Dubai Monaco — The Heart of Europe (IHG) · Entertainment design by NU'ART</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="At a glance">
+    <div class="stat">
+      <p class="f">22<small>h</small></p>
+      <p class="l"><span class="lang-ja">プログラムが続く時間</span><span class="lang-en">Hours per day</span></p>
+      <p class="b"><span class="lang-ja">静かなのは 07:00–09:00 の2時間だけ。</span><span class="lang-en">Only 07:00–09:00 is quiet.</span></p>
+    </div>
+    <div class="stat">
+      <p class="f">77<small><span class="lang-ja">日</span><span class="lang-en">days</span></small></p>
+      <p class="l"><span class="lang-ja">開催期間</span><span class="lang-en">Season length</span></p>
+      <p class="b"><span class="lang-ja">7月31日から10月15日まで、連日開催。</span><span class="lang-en">31 July to 15 October, every day.</span></p>
+    </div>
+    <div class="stat">
+      <p class="f">6</p>
+      <p class="l"><span class="lang-ja">プログラム</span><span class="lang-en">Programmes</span></p>
+      <p class="b"><span class="lang-ja">朝食ショーからカバレエ、深夜のプールまで。</span><span class="lang-en">Breakfast show to cabaret to the late-night pool.</span></p>
+    </div>
+    <div class="stat">
+      <p class="f">4</p>
+      <p class="l"><span class="lang-ja">レジデントDJ</span><span class="lang-en">Resident DJs</span></p>
+      <p class="b"><span class="lang-ja">GARWANI · ALMA · AMALIA · PEACE O</span><span class="lang-en">Garwani · Alma · Amalia · Peace O</span></p>
+    </div>
+  </section>
+
+  <!-- ── programme ── -->
+  <section class="sec" id="programme">
+    <div class="wrap">
+      <p class="eyebrow"><span class="lang-ja">1日のプログラム</span><span class="lang-en">The daily programme</span></p>
+      <h2 class="h2">
+        <span class="lang-ja">時計の針が、<br>そのまま進行表になる。</span>
+        <span class="lang-en">The clock face <em>is the running order.</em></span>
+      </h2>
+      <p class="lede">
+        <span class="lang-ja">外側のリングが本編の流れ、内側のリングは深夜に並走するレイトナイト・プールパーティです。23:00から03:00は、カバレエとプールが同時に動きます。</span>
+        <span class="lang-en">The outer ring is the main thread; the inner ring is the late-night pool party running alongside it. Between 23:00 and 03:00 the cabaret and the pool run at the same time.</span>
+      </p>
+
+      <div class="prog">
+        <div>
+          <svg class="dial" viewBox="0 0 440 440" role="img" aria-labelledby="dial-t dial-d">
+            <title id="dial-t">24-hour programme dial</title>
+            <desc id="dial-d">24時間の円グラフ。09:00から翌07:00まで6つのプログラムが連続し、23:00から03:00は2つが並走します。</desc>
+            <circle class="track" cx="220" cy="220" r="150"></circle>
+            <circle class="track-in" cx="220" cy="220" r="110"></circle>
+
+            <path class="seg" stroke="#f5c36b" d="M 326.07 326.07 A 150.00 150.00 0 0 1 258.82 364.89"></path>
+            <path class="seg" stroke="#f5814f" d="M 258.82 364.89 A 150.00 150.00 0 0 1 81.42 162.60"></path>
+            <path class="seg" stroke="#e8541f" d="M 90.10 145.00 A 150.00 150.00 0 0 1 181.18 75.11"></path>
+            <path class="seg" stroke="#b8324f" d="M 181.18 75.11 A 150.00 150.00 0 0 1 326.07 113.93"></path>
+            <path class="seg" stroke="#5d6f9c" d="M 326.07 113.93 A 150.00 150.00 0 0 1 364.89 258.82"></path>
+            <path class="seg-in" stroke="#3f7fa8" d="M 191.53 113.75 A 110.00 110.00 0 0 1 297.78 142.22"></path>
+
+            <g stroke="rgba(246,241,232,.35)" stroke-width="1">
+              <line x1="220" y1="68" x2="220" y2="57"></line>
+              <line x1="327.5" y1="112.5" x2="335.3" y2="104.7"></line>
+              <line x1="372" y1="220" x2="383" y2="220"></line>
+              <line x1="327.5" y1="327.5" x2="335.3" y2="335.3"></line>
+              <line x1="220" y1="372" x2="220" y2="383"></line>
+              <line x1="112.5" y1="327.5" x2="104.7" y2="335.3"></line>
+              <line x1="68" y1="220" x2="57" y2="220"></line>
+              <line x1="112.5" y1="112.5" x2="104.7" y2="104.7"></line>
+            </g>
+            <g fill="#9fb0c2" font-size="12" letter-spacing="1.4" text-anchor="middle">
+              <text x="220" y="40">00</text>
+              <text x="350" y="94">03</text>
+              <text x="404" y="224">06</text>
+              <text x="350" y="358">09</text>
+              <text x="220" y="412">12</text>
+              <text x="90" y="358">15</text>
+              <text x="36" y="224">18</text>
+              <text x="90" y="94">21</text>
+            </g>
+
+            <text x="220" y="206" text-anchor="middle" fill="#f6f1e8" font-family="Fraunces, Georgia, serif" font-size="46">22</text>
+            <text x="220" y="232" text-anchor="middle" fill="#9fb0c2" font-size="11" letter-spacing="3">HOURS A DAY</text>
+            <text x="220" y="256" text-anchor="middle" fill="#6b7f93" font-size="10.5" letter-spacing="2">07:00 — 09:00 QUIET</text>
+          </svg>
+        </div>
+
+        <div>
+          <ul class="slots">
+            <li>
+              <span class="sw" style="background:#f5c36b"></span>
+              <span class="nm"><span class="lang-ja">アフターパーティ・ブレックファストショー</span><span class="lang-en">After Party Breakfast Show</span></span>
+              <span class="tm">09:00 — 11:00</span>
+            </li>
+            <li>
+              <span class="sw" style="background:#f5814f"></span>
+              <span class="nm"><span class="lang-ja">プールパーティ＆ショー</span><span class="lang-en">Pool Party and Show</span></span>
+              <span class="tm">11:00 — 19:30</span>
+            </li>
+            <li>
+              <span class="sw" style="background:#e8541f"></span>
+              <span class="nm"><span class="lang-ja">フラワーパワー・ガラディナー</span><span class="lang-en">Flower Power Gala Dinner</span></span>
+              <span class="tm">20:00 — 23:00</span>
+            </li>
+            <li>
+              <span class="sw" style="background:#b8324f"></span>
+              <span class="nm"><span class="lang-ja">ノクターナ・カバレエ</span><span class="lang-en">Nocturna Cabaret</span></span>
+              <span class="tm">23:00 — 03:00</span>
+            </li>
+            <li>
+              <span class="sw" style="background:#3f7fa8"></span>
+              <span class="nm"><span class="lang-ja">レイトナイト・プールパーティ</span><span class="lang-en">Late Night Pool Party</span></span>
+              <span class="tm">23:00 — 03:00<span class="lang-ja">（並走）</span><span class="lang-en"> (parallel)</span></span>
+            </li>
+            <li>
+              <span class="sw" style="background:#5d6f9c"></span>
+              <span class="nm"><span class="lang-ja">チル ー パーティスイート</span><span class="lang-en">Chill and Enjoy the Party Suites</span></span>
+              <span class="tm">03:00 — 07:00</span>
+            </li>
+          </ul>
+          <div class="gapline">
+            <b>07:00 — 09:00</b>
+            <span class="lang-ja">島が静まる、1日で唯一の2時間。</span>
+            <span class="lang-en">The only two hours the island falls quiet.</span>
+          </div>
+          <p class="note">
+            <span class="lang-ja">※ 上記は「ヨーロピアン・サマー」期間中の標準スケジュールです。内容・時間は天候や催行状況により変更される場合があります。</span>
+            <span class="lang-en">The standard schedule during the European Summer season. Programmes and times may change with weather and operations.</span>
+          </p>
+        </div>
+      </div>
+      <div class="poster-row">
+        <div class="poster">
+          <figure>
+            <img src="assets/img/poster-schedule.jpg" loading="lazy"
+                 alt="イビサ・フェスティバルの1日のプログラム（6つのショーと時間帯）">
+            <figcaption><span class="lang-ja">公式プログラム</span><span class="lang-en">The official programme</span></figcaption>
+          </figure>
+        </div>
+        <div class="poster">
+          <figure>
+            <img src="assets/img/poster-lineup.jpg" loading="lazy"
+                 alt="レジデントDJ — GARWANI, ALMA, AMALIA, PEACE O">
+            <figcaption><span class="lang-ja">レジデントDJ ー GARWANI · ALMA · AMALIA · PEACE O</span><span class="lang-en">Resident DJs — Garwani · Alma · Amalia · Peace O</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── venues ── -->
+  <section class="sec" id="venues">
+    <div class="wrap">
+      <p class="eyebrow"><span class="lang-ja">会場</span><span class="lang-en">The venues</span></p>
+      <h2 class="h2">
+        <span class="lang-ja">プールサイドから、<br>ベルベットの回廊まで。</span>
+        <span class="lang-en">From the poolside <em>to the velvet corridor.</em></span>
+      </h2>
+      <p class="lede">
+        <span class="lang-ja">ヨーロッパの街並みを写した建物そのものが会場です。昼はプールとテラス、夜はロビー、バー、カバレエへと舞台が移ります。</span>
+        <span class="lang-en">The buildings themselves — modelled on Europe — are the venue. The stage moves from pool and terrace by day to lobby, bar and cabaret by night.</span>
+      </p>
+
+      <div class="wall-out">
+        <div class="wall">
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vFoam.jpg" aria-label="プールを埋めるフォームパーティ"><source src="assets/video/vFoam.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">プールパーティ</span><span class="lang-en">The pool party</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vFloor.jpg" aria-label="光が落ちるダンスフロア"><source src="assets/video/vFloor.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">ダンスフロア</span><span class="lang-en">The dance floor</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vStreet.jpg" aria-label="夜のピアッツァ"><source src="assets/video/vStreet.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">夜のピアッツァ</span><span class="lang-en">The piazza at night</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vPoolNite.jpg" aria-label="ライトアップされたプール"><source src="assets/video/vPoolNite.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">ライトアップされたプール</span><span class="lang-en">The pool, lit</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vBooth.jpg" aria-label="ベルベットのボックス席"><source src="assets/video/vBooth.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">ベルベットの客席</span><span class="lang-en">Velvet booths</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vBar.jpg" aria-label="キャンドルの灯るバー"><source src="assets/video/vBar.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">バーカウンター</span><span class="lang-en">The bar</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vSalon.jpg" aria-label="キャンドルの灯る深紅のサロン"><source src="assets/video/vSalon.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">深紅のサロン</span><span class="lang-en">The crimson salon</span></figcaption></figure>
+        <figure class="t"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/p_vLobby.jpg" aria-label="赤い壁のダイニングサロン"><source src="assets/video/vLobby.mp4" type="video/mp4"></video>
+          <figcaption><span class="lang-ja">ダイニングサロン</span><span class="lang-en">The dining salon</span></figcaption></figure>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── book ── -->
+  <section class="sec" id="book">
+    <div class="wrap">
+      <p class="eyebrow"><span class="lang-ja">予約・お問い合わせ</span><span class="lang-en">Reservations</span></p>
+      <h2 class="h2">
+        <span class="lang-ja">まずは、一泊<br>体験してみてください。</span>
+        <span class="lang-en">Start with <em>a single night.</em></span>
+      </h2>
+      <div class="book-with-kv">
+      <div class="poster book-kv">
+        <figure>
+          <img src="assets/img/poster-keyvisual.jpg" loading="lazy"
+               alt="IBIZA FESTIVAL — European Summer, voco Dubai Monaco / The Heart of Europe">
+        </figure>
+      </div>
+      <div class="book-grid">
+        <div>
+          <dl class="kv">
+            <dt><span class="lang-ja">ご予約</span><span class="lang-en">Reservations</span></dt>
+            <dd><a href="mailto:reservations.voco@thoe-hotels.com">reservations.voco@thoe-hotels.com</a></dd>
+          </dl>
+          <dl class="kv">
+            <dt><span class="lang-ja">お電話</span><span class="lang-en">Telephone</span></dt>
+            <dd><a href="tel:+971521265893">+971 52 126 5893</a></dd>
+          </dl>
+          <dl class="kv">
+            <dt><span class="lang-ja">会場</span><span class="lang-en">Venue</span></dt>
+            <dd>voco Dubai Monaco (IHG)
+The Heart of Europe, The World Islands, Dubai</dd>
+          </dl>
+          <dl class="kv">
+            <dt><span class="lang-ja">開催期間</span><span class="lang-en">Season</span></dt>
+            <dd><span class="lang-ja">2026年7月31日 — 10月15日</span><span class="lang-en">31 July — 15 October 2026</span></dd>
+          </dl>
+        </div>
+        <div class="cross">
+          <p class="h">
+            <span class="lang-ja">島には、住まいもあります。</span>
+            <span class="lang-en">People live here, too.</span>
+          </p>
+          <p style="color:var(--ink-soft); font-size:.92rem">
+            <span class="lang-ja">ハート・オブ・ヨーロッパは、4つのヨーロッパを写したレジデンスが並ぶ島でもあります。建築や滞在の様子は ANAWAK の本サイトでご覧いただけます。</span>
+            <span class="lang-en">The Heart of Europe is also an island of residences, each modelled on a corner of Europe. You can see the architecture and the stays on the ANAWAK main site.</span>
+          </p>
+          <p><a class="btn btn-solid" href="../"><span class="lang-ja">ANAWAK 本サイトを見る</span><span class="lang-en">Open the ANAWAK main site</span></a></p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="f-mark">ANAWAK</p>
+    <div class="f-disc">
+      <p><span class="lang-ja">本ページに記載のプログラム名・時間・出演者・開催期間は、運営者が公表している「ヨーロピアン・サマー／イビサ・フェスティバル」の案内に基づく参考情報です。内容は予告なく変更される場合があります。最新の情報は上記の予約窓口までご確認ください。</span><span class="lang-en">Programme names, times, performers and dates on this page are reference information based on the operator's published European Summer / Ibiza Festival announcements, and may change without notice. Please confirm current details with the reservations contact above.</span></p>
+      <p>© 2026 ANAWAK · JWD Group. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute("data-lang", l);
+    root.setAttribute("lang", l === "ja" ? "ja" : "en");
+    var b=document.querySelectorAll("[data-lang-set]");
+    for(var i=0;i<b.length;i++){
+      b[i].setAttribute("aria-pressed", String(b[i].getAttribute("data-lang-set")===l));
+    }
+    try{ localStorage.setItem("anawak_hoe_lang", l); }catch(e){}
+  }
+  var stored=null;
+  try{ stored=localStorage.getItem("anawak_hoe_lang"); }catch(e){}
+  setLang(stored==="en" ? "en" : "ja");
+  document.addEventListener("click", function(ev){
+    var b=ev.target.closest ? ev.target.closest("[data-lang-set]") : null;
+    if(b) setLang(b.getAttribute("data-lang-set"));
+  });
+
+  // 画面に入った映像を再生し、止まっていたら拾い直す
+  var vids=[].slice.call(document.querySelectorAll("video"));
+  function inView(v){ var b=v.getBoundingClientRect(); return b.top < innerHeight+250 && b.bottom > -250; }
+  function tryPlay(v){ var pr=v.play(); if(pr && pr.catch) pr.catch(function(){}); }
+  function sweep(){ for(var i=0;i<vids.length;i++){ var v=vids[i]; if(inView(v)) tryPlay(v); else v.pause(); } }
+  vids.forEach(function(v){
+    v.muted=true; v.setAttribute("muted","");
+    v.playsInline=true; v.setAttribute("playsinline","");
+    ["loadeddata","canplay","suspend","stalled"].forEach(function(ev){
+      v.addEventListener(ev, function(){ if(inView(v)) tryPlay(v); });
+    });
+  });
+  if(window.IntersectionObserver){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
+    }, {rootMargin:"250px"});
+    vids.forEach(function(v){ io.observe(v); });
+  }
+  addEventListener("scroll", sweep, {passive:true});
+  addEventListener("pageshow", sweep);
+  addEventListener("resize", sweep);
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden) sweep(); });
+  setTimeout(sweep, 300); setTimeout(sweep, 1200); setTimeout(sweep, 3500);
+  sweep();
+})();
+</script>
+
+</body>
+</html>

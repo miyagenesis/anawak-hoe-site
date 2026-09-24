@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Heart of Europe｜ドバイ・プライベートアイランドのレジデンス — ANAWAK</title>
+<meta name="description" content="ドバイ沖に浮かぶ人工島 The Heart of Europe。世界で唯一無二のウォーターフロント・レジデンス。将来の資産防衛を見据えた実物資産の保有、家具付き。ANAWAK Real Estate（JWDグループ）が厳選した13物件の販売を開始しました。">
+<style>
+:root{
+  --navy:#0f2038;          /* 深いネイビー（ANAWAK基調） */
+  --navy-2:#16304f;
+  --ink:#1c2a3a;
+  --gold:#b8975a;          /* ゴールド */
+  --gold-lt:#cbb583;
+  --gold-deep:#9a7c44;
+  --cream:#f6f2ea;         /* オフホワイト */
+  --paper:#fbf9f5;
+  --line:#e4dccd;
+  --grey:#6b7688;
+  --cta:#b8975a;           /* CTAはゴールド（ブランド一貫） */
+  --cta-ink:#0f2038;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:var(--ink);background:var(--paper);line-height:1.9;
+  font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.serif{font-family:"Cormorant Garamond","Times New Roman",serif;}
+.jpserif{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;transition:.4s;
+  background:transparent;
+}
+header.scrolled{background:rgba(15,32,56,.94);backdrop-filter:blur(10px);padding:12px 40px;box-shadow:0 4px 30px rgba(0,0,0,.25)}
+.brand{display:flex;align-items:baseline;gap:2px;font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.32em;color:#fff;font-weight:600}
+.brand b{color:#fff;font-weight:600}
+.brand small{font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.6);margin-left:10px;font-family:"Zen Kaku Gothic New",sans-serif}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:rgba(255,255,255,.82);font-size:13px;letter-spacing:.06em;transition:.25s;white-space:nowrap}
+.nav a:hover{color:var(--gold-lt)}
+.nav .btn-req{border:1px solid var(--gold-lt);color:var(--gold-lt);padding:8px 18px;border-radius:2px;font-size:12px}
+.nav .btn-req:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:#fff}
+
+/* ---------- floating CTA (HGVC継承) ---------- */
+.float-cta{
+  position:fixed;right:22px;bottom:26px;z-index:90;
+  display:flex;flex-direction:column;gap:12px;align-items:flex-end;
+  transition:.5s;transform:translateY(0);
+}
+.float-cta.hidden{transform:translateY(180px);opacity:0;pointer-events:none}
+.fbtn{
+  display:flex;align-items:center;gap:10px;padding:15px 26px;border-radius:3px;
+  font-size:15px;font-weight:600;letter-spacing:.05em;cursor:pointer;
+  box-shadow:0 10px 34px rgba(15,32,56,.34);transition:.28s;white-space:nowrap;
+}
+.fbtn .ic{font-size:17px}
+.fbtn-primary{background:var(--gold);color:var(--navy)}
+.fbtn-primary:hover{background:var(--gold-deep);color:#fff;transform:translateY(-3px)}
+.fbtn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.fbtn-ghost:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--navy)}
+.hero-fallback{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero-bg{position:absolute;inset:0;z-index:2}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(9,20,38,.85) 0%,rgba(9,20,38,.55) 45%,rgba(9,20,38,.28) 100%);}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 44px;width:100%}
+.hero .eyebrow{font-family:"Cormorant Garamond",serif;letter-spacing:.42em;font-size:14px;color:var(--gold-lt);margin-bottom:26px;opacity:0;animation:fadeUp .9s .3s forwards}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(38px,6.4vw,86px);line-height:1.05;letter-spacing:.01em;margin-bottom:8px;opacity:0;animation:fadeUp .9s .5s forwards}
+.hero h1 em{font-style:italic;color:var(--gold-lt)}
+.hero .jp-sub{font-family:"Shippori Mincho",serif;font-size:clamp(16px,2vw,22px);line-height:1.9;color:rgba(255,255,255,.9);margin:26px 0 14px;max-width:620px;opacity:0;animation:fadeUp .9s .7s forwards}
+.hero .lede{font-size:15px;color:rgba(255,255,255,.72);max-width:540px;line-height:1.95;opacity:0;animation:fadeUp .9s .9s forwards}
+.hero-cta{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s 1.1s forwards}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:3px;font-size:15px;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:.28s;border:1px solid transparent}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:#fff;transform:translateY(-3px)}
+.btn-outline{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-outline:hover{background:#fff;color:var(--navy)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.3em;font-family:"Cormorant Garamond",serif;text-align:center}
+.hero-scroll .line{width:1px;height:44px;background:rgba(255,255,255,.4);margin:10px auto 0;animation:scrollLine 2s infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- trust bar ---------- */
+.trustbar{background:var(--navy);color:#fff;padding:0}
+.trust-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-grid .t{padding:38px 26px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
+.trust-grid .t:last-child{border-right:none}
+.trust-grid .num{font-family:"Cormorant Garamond",serif;font-size:44px;color:var(--gold-lt);line-height:1;margin-bottom:10px}
+.trust-grid .lb{font-size:12.5px;color:rgba(255,255,255,.7);letter-spacing:.04em}
+
+/* ---------- section base ---------- */
+section{padding:110px 0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+.sec-eyebrow{font-family:"Cormorant Garamond",serif;letter-spacing:.34em;font-size:13px;color:var(--gold-deep);margin-bottom:16px}
+.sec-title{font-family:"Shippori Mincho",serif;font-size:clamp(26px,3.6vw,42px);line-height:1.35;color:var(--navy);font-weight:600;margin-bottom:22px}
+.sec-title .en{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:.62em;color:var(--gold-deep);letter-spacing:.02em;margin-bottom:6px}
+.sec-lead{font-size:16px;color:var(--grey);line-height:2.05;max-width:720px}
+
+/* concept */
+.concept{background:var(--cream)}
+.concept .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.concept-txt h2{font-family:"Shippori Mincho",serif;font-size:clamp(24px,3vw,36px);line-height:1.55;color:var(--navy);font-weight:600;margin:18px 0 26px}
+.concept-txt h2 em{font-style:italic;font-family:"Cormorant Garamond",serif;color:var(--gold-deep)}
+.concept-txt p{color:var(--grey);line-height:2.1;margin-bottom:18px}
+.concept-media{position:relative}
+.concept-media img{width:100%;border-radius:4px;box-shadow:0 30px 60px rgba(15,32,56,.22)}
+.concept-media .cap{position:absolute;left:-1px;bottom:22px;background:var(--navy);color:#fff;padding:14px 22px;font-size:12px;letter-spacing:.06em}
+.concept-media .cap b{color:var(--gold-lt);font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.1em}
+
+/* location */
+.location{background:var(--navy);color:#fff}
+.location .sec-title{color:#fff}
+.location .sec-title .en{color:var(--gold-lt)}
+.location .sec-lead{color:rgba(255,255,255,.72)}
+.loc-map{margin:48px 0 40px;border-radius:4px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.4);position:relative}
+.loc-map img{width:100%}
+.loc-access{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(255,255,255,.14);border-radius:4px;overflow:hidden}
+.loc-access .a{padding:26px 24px;border-right:1px solid rgba(255,255,255,.12)}
+.loc-access .a:last-child{border-right:none}
+.loc-access .a .k{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--gold-lt);letter-spacing:.08em;margin-bottom:6px}
+.loc-access .a .v{font-size:14px;color:rgba(255,255,255,.82)}
+.loc-note{margin-top:26px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em}
+
+/* why / benefits */
+.why{background:var(--paper)}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
+.ben{background:var(--paper);padding:40px 34px;transition:.3s}
+.ben:hover{background:#fff}
+.ben .n{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--gold-deep);letter-spacing:.12em;margin-bottom:16px}
+.ben h3{font-family:"Shippori Mincho",serif;font-size:20px;color:var(--navy);margin-bottom:12px;font-weight:600}
+.ben p{font-size:14px;color:var(--grey);line-height:1.95}
+
+/* portfolio */
+.portfolio{background:var(--cream)}
+.pf-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:14px}
+.pf-note{font-size:13px;color:var(--grey);max-width:420px;text-align:right}
+.prop{display:grid;grid-template-columns:1.05fr 1fr;gap:0;margin-top:46px;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:0 18px 44px rgba(15,32,56,.08)}
+.prop.rev{grid-template-columns:1fr 1.05fr}
+.prop-media{position:relative;min-height:420px;background:#dcd6c9 center/cover no-repeat;overflow:hidden}
+.prop-media .tag{position:absolute;top:20px;left:20px;z-index:4;background:var(--navy);color:#fff;padding:7px 15px;font-size:11px;letter-spacing:.14em;font-family:"Cormorant Garamond",serif}
+.prop-media .tag.sea{background:#1a6fa0}
+.prop-media .tag.cazur{background:#a03a5b}
+.prop-media .tag.germany{background:var(--gold-deep)}
+/* slideshow */
+.slides{position:absolute;inset:0;z-index:1}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease}
+.slide.active{opacity:1}
+.slide-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.85);color:var(--navy);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:.25s;font-size:20px;border:none;box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0}
+.prop-media:hover .slide-nav{opacity:1}
+.slide-nav:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
+.slide-nav.prev{left:16px}
+.slide-nav.next{right:16px}
+.slide-dots{position:absolute;bottom:18px;left:0;right:0;z-index:3;display:flex;gap:8px;justify-content:center}
+.slide-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.25s}
+.slide-dots .dot.active{background:#fff;width:22px;border-radius:4px}
+@media(max-width:960px){.slide-nav{opacity:1;width:40px;height:40px;font-size:18px}}
+.prop-body{padding:48px 46px;display:flex;flex-direction:column;justify-content:center}
+.prop-brand{align-self:center;margin-bottom:20px;background:#fff;border:1px solid var(--line);border-radius:3px;box-shadow:0 6px 18px rgba(15,32,56,.06);width:180px;height:66px;padding:12px 18px;display:flex;align-items:center;justify-content:center}
+.prop-brand img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+@media(max-width:720px){.prop-brand{align-self:center;width:160px;height:58px;padding:10px 16px}}
+.prop-body .cat{font-family:"Cormorant Garamond",serif;letter-spacing:.24em;font-size:12px;color:var(--gold-deep);margin-bottom:12px}
+.prop-body h3{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--navy);line-height:1.1;margin-bottom:6px;font-weight:600}
+.prop-body h3.h3-voco{font-size:clamp(16px,1.75vw,20px);line-height:1.32}
+.prop-body h3.h3-voco span{display:inline-block}
+.prop-body .h-jp{font-family:"Shippori Mincho",serif;font-size:15px;color:var(--grey);margin-bottom:22px}
+.prop-body p{font-size:14.5px;color:var(--grey);line-height:2;margin-bottom:24px}
+.prop-facts{display:flex;flex-wrap:wrap;gap:12px 34px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:26px}
+.prop-facts .f .fk{font-size:11px;color:var(--grey);letter-spacing:.08em;margin-bottom:3px}
+.prop-facts .f .fv{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--navy);font-weight:600}
+.prop-facts .f .fv small{font-size:12px;color:var(--grey);font-family:"Zen Kaku Gothic New",sans-serif}
+.prop-body .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-sm{padding:13px 26px;font-size:14px;border-radius:3px;font-weight:600;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.btn-sm.solid{background:var(--gold);color:var(--navy)}
+.btn-sm.solid:hover{background:var(--navy);color:#fff}
+.btn-sm.line{border:1px solid var(--navy);color:var(--navy)}
+.btn-sm.line:hover{background:var(--navy);color:#fff}
+
+/* gallery strip */
+.gallery{background:var(--navy);padding:0}
+.gal-head{text-align:center;padding:80px 44px 40px;color:#fff}
+.gal-head .sec-eyebrow{color:var(--gold-lt)}
+.gal-head .sec-title{color:#fff}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.gal-grid .g{position:relative;aspect-ratio:1/1;overflow:hidden;background:#0c1a30}
+.gal-grid .g img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.gal-grid .g:hover img{transform:scale(1.08)}
+.gal-grid .g .glabel{position:absolute;left:0;bottom:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(9,20,38,.85));color:#fff;font-size:12px;letter-spacing:.05em}
+.gal-grid .g .glabel b{font-family:"Cormorant Garamond",serif;font-size:14px;color:var(--gold-lt);display:block;letter-spacing:.1em}
+
+/* ownership */
+.own{background:var(--cream)}
+.own-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:50px;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.own-col{padding:44px 42px;background:#fff}
+.own-col.alt{background:var(--navy);color:#fff}
+.own-col .oc-eb{font-family:"Cormorant Garamond",serif;letter-spacing:.2em;font-size:12px;color:var(--gold-deep);margin-bottom:14px}
+.own-col.alt .oc-eb{color:var(--gold-lt)}
+.own-col h3{font-family:"Shippori Mincho",serif;font-size:24px;margin-bottom:8px;font-weight:600}
+.own-col .price{font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold-deep);margin:14px 0;font-weight:600}
+.own-col.alt .price{color:var(--gold-lt)}
+.own-col ul{list-style:none;margin-top:20px}
+.own-col li{padding:11px 0 11px 26px;position:relative;font-size:14.5px;line-height:1.75;border-top:1px solid var(--line)}
+.own-col .perk{margin:20px 0;padding:16px 20px;background:linear-gradient(120deg,rgba(184,151,90,.14),rgba(184,151,90,.05));border:1px solid var(--gold);border-radius:4px;display:flex;align-items:center;gap:14px}
+.own-col.alt .perk{background:linear-gradient(120deg,rgba(203,181,131,.22),rgba(203,181,131,.06));border-color:var(--gold-lt)}
+.own-col .perk .pn{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600;color:var(--gold-deep);line-height:1;white-space:nowrap}
+.own-col.alt .perk .pn{color:var(--gold-lt)}
+.own-col .perk .pt{font-size:13.5px;line-height:1.55}
+.own-col .perk .pt b{display:block;font-size:15px;color:var(--navy);margin-bottom:2px}
+.own-col.alt .perk .pt b{color:#fff}
+.own-col .perk .pt span{color:var(--grey)}
+.own-col.alt .perk .pt span{color:rgba(255,255,255,.7)}
+.own-col.alt li{border-top:1px solid rgba(255,255,255,.14)}
+.own-col li::before{content:"";position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.own-col .sub{font-size:13.5px;color:var(--grey);margin-top:4px}
+.own-col.alt .sub{color:rgba(255,255,255,.65)}
+
+/* steps */
+.steps{background:var(--paper)}
+.step-row{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px;counter-reset:s}
+.step{position:relative;padding-top:22px}
+.step .sn{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--gold-deep);letter-spacing:.1em;margin-bottom:14px}
+.step .bar{height:2px;background:var(--line);position:relative;margin-bottom:22px}
+.step .bar::after{content:"";position:absolute;left:0;top:0;height:2px;width:34px;background:var(--gold)}
+.step h4{font-family:"Shippori Mincho",serif;font-size:18px;color:var(--navy);margin-bottom:10px;font-weight:600}
+.step p{font-size:13.5px;color:var(--grey);line-height:1.9}
+
+/* final CTA */
+.final{position:relative;color:#fff;text-align:center;padding:0}
+.final-bg{position:relative;background-size:cover;background-position:center;padding:120px 44px}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(9,20,38,.86),rgba(9,20,38,.9))}
+.final-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.final .sec-eyebrow{color:var(--gold-lt)}
+.final h2{font-family:"Shippori Mincho",serif;font-size:clamp(26px,4vw,44px);line-height:1.4;font-weight:600;margin:14px 0 24px}
+.final p{color:rgba(255,255,255,.82);font-size:16px;line-height:2;margin-bottom:38px}
+.final .hero-cta{justify-content:center}
+.final .contactline{margin-top:30px;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.04em}
+
+/* footer */
+footer{background:#0a1526;color:rgba(255,255,255,.7)}
+.foot-top{max-width:1180px;margin:0 auto;padding:70px 44px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot-brand .brand{color:#fff;margin-bottom:18px}
+.foot-brand p{font-size:13px;line-height:1.9;color:rgba(255,255,255,.55);max-width:280px}
+.foot-col h5{color:#fff;font-size:13px;letter-spacing:.14em;margin-bottom:18px;font-family:"Cormorant Garamond",serif}
+.foot-col a{display:block;font-size:13.5px;padding:7px 0;color:rgba(255,255,255,.62);transition:.2s}
+.foot-col a:hover{color:var(--gold-lt)}
+.foot-group{border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-group .wrap{padding:26px 44px;display:flex;gap:34px;align-items:center;flex-wrap:wrap}
+.foot-group .gl{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);font-family:"Cormorant Garamond",serif}
+.foot-group a{font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.05em}
+.foot-group a:hover{color:var(--gold-lt)}
+.foot-bottom{max-width:1180px;margin:0 auto;padding:24px 44px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12px;color:rgba(255,255,255,.4)}
+.disclaimer{background:#081221;color:rgba(255,255,255,.4);font-size:11.5px;line-height:1.8}
+.disclaimer .wrap{padding:22px 44px}
+
+/* modal (資料請求/相談) */
+.modal-ov{position:fixed;inset:0;background:rgba(9,20,38,.7);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-ov.open{display:flex}
+.modal{background:var(--paper);max-width:520px;width:100%;border-radius:5px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5);max-height:92vh;overflow-y:auto}
+.modal-head{background:var(--navy);color:#fff;padding:30px 34px;position:relative}
+.modal-head .eb{font-family:"Cormorant Garamond",serif;letter-spacing:.24em;font-size:12px;color:var(--gold-lt);margin-bottom:8px}
+.modal-head h3{font-family:"Shippori Mincho",serif;font-size:22px;font-weight:600}
+.modal-head .x{position:absolute;top:22px;right:24px;font-size:26px;cursor:pointer;color:rgba(255,255,255,.7);line-height:1}
+.modal-head .x:hover{color:#fff}
+.modal-body{padding:30px 34px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;color:var(--navy);margin-bottom:7px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:3px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.modal .btn-gold{width:100%;justify-content:center;margin-top:6px}
+.modal-note{font-size:12px;color:var(--grey);margin-top:16px;line-height:1.7}
+
+/* responsive */
+@media(max-width:960px){
+  .nav{display:none}
+  .burger{display:flex}
+  header{padding:14px 22px}
+  .wrap{padding:0 22px}
+  section{padding:72px 0}
+  .concept .wrap{grid-template-columns:1fr;gap:34px}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-grid .t:nth-child(2){border-right:none}
+  .trust-grid .t{border-bottom:1px solid rgba(255,255,255,.09)}
+  .ben-grid{grid-template-columns:1fr 1fr}
+  .loc-access{grid-template-columns:1fr 1fr}
+  .loc-access .a:nth-child(2){border-right:none}
+  .loc-access .a{border-bottom:1px solid rgba(255,255,255,.12)}
+  .prop,.prop.rev{grid-template-columns:1fr}
+  .prop-media{min-height:280px}
+  .prop-body{padding:34px 26px}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .own-grid{grid-template-columns:1fr}
+  .step-row{grid-template-columns:1fr 1fr;gap:30px 22px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px}
+  .float-cta .fbtn{padding:13px 18px;font-size:13px}
+}
+@media(max-width:560px){
+  .ben-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr}
+  .trust-grid .t{border-right:none}
+  .step-row{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .float-cta{right:12px;bottom:14px}
+  .float-cta .fbtn span.t{display:none}
+  .float-cta .fbtn{padding:15px;border-radius:50px}
+}
+
+/* ===== scroll reveal ===== */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in,.reveal.shown{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}.reveal.d6{transition-delay:.48s}
+.reveal-img{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.5,.1,.2,1)}
+.reveal-img.in,.reveal-img.shown{clip-path:inset(0 0 0 0)}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-img{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
+  .marquee-track,.marquee-track2{animation:none!important}
+  .hero-bg{animation:none!important;transform:scale(1)!important}
+  .hero-video,.uw-video{display:none!important}
+}
+
+/* ===== auto-scroll marquee (portfolio & film strip) ===== */
+.marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;gap:20px;width:max-content;animation:scrollX 46s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track2{display:flex;gap:20px;width:max-content;animation:scrollX2 40s linear infinite}
+.marquee:hover .marquee-track2{animation-play-state:paused}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollX2{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.mcard{position:relative;flex:0 0 auto;width:400px;height:280px;border-radius:5px;overflow:hidden;box-shadow:0 16px 40px rgba(15,32,56,.16)}
+.mcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.mcard:hover img{transform:scale(1.06)}
+.mcard .mlabel{position:absolute;left:0;right:0;bottom:0;padding:20px 22px 16px;background:linear-gradient(transparent,rgba(9,20,38,.9));color:#fff}
+.mcard .mlabel b{display:block;font-family:"Cormorant Garamond",serif;font-size:19px;letter-spacing:.06em;color:var(--gold-lt)}
+.mcard .mlabel span{font-size:12px;color:rgba(255,255,255,.8)}
+@media(max-width:560px){.mcard{width:280px;height:210px}}
+
+/* ===== underwater feature band ===== */
+.uw{position:relative;color:#fff;overflow:hidden}
+.uw-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.uw-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.uw-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(9,20,38,.92) 0%,rgba(9,20,38,.62) 50%,rgba(9,20,38,.32) 100%)}
+.uw-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,20,38,.9) 0%,rgba(9,20,38,.55) 50%,rgba(9,20,38,.2) 100%)}
+.uw-inner{position:relative;z-index:3;max-width:1180px;margin:0 auto;padding:130px 44px}
+.uw-inner .box{max-width:540px}
+.uw .sec-eyebrow{color:var(--gold-lt)}
+.uw h2{font-family:"Shippori Mincho",serif;font-size:clamp(26px,3.6vw,40px);line-height:1.4;font-weight:600;margin:14px 0 20px}
+.uw p{color:rgba(255,255,255,.85);line-height:2;font-size:15.5px;margin-bottom:14px}
+.uw .btn-gold{margin-top:16px}
+.bentley-badge{display:inline-flex;align-items:center;gap:14px;margin:6px 0 26px;padding:12px 22px;border:1px solid var(--gold-lt);border-radius:3px;background:rgba(9,20,38,.35)}
+.bentley-badge .bl{font-family:"Cormorant Garamond",serif;letter-spacing:.34em;font-size:16px;color:var(--gold-lt);font-weight:600}
+.bentley-badge .bt{font-size:13px;color:rgba(255,255,255,.88);border-left:1px solid rgba(255,255,255,.25);padding-left:14px}
+@media(max-width:560px){.bentley-badge{flex-direction:column;align-items:flex-start;gap:6px}.bentley-badge .bt{border-left:none;padding-left:0}}
+
+/* ===== Heart of Europe cinematic band ===== */
+.hoe-cinema{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;background:var(--navy)}
+.hoe-cinema video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hoe-cinema .ov{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(9,20,38,.55),rgba(9,20,38,.35),rgba(9,20,38,.7))}
+.hoe-cinema .inner{position:relative;z-index:2;max-width:820px;padding:80px 44px}
+.hoe-cinema .eb{font-family:"Cormorant Garamond",serif;letter-spacing:.34em;font-size:13px;color:var(--gold-lt);margin-bottom:20px}
+.hoe-cinema h2{font-family:"Shippori Mincho",serif;font-size:clamp(24px,3.6vw,42px);line-height:1.5;font-weight:600;margin-bottom:22px;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hoe-cinema p{font-size:15.5px;line-height:2.05;color:rgba(255,255,255,.9);max-width:660px;margin:0 auto 30px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hoe-cinema .btn-outline{border-color:rgba(255,255,255,.6);color:#fff}
+.hoe-cinema .btn-outline:hover{background:#fff;color:var(--navy)}
+
+
+/* ===== world / split feature ===== */.split{background:var(--paper)}
+.split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split.rev .wrap{direction:rtl}.split.rev .wrap>*{direction:ltr}
+.split-media img{width:100%;border-radius:5px;box-shadow:0 26px 56px rgba(15,32,56,.2)}
+.split-txt h2{font-family:"Shippori Mincho",serif;font-size:clamp(24px,3vw,34px);line-height:1.5;color:var(--navy);font-weight:600;margin:14px 0 22px}
+.split-txt p{color:var(--grey);line-height:2.05;margin-bottom:16px}
+.split-badge{display:inline-flex;align-items:baseline;gap:8px;margin-top:10px;padding:12px 20px;background:var(--navy);color:#fff;border-radius:3px}
+.split-badge b{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--gold-lt)}
+.split-badge span{font-size:12px;color:rgba(255,255,255,.75)}
+@media(max-width:960px){.split .wrap{grid-template-columns:1fr;gap:30px}.split.rev .wrap{direction:ltr}}
+
+/* ===== statement (トップ・ステートメント) ===== */
+.statement{background:var(--navy);color:#fff;text-align:center;position:relative;overflow:hidden}
+.statement .wrap{position:relative;z-index:2;max-width:940px}
+.statement .ihg-mark{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:30px}
+.statement .ihg-mark img{width:220px;max-width:82vw;background:#fff;padding:14px 20px;border-radius:4px;box-sizing:border-box}
+.statement .ihg-mark .cap{font-size:11px;letter-spacing:.24em;color:var(--gold-lt);font-family:"Cormorant Garamond",serif}
+.statement h2{font-family:"Shippori Mincho",serif;font-size:clamp(22px,3.1vw,36px);line-height:1.55;font-weight:600;margin-bottom:34px}
+.statement h2 .hl{color:var(--gold-lt)}
+.statement .lead-lg{font-family:"Shippori Mincho",serif;font-size:clamp(16px,2vw,21px);color:var(--gold-lt);line-height:1.9;margin-bottom:26px}
+.statement p{font-size:15.5px;line-height:2.15;color:rgba(255,255,255,.82);max-width:800px;margin:0 auto 18px}
+.statement p .em{color:#fff;font-weight:600}
+
+/* ===== IHG brands showcase ===== */
+.ihg{background:var(--cream)}
+.ihg-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.ihg-text .badge{display:inline-block;padding:8px 20px;border:1px solid var(--gold);color:var(--gold-deep);font-family:"Cormorant Garamond",serif;letter-spacing:.2em;font-size:12px;border-radius:2px;margin-bottom:24px}
+.ihg h2{font-family:"Shippori Mincho",serif;font-size:clamp(22px,2.9vw,34px);color:var(--navy);font-weight:600;line-height:1.5;margin-bottom:22px}
+.ihg h2 .hl{color:var(--gold-deep)}
+.ihg .lead{font-size:15.5px;color:var(--grey);line-height:2.05;margin-bottom:22px}
+.ihg-visual{background:#fff;border:1px solid var(--line);border-radius:6px;padding:38px 34px;box-shadow:0 20px 50px rgba(15,32,56,.08)}
+.ihg-visual img{width:100%;margin:0 auto;display:block}
+.ihg-note{font-size:12.5px;color:var(--grey);margin-top:8px;line-height:1.7}
+.ihg-link{display:inline-flex;align-items:center;gap:8px;margin:4px 0 20px;font-size:14.5px;color:var(--gold-deep);font-weight:600;letter-spacing:.02em;border-bottom:1px solid var(--gold);padding-bottom:3px;transition:.25s}
+.ihg-link:hover{color:var(--navy);border-color:var(--navy);gap:12px}
+.ihg-link .arw{transition:.25s}
+@media(max-width:960px){.ihg-grid{grid-template-columns:1fr;gap:36px}.ihg-visual{padding:30px 24px}}
+
+/* ===== Seahorse signature feature ===== */.shf{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.shf .wrap{position:relative;z-index:2}
+.shf-head{text-align:center;max-width:900px;margin:0 auto 56px}
+.shf-head .ihg-line{display:inline-flex;align-items:center;gap:12px;margin-bottom:24px;padding:8px 20px;background:#fff;border-radius:3px}
+.shf-head .ihg-line img{height:26px}
+.shf-head .eb{font-family:"Cormorant Garamond",serif;letter-spacing:.28em;font-size:12px;color:var(--gold-lt);margin-bottom:16px}
+.shf-head h2{font-family:"Shippori Mincho",serif;font-size:clamp(24px,3.4vw,40px);line-height:1.5;font-weight:600;margin-bottom:24px}
+.shf-head h2 .hl{color:var(--gold-lt)}
+.shf-head .subtitle{font-family:"Shippori Mincho",serif;font-size:clamp(15px,1.9vw,18px);color:rgba(255,255,255,.82);line-height:1.95;max-width:760px;margin:0 auto}
+.shf-lead{max-width:820px;margin:0 auto 60px;text-align:center}
+.shf-lead p{font-size:15.5px;line-height:2.2;color:rgba(255,255,255,.85);margin-bottom:18px}
+.shf-lead p .gold{color:var(--gold-lt)}
+.shf-privileges{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:60px}
+.shf-priv{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:38px 30px;transition:.3s}
+.shf-priv:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
+.shf-priv .pnum{font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold-lt);line-height:1;margin-bottom:18px}
+.shf-priv h3{font-family:"Shippori Mincho",serif;font-size:18px;color:#fff;line-height:1.5;margin-bottom:14px;font-weight:600}
+.shf-priv p{font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.95}
+.shf-cta{text-align:center;max-width:720px;margin:0 auto}
+.shf-cta .closing{font-family:"Shippori Mincho",serif;font-size:clamp(18px,2.4vw,26px);color:var(--gold-lt);line-height:1.7;margin-bottom:20px}
+.shf-cta p{font-size:15px;color:rgba(255,255,255,.82);line-height:2.1;margin-bottom:34px}
+.shf-cta .hero-cta{justify-content:center}
+@media(max-width:960px){.shf-privileges{grid-template-columns:1fr;gap:18px}}
+
+/* i18n language toggle */
+.lang-en{display:none}
+:root[data-lang="en"] .lang-ja{display:none!important}
+:root[data-lang="en"] .lang-en{display:inline}
+.langtog{display:inline-flex;border:1px solid rgba(255,255,255,.32);border-radius:3px;overflow:hidden;margin-left:4px;vertical-align:middle;flex:none}
+.langtog button{font-family:inherit;font-size:11px;letter-spacing:.05em;padding:6px 9px;background:transparent;border:0;color:rgba(255,255,255,.72);cursor:pointer;line-height:1;white-space:nowrap}
+.langtog button[aria-pressed="true"]{background:var(--gold-lt);color:#0f2038}
+/* price list */
+.card-prices{margin:2px 0 26px}
+.cp-head{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);padding:0 0 8px}
+:root[data-lang="ja"] .cp-head{letter-spacing:.08em;text-transform:none;font-size:12px}
+.cp-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)}
+.cp-row:last-child{border-bottom:none}
+.cp-t{font-size:12.5px;letter-spacing:.1em;color:var(--grey)}
+.cp-p{font-family:"Cormorant Garamond",serif;font-size:18px;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* 価格表：スライドショー写真の下部にフロート表示 */
+.prop-media .card-prices{position:absolute;left:0;right:0;bottom:0;z-index:5;margin:0;padding:15px 22px 17px;background:rgba(11,22,40,.82);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.prop-media .card-prices::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:60px;background:linear-gradient(to top,rgba(11,22,40,.82),rgba(11,22,40,0));pointer-events:none}
+.prop-media .cp-head{color:var(--gold-lt);padding:0 0 7px;margin-bottom:2px;border-bottom:1px solid rgba(255,255,255,.2)}
+.prop-media .cp-row{padding:6.5px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.prop-media .cp-t{color:rgba(255,255,255,.72)}
+.prop-media .cp-p{color:#fff;font-size:17px}
+.prop-media:has(.card-prices) .slide-dots{display:none}
+@media(max-width:960px){.prop-media .card-prices{padding:11px 18px 13px}.prop-media .cp-row{padding:5px 0}.prop-media .cp-p{font-size:15px}}
+.pricelist-link{align-self:center;font-size:13px;color:var(--gold-deep);cursor:pointer;text-decoration:underline;text-underline-offset:3px;letter-spacing:.02em}
+.pricelist-link:hover{color:var(--gold)}
+.ihg-mark-link{display:block;line-height:0;cursor:pointer}
+.pricelist-sec{background:var(--navy);color:#fff;padding:clamp(64px,8vw,110px) 0}
+.pricelist-sec .sec-eyebrow{color:var(--gold-lt)}
+.pricelist-sec .pl-title{font-family:"Cormorant Garamond",serif;font-size:clamp(26px,3.4vw,40px);color:#fff;font-weight:600;margin:10px 0 6px}
+.pricelist-sec .pl-title .en{display:block;font-size:.5em;letter-spacing:.24em;color:var(--gold-lt);margin-bottom:8px}
+.pricelist{max-width:760px;margin:38px auto 0}
+.pl-group{border:1px solid rgba(255,255,255,.16);border-radius:6px;overflow:hidden;background:rgba(255,255,255,.02);margin-bottom:14px;transition:box-shadow .4s ease,border-color .4s ease}
+.pl-gname{font-family:"Cormorant Garamond",serif;font-size:19px;color:#fff;letter-spacing:.02em;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.pl-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.pl-row:last-child{border-bottom:none}
+.pl-name{font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+:root[data-lang="ja"] .pl-name{letter-spacing:.06em;text-transform:none;font-size:15.5px}
+.pl-price{font-family:"Cormorant Garamond",serif;font-size:17px;color:var(--gold-lt);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pl-group.pl-on{border-color:var(--gold-lt);box-shadow:0 0 0 1px var(--gold-lt),0 22px 55px -22px rgba(0,0,0,.6)}
+.pl-group.pl-on .pl-gname{background:rgba(184,151,90,.26)}
+.pricelist-note{max-width:760px;margin:16px auto 0;color:rgba(255,255,255,.5);font-size:11.5px;line-height:1.9}
+@media(max-width:560px){.pl-row{padding:11px 18px}.pl-name,.pl-price{font-size:15px}}
+</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#top" class="brand">ANAW<b>AK</b><small>REAL ESTATE · DUBAI</small></a>
+  <nav class="nav">
+    <a href="#ihg"><span class="lang-ja">IHGグループ</span><span class="lang-en">IHG Group</span></a>
+    <a href="#world">The World</a>
+    <a href="#location"><span class="lang-ja">ロケーション</span><span class="lang-en">Location</span></a>
+    <a href="#portfolio"><span class="lang-ja">物件</span><span class="lang-en">Residences</span></a>
+    <a href="#ownership"><span class="lang-ja">所有プラン</span><span class="lang-en">Ownership</span></a>
+    <a href="news/" target="_blank" rel="noopener"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></a>
+    <span class="langtog" role="group" aria-label="Language"><button type="button" data-lang-set="en">English</button><button type="button" data-lang-set="ja">日本語</button></span>
+    <a class="btn-req" onclick="openModal('consult')"><span class="lang-ja">個別相談</span><span class="lang-en">Consultation</span></a>
+  </nav>
+  <div class="burger" onclick="document.querySelector('.nav').classList.toggle('mobopen');this.classList.toggle('on')"><span></span><span></span><span></span></div>
+</header>
+
+<!-- FLOATING CTA (HGVC継承) -->
+<div class="float-cta" id="floatCta">
+  <div class="fbtn fbtn-primary" onclick="openModal('consult')"><span class="ic">◈</span><span class="t"><span class="lang-ja">個別相談を予約</span><span class="lang-en">Book a consultation</span></span></div>
+  
+</div>
+
+<!-- HERO -->
+<div id="top"></div>
+<section class="hero">
+  <div class="hero-fallback" id="heroFallback"></div>
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+    
+    <source src="assets/video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">MANAGED BY IHG GROUP · THE HEART OF EUROPE, DUBAI</div>
+    <h1 class="serif">Own a Piece of <em>Europe.</em><br>On a Private Island.</h1>
+    <p class="jp-sub jpserif"><span class="lang-ja">ドバイ沖に浮かぶ、世界で唯一無二の<br>プライベートアイランド・レジデンス。</span><span class="lang-en">An unrivalled private-island residence,<br>afloat off the coast of Dubai.</span></p>
+    <p class="lede"><span class="lang-ja">世界地図を象った人工島群「The World Islands」の中に生まれた、ヨーロッパをテーマにした超高級リゾート。ドバイの華やかさと、プライベートアイランドの希少性を、ひとつの資産に。</span><span class="lang-en">A European-themed, ultra-luxury resort born within The World Islands — the archipelago shaped like a map of the world. The glamour of Dubai and the rarity of a private island, in a single asset.</span></p>
+    <div class="hero-cta">
+      <div class="btn btn-gold" onclick="openModal('consult')"><span class="lang-ja">個別相談を予約する</span><span class="lang-en">Book a private consultation</span></div>
+      <div class="btn btn-outline" onclick="scrollTo2('#portfolio')"><span class="lang-ja">物件を見る</span><span class="lang-en">View residences</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL<div class="line"></div></div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trustbar">
+  <div class="trust-grid">
+    <div class="t"><div class="num">12<small style="font-size:20px"><span class="lang-ja">年</span><span class="lang-en">yrs</span></small></div><div class="lb"><span class="lang-ja">オーナー優待・<br><span style="opacity:.6">運営サポート体制</span></span><span class="lang-en">Owner privileges &<br><span style="opacity:.6">operational support</span></span></div></div>
+    <div class="t"><div class="num">0<small style="font-size:20px">%</small></div><div class="lb"><span class="lang-ja">UAEの所得税・<br>相続税・譲渡益税</span><span class="lang-en">UAE income, inheritance<br>& capital-gains tax</span></div></div>
+    <div class="t"><div class="num">~4<small style="font-size:20px">km</small></div><div class="lb"><span class="lang-ja">ドバイ本土沖<br><span style="opacity:.6">プライベートアイランド</span></span><span class="lang-en">Off mainland Dubai<br><span style="opacity:.6">a private island</span></span></div></div>
+    <div class="t"><div class="num">13</div><div class="lb"><span class="lang-ja">ANAWAK厳選<br>販売中の物件</span><span class="lang-en">ANAWAK-curated<br>residences for sale</span></div></div>
+  </div>
+</div>
+
+<!-- STATEMENT (トップ・ステートメント) -->
+<section class="statement" id="statement">
+  <div class="wrap reveal">
+    <div class="ihg-mark">
+      <a class="ihg-mark-link ihg-official" href="https://www.ihg.com/content/jp/ja/japan" target="_blank" rel="noopener noreferrer" aria-label="IHG 公式サイト"><img id="ihgLogoStmt" alt="IHG Hotels & Resorts"></a>
+      <span class="cap">MANAGED BY IHG GROUP</span>
+    </div>
+    <h2><span class="lang-ja">自分のために、世界の一部を所有する。<br><span class="hl">IHGグループの安心</span>と、ドバイの海がもたらす<span class="hl">極上のラグジュアリー</span>。</span><span class="lang-en">Own a piece of the world, for yourself.<br>The reassurance of <span class="hl">the IHG Group</span>, and the <span class="hl">consummate luxury</span> the Dubai sea brings.</span></h2>
+    <p class="lead-lg"><span class="lang-ja">── 海上に浮かぶヨーロッパ。それは、人生の誇りとなる「究極の資産」。</span><span class="lang-en">── A Europe afloat on the sea — the "ultimate asset," a pride of a lifetime.</span></p>
+    <p><span class="lang-ja">ドバイ沖約4kmに広がる、世界で唯一無二のプライベートアイランド・リゾート「The Heart of Europe」。ここで展開されるレジデンスは、単なる不動産にとどまりません。世界最速で成長を続けるドバイの圧倒的な経済価値と、ヨーロッパの文化を凝縮した類まれな美しさが融合した、次世代へ継ぐべきライフスタイル資産です。</span><span class="lang-en">About 4km off the coast of Dubai lies The Heart of Europe, a private-island resort unlike any other in the world. The residences here are far more than real estate. Uniting the overwhelming economic momentum of the world's fastest-growing city with the rare beauty of a concentrated Europe, they are lifestyle assets to be passed on to the next generation.</span></p>
+    <p><span class="lang-ja">そして何より、世界的な信頼を誇る<span class="em">「IHGグループ」がプロジェクトを手がけ</span>、さらに<span class="em">12年間にわたるオーナー優待・運営サポート</span>を継続。持つことのステイタスと、円安やインフレに備える実物資産としての確かさを同時に叶える、新しい所有のかたちがここにあります。</span><span class="lang-en">Above all, the globally trusted <span class="em">IHG Group is behind the project</span>, with <span class="em">owner privileges and operational support continuing for 12 years</span>. Here is a new form of ownership that delivers both the status of holding it and the assurance of a tangible asset — a hedge against a weak yen and inflation.</span></p>
+  </div>
+</section>
+
+<!-- IHG BRANDS SHOWCASE -->
+<section class="ihg" id="ihg">
+  <div class="wrap">
+    <div class="ihg-grid">
+      <div class="ihg-text">
+        <div class="badge reveal">GLOBAL HOSPITALITY PARTNER</div>
+        <h2 class="reveal d1"><span class="lang-ja">世界が信頼する<span class="hl">「IHG グループ」</span>が、このプロジェクトを手がける。</span><span class="lang-en">The world-trusted <span class="hl">IHG Group</span> is behind this project.</span></h2>
+        <p class="lead reveal d2"><span class="lang-ja">InterContinental、Regent、Six Senses、Kimpton、Crowne Plaza、Holiday Inn ── 世界中の要人やセレブリティを魅了し続ける IHG Hotels & Resorts。その世界最高峰のホスピタリティとブランド力が、The Heart of Europe の品質と資産価値を全面的にバックアップします。</span><span class="lang-en">InterContinental, Regent, Six Senses, Kimpton, Crowne Plaza, Holiday Inn — IHG Hotels & Resorts continues to captivate dignitaries and celebrities the world over. Its world-class hospitality and brand strength fully underpin the quality and asset value of The Heart of Europe.</span></p>
+        <a class="ihg-link reveal d2" href="https://www.ihg.com/" target="_blank" rel="noopener noreferrer"><span class="lang-ja">IHG Hotels &amp; Resorts 公式サイトを見る</span><span class="lang-en">Visit the IHG Hotels &amp; Resorts official site</span> <span class="arw">→</span></a>
+        <p class="ihg-note reveal"><span class="lang-ja">※ IHG Hotels & Resorts は世界有数のホテルグループです。ブランドロゴは IHG グループの規模・信頼性を示す参考として掲載しています。</span><span class="lang-en">* IHG Hotels & Resorts is one of the world's leading hotel groups. The brand logos are shown for reference, to indicate the scale and credibility of the IHG Group.</span></p>
+      </div>
+      <div class="ihg-visual reveal d2">
+        <a class="ihg-official" href="https://www.ihg.com/content/jp/ja/japan" target="_blank" rel="noopener noreferrer" style="display:block;line-height:0" aria-label="IHG 公式サイト"><img id="imgIhgBrands" alt="IHG Hotels & Resorts ブランドポートフォリオ"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WORLD ISLANDS -->
+<section class="split" id="world">
+  <div class="wrap">
+    <div class="split-media">
+      <img id="imgWorld" class="reveal-img" alt="The World Islands — 世界地図を象った人工島群" onload="this.classList.add('loaded')">
+    </div>
+    <div class="split-txt reveal d1">
+      <div class="sec-eyebrow">THE WORLD ISLANDS</div>
+      <h2><span class="lang-ja">「世界の一部を所有する」<br>という発想から生まれた島。</span><span class="lang-en">An island born from the idea of<br>"owning a piece of the world."</span></h2>
+      <p><span class="lang-ja">ドバイ沖 約4km に浮かぶ「The World Islands」は、270の人工島で世界地図を象った、ドバイを代表する人工島プロジェクトです。ヨーロッパ、アジア、アフリカ、アメリカ ── それぞれの島が、国や地域を象徴するデザインを持ちます。</span><span class="lang-en">About 4km off Dubai, The World Islands is the city's landmark man-made-island project — 270 islands forming a map of the world. Europe, Asia, Africa, the Americas — each island is designed to symbolise its country or region.</span></p>
+      <p><span class="lang-ja">The Heart of Europe は、その中に開発された「ヨーロッパを丸ごと体験できる」超高級リゾート。世界地図の中の、ヨーロッパを所有する。それがこの資産の出発点です。</span><span class="lang-en">The Heart of Europe is the ultra-luxury resort developed within it, where you can "experience all of Europe." To own Europe, within a map of the world — that is where this asset begins.</span></p>
+      <div class="split-badge"><b>270</b><span><span class="lang-ja">の人工島で構成された<br>世界地図型アイランド</span><span class="lang-en">man-made islands forming<br>a map of the world</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="concept-txt reveal">
+      <div class="sec-eyebrow">OWN MORE THAN PROPERTY</div>
+      <h2><span class="lang-ja">私たちが提供するのは、部屋ではなく<br><em>唯一無二のライフスタイル資産</em>です。</span><span class="lang-en">What we offer is not a room, but<br><em>a one-of-a-kind lifestyle asset.</em></span></h2>
+      <p><span class="lang-ja">The Heart of Europe は、単なる不動産ではありません。「ヨーロッパの文化とライフスタイルを、ドバイの海上でまるごと所有する」という、世界に類を見ない体験型の資産です。</span><span class="lang-en">The Heart of Europe is not mere real estate. It is an experiential asset unlike any other in the world — owning the culture and lifestyle of Europe, in its entirety, on the Dubai sea.</span></p>
+      <p><span class="lang-ja">ドバイという世界最速で成長する国際観光都市の魅力。海上・人工島という限られた供給がもたらす希少価値。そして「ヨーロッパを所有する」というストーリー性。この3つを同時に備えた資産は、世界を見渡してもここにしかありません。</span><span class="lang-en">The allure of Dubai, the world's fastest-growing international tourist city. The scarcity of a strictly limited supply of sea-borne, man-made land. And the narrative of "owning Europe." An asset that holds all three at once exists nowhere else on earth.</span></p>
+      <p><span class="lang-ja">だからこそ、日本の富裕層やファミリーオフィスの皆さまにとって、次世代へ受け継ぐにふさわしい資産となります。</span><span class="lang-en">That is precisely why it makes a fitting asset for Japan's high-net-worth families and family offices to hand down to the next generation.</span></p>
+    </div>
+    <div class="concept-media reveal d2">
+      <img id="imgSeahorseConcept" alt="Floating Seahorse — 海上に浮かぶ水上ヴィラ">
+      <div class="cap"><b>Floating Seahorse</b><br><span class="lang-ja">海上に浮かぶ、3層構造の水上ヴィラ</span><span class="lang-en">A three-level villa afloat on the sea</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal" style="color:var(--gold-lt)">LOCATION</div>
+    <div class="sec-title reveal d1"><span class="en">Private island, minutes from the city.</span><span class="lang-ja">ドバイ中心部へのアクセスと、<br>プライベートアイランドの静けさ。</span><span class="lang-en">Access to central Dubai, and the calm of a private island.</span></div>
+    <p class="sec-lead reveal d2"><span class="lang-ja">The Heart of Europe は、ドバイ沖 約4km に浮かぶ人工島群「The World Islands」の中に開発された、ヨーロッパをテーマにしたリゾートアイランドです。島へ渡る道路はなく、プライベート・クルーザー・ウォータータクシー・ヘリコプターでアクセスします。この「管理されたアクセス」こそが、他にはない希少性とプライバシーを生み出します。</span><span class="lang-en">The Heart of Europe is a European-themed resort island developed within The World Islands, about 4km off Dubai. No road connects to it; access is by private cruiser, water taxi or helicopter. This "managed access" is exactly what creates its rare exclusivity and privacy.</span></p>
+    <div class="loc-map reveal">
+      <img id="imgMap" alt="The Heart of Europe 島群の俯瞰図">
+    </div>
+    <div class="loc-access reveal d1">
+      <div class="a"><div class="k">Dubai International Airport (DXB)</div><div class="v"><span class="lang-ja">ドバイ・インターナショナル・エアポートからヘリで約20分から30分</span><span class="lang-en">About 20–30 minutes by helicopter from Dubai International Airport</span></div></div>
+      <div class="a"><div class="k">Palm Jumeirah</div><div class="v"><span class="lang-ja">ドバイ西海岸の高級住宅島がすぐ近く</span><span class="lang-en">The prestigious residential island on Dubai's west coast, close by</span></div></div>
+      <div class="a"><div class="k">Dubai Marina</div><div class="v"><span class="lang-ja">マリーナ、ヨット・ハーバーからアクセス</span><span class="lang-en">Accessible from the marina and yacht harbour</span></div></div>
+    </div>
+    <p class="loc-note"><span class="lang-ja">※所要時間は交通手段・ルートにより異なる目安です。</span><span class="lang-en">* Travel times are estimates and vary by mode of transport and route.</span></p>
+  </div>
+</section>
+
+<!-- WHY / BENEFITS -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">WHY ANAWAK</div>
+    <div class="sec-title reveal d1"><span class="en">Three stories in one residence.</span><span class="lang-ja">ひとつの実物資産に、3つの意味。</span><span class="lang-en">Three meanings in a single tangible asset.</span></div>
+    <p class="sec-lead"><span class="lang-ja">The Heart of Europe が世界の富裕層から選ばれる理由は、「ドバイ」「ウォーターフロントの希少性」「ブランド型のレジデンス体験」という、将来の資産防衛につながる3つの価値を同時に備えているからです。</span><span class="lang-en">The Heart of Europe is chosen by the world's wealthy because it holds three values at once — "Dubai," "waterfront scarcity," and a "branded residence experience" — all of which help protect wealth for the future.</span></p>
+    <div class="ben-grid">
+      <div class="ben"><div class="n">— 01</div><h3><span class="lang-ja">IHGグループによるプロデュース</span><span class="lang-en">Produced by the IHG Group</span></h3><p><span class="lang-ja">世界最高峰のホスピタリティを誇る IHGグループがプロジェクトを手掛け、品質と価値の維持を全面的にバックアップ。揺るぎない信頼が価値を支えます。</span><span class="lang-en">The IHG Group, renowned for world-class hospitality, is behind the project and fully backs the preservation of quality and value. Unshakeable trust supports that value.</span></p></div>
+      <div class="ben"><div class="n">— 02</div><h3><span class="lang-ja">ウォーターフロントの希少性</span><span class="lang-en">Waterfront scarcity</span></h3><p><span class="lang-ja">海上・人工島という物理的に限られた供給。海に面した土地はこれ以上簡単には生まれません。希少性が価値を支えます。</span><span class="lang-en">A physically limited supply of sea-borne, man-made land. Waterfront land like this will not easily be created again. Scarcity supports value.</span></p></div>
+      <div class="ben"><div class="n">— 03</div><h3><span class="lang-ja">世界的都市での不動産の所有</span><span class="lang-en">Real estate in a global city</span></h3><p><span class="lang-ja">単なる「部屋」ではなく、「ヨーロッパの文化を所有する」というストーリー性。世界的都市における不動産の所有と、価値の維持を見据えた実物資産です。</span><span class="lang-en">Not merely a "room," but the narrative of "owning European culture." A tangible asset — real estate in a world city, held with the preservation of value in mind.</span></p></div>
+      <div class="ben"><div class="n">— 04</div><h3><span class="lang-ja">12年間のオーナー優待・運営サポート</span><span class="lang-en">12 years of owner privileges & operational support</span></h3><p><span class="lang-ja">対象の全物件で、12年間継続のオーナー優待と運営サポート体制。保有中も安心してお任せいただける仕組みを整えています。</span><span class="lang-en">Every eligible residence comes with owner privileges and an operational-support structure that continue for 12 years — a framework you can entrust with confidence throughout ownership.</span></p></div>
+      <div class="ben"><div class="n">— 05</div><h3><span class="lang-ja">税制メリット</span><span class="lang-en">Tax advantages</span></h3><p><span class="lang-ja">UAEでは個人所得税・相続税・譲渡益税が 0%（税務上の居住実態が前提）。円安やインフレに備える実物資産の保全を支えます。</span><span class="lang-en">In the UAE, personal income, inheritance and capital-gains taxes are 0% (subject to bona-fide tax residency), supporting the preservation of a tangible asset against a weak yen and inflation.</span></p></div>
+      <div class="ben"><div class="n">— 06</div><h3><span class="lang-ja">家具付きレジデンス</span><span class="lang-en">Fully furnished residences</span></h3><p><span class="lang-ja">対象物件はすべて家具付き。とりわけ Floating Seahorse は、全ての家具が Bentley 社製という贅を尽くした仕様です。</span><span class="lang-en">All eligible residences come fully furnished. The Floating Seahorse, in particular, is appointed to the highest indulgence — every piece of furniture by Bentley.</span></p></div>
+    </div>
+    <p class="loc-note" style="color:var(--grey);margin-top:26px"><span class="lang-ja">※税率・優待・仕様は一例です。税務上の取り扱いは居住実態・現行法により異なり、税務助言ではありません。専門家にご相談ください。</span><span class="lang-en">* Tax rates, privileges and specifications are examples only. Tax treatment varies with residency status and current law and does not constitute tax advice. Please consult a professional.</span></p>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="pf-head reveal">
+      <div>
+        <div class="sec-eyebrow">THE PORTFOLIO</div>
+        <div class="sec-title" style="margin-bottom:0"><span class="en">Curated, not listed.</span><span class="lang-ja">ANAWAK が厳選した、<br>販売中のレジデンス。</span><span class="lang-en">Residences for sale, curated by ANAWAK.</span></div>
+      </div>
+      <p class="pf-note"><span class="lang-ja">ANAWAK は The Heart of Europe 内に 14物件を保有し、うち 13物件の販売を開始しました。数ある部屋の中から、将来にわたる価値の維持を見据えて選び抜いた実物資産のみをご紹介します。</span><span class="lang-en">ANAWAK holds 14 residences within The Heart of Europe and has released 13 of them for sale. From the many units available, we present only those tangible assets chosen with the long-term preservation of value in mind.</span></p>
+    </div>
+
+    <!-- AUTO-SCROLL CAROUSEL -->
+    <div class="marquee reveal" style="margin:46px 0 8px">
+      <div class="marquee-track" id="pfMarquee"></div>
+    </div>
+    <p class="loc-note" style="color:var(--grey);text-align:center;margin-bottom:8px"><span class="lang-ja">写真の上にカーソルを置くと停止します</span><span class="lang-en">Hover over a photo to pause</span></p>
+
+    <!-- Floating Seahorse -->
+    <div class="prop">
+      <div class="prop-media" id="mSeahorse"><span class="tag sea">FLOATING SEAHORSE</span><div class="card-prices">
+          <div class="cp-head"><span class="lang-ja">価格表</span><span class="lang-en">Price list</span></div>
+          <div class="cp-row"><span class="cp-t">Type 1</span><span class="cp-p">$7,352,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 2</span><span class="cp-p">$6,170,000</span></div>
+        </div></div>
+      <div class="prop-body">
+        <div class="cat">WATERFRONT VILLA</div>
+        <h3>Floating Seahorse</h3>
+        <div class="h-jp jpserif"><span class="lang-ja">フローティング・シーホース ── 海上に浮かぶ水上ヴィラ</span><span class="lang-en">Floating Seahorse — a villa afloat on the sea</span></div>
+        <p><span class="lang-ja">海上に浮かぶ、世界的にも珍しい3層構造の水上ヴィラ。一部は水中に沈むベッドルームを備えます。全ての家具は Bentley 社製という、他に類を見ない仕様です。</span><span class="lang-en">A rare three-level floating villa on the sea, with part of it — the bedrooms — set below the waterline. Every piece of furniture is by Bentley: a specification without equal.</span></p>
+        <div class="prop-facts">
+          <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv">$7,352,000</div></div>
+          <div class="f"><div class="fk">Type</div><div class="fv" style="font-size:16px"><span class="lang-ja">水上ヴィラ / 家具付き</span><span class="lang-en">Floating villa / furnished</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年サポート</span><span class="lang-en">12-year support</span></div></div>
+        </div>
+        <div class="cta-row">
+          <div class="btn-sm solid" onclick="openModal('consult','Floating Seahorse')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Portofino Hotel -->
+    <div class="prop rev">
+      <div class="prop-body">
+        <div class="prop-brand ic"><img src="assets/img/intercontinentalLogo.jpg" alt="InterContinental Hotels & Resorts"></div>
+        <div class="cat">BOUTIQUE HOTEL RESIDENCE · PORTOFINO</div>
+        <h3>Portofino Hotel</h3>
+        <div class="h-jp jpserif"><span class="lang-ja">ポルトフィーノ・ホテル ── 地中海の港町を映すホテルレジデンス</span><span class="lang-en">Portofino Hotel — a hotel residence mirroring a Mediterranean port town</span></div>
+        <p><span class="lang-ja">イタリア・リグーリアの港町ポルトフィーノを写したホテルレジデンス。全489室のオーシャンビュー・スイートで構成され、The Heart of Europe の3つのホテル開発のなかで最も広い客室サイズを展開します。プライベート・プランジプールを備えたルーフトップ・ヴィラも用意されています。</span><span class="lang-en">A hotel residence modelled on Portofino, the Ligurian port town of Italy. Comprising 489 ocean-view suites, it offers the largest room sizes among the three hotel developments at The Heart of Europe. Rooftop villas with private plunge pools are also available.</span></p>
+        <div class="prop-facts">
+          <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv" style="font-size:20px">$845,000〜$1,263,000</div></div>
+          <div class="f"><div class="fk">Type</div><div class="fv" style="font-size:16px"><span class="lang-ja">5部屋 / 家具付き</span><span class="lang-en">5 units / furnished</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年サポート</span><span class="lang-en">12-year support</span></div></div>
+        </div>
+        <div class="cta-row">
+          <div class="btn-sm solid" onclick="openModal('consult','Portofino Hotel')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
+        </div>
+      </div>
+      <div class="prop-media" id="mPortofino"><span class="tag" style="background:#2f6f7d">PORTOFINO HOTEL</span><div class="card-prices">
+          <div class="cp-head"><span class="lang-ja">価格表</span><span class="lang-en">Price list</span></div>
+          <div class="cp-row"><span class="cp-t">Type 1</span><span class="cp-p">$845,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 2</span><span class="cp-p">$1,198,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 3</span><span class="cp-p">$1,198,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 4</span><span class="cp-p">$1,256,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 5</span><span class="cp-p">$1,263,000</span></div>
+        </div></div>
+    </div>
+
+    <!-- Germany Villa -->
+    <div class="prop rev">
+      <div class="prop-body">
+        <div class="prop-brand"><img src="assets/img/ihgLogo.jpg" alt="IHG Hotels & Resorts"></div>
+        <div class="cat">ISLAND VILLA · GERMANY</div>
+        <h3>Germany Villa</h3>
+        <div class="h-jp jpserif"><span class="lang-ja">ジャーマニー・ヴィラ ── Lagoon Germany Villa</span><span class="lang-en">Germany Villa — Lagoon Germany Villa</span></div>
+        <p><span class="lang-ja">Germany Island に佇む一棟ヴィラ「Lagoon Germany Villa」。ゴールドを基調とした重厚で洗練されたインテリアが、島に暮らすような特別な時間を約束します。家具付きで、そのままオーナーライフを始められます。</span><span class="lang-en">A standalone villa on Germany Island — the "Lagoon Germany Villa." Its opulent, refined interior in a gold palette promises the special experience of living on your own island. Fully furnished, so owner life can begin at once.</span></p>
+        <div class="prop-facts">
+          <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv">$8,170,000</div></div>
+          <div class="f"><div class="fk">Type</div><div class="fv" style="font-size:16px"><span class="lang-ja">一棟ヴィラ / 家具付き</span><span class="lang-en">Standalone villa / furnished</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年サポート</span><span class="lang-en">12-year support</span></div></div>
+        </div>
+        <div class="cta-row">
+          <div class="btn-sm solid" onclick="openModal('consult','Germany Villa')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
+          
+        </div>
+      </div>
+      <div class="prop-media" id="mGermany"><span class="tag germany">GERMANY VILLA</span><div class="card-prices">
+          <div class="cp-head"><span class="lang-ja">価格表</span><span class="lang-en">Price list</span></div>
+          <div class="cp-row"><span class="cp-t">Type 1</span><span class="cp-p">$8,170,000</span></div>
+        </div></div>
+    </div>
+
+    <!-- Cote D'Azur -->
+    <div class="prop">
+      <div class="prop-media" id="mCazur"><span class="tag cazur">Côte d'Azur Nice / St. Tropez</span><div class="card-prices">
+          <div class="cp-head"><span class="lang-ja">価格表</span><span class="lang-en">Price list</span></div>
+          <div class="cp-row"><span class="cp-t">Type 1</span><span class="cp-p">$681,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 2</span><span class="cp-p">$681,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 3</span><span class="cp-p">$739,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 4</span><span class="cp-p">$817,000</span></div>
+          <div class="cp-row"><span class="cp-t">Type 5</span><span class="cp-p">$860,000</span></div>
+        </div></div>
+      <div class="prop-body">
+        <div class="prop-brand"><img src="assets/img/ihgLogo.jpg" alt="IHG Hotels & Resorts"></div>
+        <div class="cat">BOUTIQUE HOTEL RESIDENCE</div>
+        <h3 class="h3-voco"><span>VOCO Dubai Nice Heart of Europe,</span><br><span>VOCO Dubai St. Tropez Heart of Europe</span></h3>
+        <div class="h-jp jpserif"><span class="lang-ja">VOCOドバイ・ニース・ハート・オブ・ヨーロッパ,<br>VOCOドバイ・セントロペス・ハート・オブ・ヨーロッパ</span><span class="lang-en">VOCO Dubai Nice Heart of Europe, VOCO Dubai St. Tropez Heart of Europe</span></div>
+        <p><span class="lang-ja">南仏の雰囲気を纏うホテル。ANAWAK はこのホテル内の 5部屋を<br>取り扱います。12年間の<span style="white-space:nowrap">オーナー</span>優待、年14日間の無料滞在など、<br><span style="white-space:nowrap">オーナー</span>ならではの特典が付帯します。</span><span class="lang-en">A hotel evoking the atmosphere of the French Riviera. ANAWAK handles five units within it, with owner-exclusive benefits such as 12 years of owner privileges and 14 complimentary nights per year.</span></p>
+        <div class="prop-facts">
+          <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv" style="font-size:19px">$681,000〜$860,000</div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">取扱</span><span class="lang-en">Availability</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">5部屋 / 家具付き</span><span class="lang-en">5 units / furnished</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年サポート</span><span class="lang-en">12-year support</span></div></div>
+        </div>
+        <div class="cta-row">
+          <div class="btn-sm solid" onclick="openModal('consult','Côte d’Azur Nice / St. Tropez')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
+          
+        </div>
+      </div>
+    </div>
+
+    <p class="loc-note" style="color:var(--grey);margin-top:30px"><span class="lang-ja">※上記のほか、Floating Venice Lido（$12,340,000）も取り扱っております。価格・仕様は変更となる場合があり、確定情報は個別にご案内します。上記はいずれも家具付きです。</span><span class="lang-en">* We also handle Floating Venice Lido ($12,340,000). Prices and specifications are subject to change; confirmed details are provided individually. All of the above are furnished.</span></p>
+  </div>
+</section>
+
+<!-- UNDERWATER FEATURE BAND -->
+<section class="uw" id="underwater">
+  <div class="uw-bg" id="uwBg"></div>
+  <video class="uw-video" id="reefVideo" autoplay muted loop playsinline poster="assets/img/underwater-poster.jpg">
+    
+    <source src="assets/video/underwater.mp4" type="video/mp4">
+  </video>
+  <div class="uw-overlay"></div>
+  <div class="uw-inner">
+    <div class="box reveal">
+      <div class="sec-eyebrow">SIGNATURE · FLOATING SEAHORSE</div>
+      <h2><span class="lang-ja">珊瑚礁に包まれて眠る、<br>海中のベッドルーム。</span><span class="lang-en">Sleep wrapped in coral reef —<br>an underwater bedroom.</span></h2>
+      <p><span class="lang-ja">Floating Seahorse の3層構造のうち、最下層は海面下に沈むアンダーウォーター・ベッドルーム。窓の向こうには珊瑚礁と魚たちが広がり、朝も夜も、海そのものが部屋の一部になります。</span><span class="lang-en">On the lowest of the Floating Seahorse's three levels lies an underwater bedroom, set below the surface. Beyond the windows, coral and fish drift by — morning and night, the sea itself becomes part of the room.</span></p>
+      <p><span class="lang-ja">世界的にも類を見ないこの水上ヴィラは、全ての家具が Bentley 社製。所有すること自体が、ひとつの物語になる資産です。</span><span class="lang-en">In this floating villa unlike any other in the world, every piece of furniture is by Bentley. Owning it becomes a story in itself.</span></p>
+      <div class="bentley-badge"><span class="bl">BENTLEY</span><span class="bt"><span class="lang-ja">全ての家具に Bentley 社製を採用</span><span class="lang-en">All furniture by Bentley</span></span></div>
+      <div class="btn btn-gold" onclick="openModal('consult','Floating Seahorse')"><span class="lang-ja">Floating Seahorse を相談する</span><span class="lang-en">Enquire about Floating Seahorse</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEAHORSE SIGNATURE FEATURE (IHG) -->
+<section class="shf" id="seahorse-story">
+  <div class="wrap">
+    <div class="shf-head reveal">
+      <div class="ihg-line"><img id="ihgLogoShf" alt="IHG Hotels & Resorts"></div>
+      <div class="eb">SIGNATURE RESIDENCE · FLOATING SEAHORSE</div>
+      <h2><span class="lang-ja">洋上に浮かぶ、ヨーロッパの最高峰。<br><span class="hl">IHGグループ</span>が贈る、究極のプライベートアイランド資産。</span><span class="lang-en">The pinnacle of Europe, afloat at sea.<br>The ultimate private-island asset, presented by <span class="hl">the IHG Group</span>.</span></h2>
+      <p class="subtitle"><span class="lang-ja">ドバイの碧い海に抱かれた、ヨーロッパの夢の舞台「The Heart of Europe」。世界を魅了する IHGグループの全面的なプロデュースと12年間の運営サポートが、あなたの一族の実物資産を美しく、そして確かな未来へと導きます。</span><span class="lang-en">The Heart of Europe — a dreamlike stage of Europe, cradled by Dubai's azure sea. The full production of the world-captivating IHG Group and 12 years of operational support guide your family's tangible asset toward a beautiful and assured future.</span></p>
+    </div>
+
+    <div class="shf-lead reveal d1">
+      <p><span class="lang-ja">── そこは、地図のどこにもない、世界で最も美しい場所。</span><span class="lang-en">── A place found on no map, the most beautiful in the world.</span></p>
+      <p><span class="lang-ja">ドバイ沖約4km、碧く輝くペルシャ湾の洋上に、ヨーロッパの美しい街並みをそのままに再現したリゾートアイランド「The Heart of Europe」。島へと渡る手段は、プライベート・クルーザー。喧騒から完全に切り離されたこの特別な空間は、選ばれし者だけが許される<span class="gold">究極のプライベートアイランド</span>です。</span><span class="lang-en">About 4km off Dubai, on the shimmering azure of the Persian Gulf, The Heart of Europe recreates the beautiful streetscapes of Europe. You reach it by private cruiser. Completely severed from the clamour, this special place is <span class="gold">the ultimate private island</span> — permitted only to the chosen few.</span></p>
+      <p><span class="lang-ja">世界最高峰のホスピタリティを誇る<span class="gold">「IHGグループ」</span>が手掛け、すべてのレジデンスにおいて<span class="gold">12年間にわたるオーナー優待・運営サポート</span>を継続。満ち足りた歓びと、揺るぎない価値の維持が調和する、かつてないラグジュアリー体験が、いま幕を開けます。</span><span class="lang-en">Crafted by <span class="gold">the IHG Group</span>, renowned for world-class hospitality, every residence carries <span class="gold">12 years of owner privileges and operational support</span>. An unprecedented luxury experience — where profound delight and the steadfast preservation of value are in harmony — now begins.</span></p>
+    </div>
+
+    <div class="shf-privileges">
+      <div class="shf-priv reveal d1">
+        <div class="pnum">01</div>
+        <h3><span class="lang-ja">IHGグループが手掛ける、比類なきホスピタリティと運営サポート</span><span class="lang-en">Unrivalled hospitality and operational support by the IHG Group</span></h3>
+        <p><span class="lang-ja">世界中の要人やセレブリティを魅了し続ける IHGグループが、このリゾートの品質と価値を全面バックアップ。さらに12年間にわたるオーナー優待・運営サポートにより、オーナーの皆様に優美な時間と、円安やインフレに備える実物資産としての安心をお届けします。</span><span class="lang-en">The IHG Group, which continues to captivate dignitaries and celebrities worldwide, fully backs the quality and value of this resort. With 12 years of owner privileges and operational support, owners are assured of gracious time and the security of a tangible asset — a hedge against a weak yen and inflation.</span></p>
+      </div>
+      <div class="shf-priv reveal d2">
+        <div class="pnum">02</div>
+        <h3><span class="lang-ja">五感を満たす、芸術的なレジデンス（Bentley社製家具仕様など）</span><span class="lang-en">Artful residences that fill the senses (including Bentley furniture)</span></h3>
+        <p><span class="lang-ja">海中にベッドルームが広がり、珊瑚礁と魚たちが優雅に泳ぐ姿を眺めながら眠りにつく3層構造の水上ヴィラ「Floating Seahorse」。すべての家具に Bentley 社製を採用するなど、細部にまで美を極めたインテリアが、あなたの日常を最高峰の芸術へと昇華させます。</span><span class="lang-en">The three-level floating villa "Floating Seahorse," where the bedroom opens underwater and you fall asleep watching coral and fish glide by. With all furniture by Bentley, an interior perfected to the last detail elevates your everyday into the highest art.</span></p>
+      </div>
+      <div class="shf-priv reveal d3">
+        <div class="pnum">03</div>
+        <h3><span class="lang-ja">「世界地図を所有する」という、圧倒的なステイタス</span><span class="lang-en">The overwhelming status of "owning a map of the world"</span></h3>
+        <p><span class="lang-ja">270の人工島で世界地図を象った「The World Islands」の中心に位置し、ヨーロッパの各都市をテーマにした島々を所有する。それは次世代へと誇らしく継承できる、世界で唯一無二のライフスタイル資産です。</span><span class="lang-en">Set at the heart of The World Islands — 270 man-made islands forming a map of the world — you own islands themed on the cities of Europe. It is a one-of-a-kind lifestyle asset to hand down with pride to the next generation.</span></p>
+      </div>
+    </div>
+
+    <div class="shf-cta reveal">
+      <div class="closing"><span class="lang-ja">あなたの物語に、世界で最も美しい一ページを。</span><span class="lang-en">Add the world's most beautiful page to your story.</span></div>
+      <p><span class="lang-ja">ANAWAK では、現地へのご案内からご購入、そしてその後の上質な運用管理にいたるまで、日本語で丁寧かつ徹底的にサポートいたします。IHGグループが贈る究極のラグジュアリーアイランドについて、まずは個別相談（完全予約制）にて、心満たされるひとときをお確かめください。</span><span class="lang-en">From on-site guidance and purchase to refined management thereafter, ANAWAK supports you thoroughly. Discover the ultimate luxury island presented by the IHG Group at a private consultation (by appointment only).</span></p>
+      <div class="hero-cta">
+        <div class="btn btn-gold" onclick="openModal('consult','Floating Seahorse')"><span class="lang-ja">個別相談を予約する</span><span class="lang-en">Book a consultation</span></div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery">
+  <div class="gal-head">
+    <div class="sec-eyebrow">RESIDENCE INTERIORS</div>
+    <div class="sec-title"><span class="lang-ja">暮らすように過ごす、島のインテリア。</span><span class="lang-en">Island interiors, made for living.</span></div>
+  </div>
+  <div class="gal-grid" id="galGrid"></div>
+</div>
+
+<!-- FILM STRIP (逆方向マーキー) -->
+<div class="gallery" style="padding-bottom:80px">
+  <div class="gal-head" style="padding-bottom:26px">
+    <div class="sec-eyebrow">LIFE ON THE ISLANDS</div>
+    <div class="sec-title"><span class="lang-ja">島に流れる、特別な時間。</span><span class="lang-en">The special hours that flow on the island.</span></div>
+  </div>
+  <div class="marquee reveal">
+    <div class="marquee-track2" id="lifeMarquee"></div>
+  </div>
+</div>
+
+<!-- HEART OF EUROPE CINEMATIC BAND (②) -->
+<section class="hoe-cinema" id="hoe-film">
+  <video id="hoeVideo" autoplay muted loop playsinline poster="assets/img/film-poster.jpg">
+    
+    <source src="assets/video/film-duo.mp4" type="video/mp4">
+  </video>
+  <div class="ov"></div>
+  <div class="inner reveal">
+    <div class="eb">THE HEART OF EUROPE · DUBAI</div>
+    <h2><span class="lang-ja">海の上に、ヨーロッパが広がる。</span><span class="lang-en">Europe, unfolding upon the sea.</span></h2>
+    <p><span class="lang-ja">ドバイ沖に浮かぶ、ヨーロッパをテーマにしたリゾートアイランド。夕暮れの街並み、マリーナに揺れるヨット、水面に映る灯り ── その情景のすべてが、ここで所有できる日常になります。</span><span class="lang-en">A European-themed resort island afloat off Dubai. Streets at dusk, yachts swaying in the marina, lights on the water — every one of these scenes becomes an everyday you can own here.</span></p>
+    <div class="btn btn-outline" onclick="openModal('consult')"><span class="lang-ja">個別相談で詳しく見る</span><span class="lang-en">Learn more at a consultation</span></div>
+  </div>
+</section>
+
+<!-- OWNERSHIP -->
+<section class="own" id="ownership">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">HOW TO OWN</div>
+    <div class="sec-title reveal d1"><span class="en">Two ways to own.</span><span class="lang-ja">2つの所有のかたち。</span><span class="lang-en">Two ways to own.</span></div>
+    <p class="sec-lead"><span class="lang-ja">おひとりで一物件を所有するプライベート・オーナーシップから、1口 $65,000（約¥10,000,000）で仲間と共に所有権を持つグループ・オーナーシップまで。ご資産の規模やご意向に合わせて選べます。</span><span class="lang-en">From private ownership, where you hold one residence on your own, to group ownership, where you share title with others from $65,000 (approx. ¥10,000,000) per share. Choose according to the scale of your assets and your intentions.</span></p>
+    <div class="own-grid reveal">
+      <div class="own-col">
+        <div class="oc-eb">PRIVATE OWNERSHIP</div>
+        <h3><span class="lang-ja">個人で所有する</span><span class="lang-en">Own individually</span></h3>
+        <div class="price">Full Ownership</div>
+        <div class="sub"><span class="lang-ja">一物件を個人で購入し、個人オーナーになる</span><span class="lang-en">Purchase one residence on your own and become its private owner</span></div>
+        <div class="perk"><span class="pn">14<small style="font-size:15px"><span class="lang-ja">日</span><span class="lang-en">days</span></small></span><span class="pt"><b><span class="lang-ja">年間14日間 無料宿泊</span><span class="lang-en">14 complimentary nights per year</span></b><span><span class="lang-ja">オーナー特典として毎年ご滞在いただけます</span><span class="lang-en">Stay every year as an owner privilege</span></span></span></div>
+        <ul>
+          <li><span class="lang-ja">物件を単独で所有する、最も自由度の高いかたち</span><span class="lang-en">Sole ownership of a residence — the most flexible form</span></li>
+          <li><span class="lang-ja">対象物件はすべて家具付き</span><span class="lang-en">All eligible residences are fully furnished</span></li>
+          <li><span class="lang-ja">12年間のオーナー優待・運営サポート体制</span><span class="lang-en">12 years of owner privileges and operational support</span></li>
+          <li><span class="lang-ja">資産の承継・再配分を見据えた保有に</span><span class="lang-en">For holdings with succession and reallocation in view</span></li>
+        </ul>
+      </div>
+      <div class="own-col alt">
+        <div class="oc-eb">GROUP OWNERSHIP</div>
+        <h3><span class="lang-ja">グループで所有する</span><span class="lang-en">Own as a group</span></h3>
+        <div class="price">$65,000 <span style="font-size:18px"><span class="lang-ja">(約¥10,000,000) / 1口</span><span class="lang-en">(approx. ¥10,000,000) / share</span></span></div>
+        <div class="sub"><span class="lang-ja">1口 $65,000（約¥10,000,000）から、オーナー権利を購入可能</span><span class="lang-en">Ownership rights available from $65,000 (approx. ¥10,000,000) per share</span></div>
+        <div class="perk"><span class="pn">4<small style="font-size:15px"><span class="lang-ja">日</span><span class="lang-en">days</span></small></span><span class="pt"><b><span class="lang-ja">年間4日間 無料宿泊</span><span class="lang-en">4 complimentary nights per year</span></b><span><span class="lang-ja">グループオーナー様への滞在特典</span><span class="lang-en">A stay privilege for group owners</span></span></span></div>
+        <ul>
+          <li><span class="lang-ja">1口 $65,000（約¥10,000,000）で、グループでのオーナー権利を獲得</span><span class="lang-en">Acquire group ownership rights at $65,000 (approx. ¥10,000,000) per share</span></li>
+          <li><span class="lang-ja">超高級物件へ、より始めやすい規模から参画</span><span class="lang-en">Enter an ultra-luxury asset at a more accessible scale</span></li>
+          <li><span class="lang-ja">12年間のオーナー優待・運営サポート体制</span><span class="lang-en">12 years of owner privileges and operational support</span></li>
+          <li><span class="lang-ja">まずは個別相談で、条件と参加方法をご案内します</span><span class="lang-en">We first explain the terms and how to join at a private consultation</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="loc-note" style="color:var(--grey);margin-top:24px"><span class="lang-ja">※所有形態・価格・保証・特典は物件および提供時期により異なる場合があります。詳細は個別にご案内します。本ページは情報提供を目的としたもので、金融商品の勧誘・助言ではありません。</span><span class="lang-en">* Ownership structures, prices, guarantees and privileges may vary by residence and offering period; details are provided individually. This page is for information only and is not a solicitation of, or advice on, financial products.</span></p>
+  </div>
+</section>
+
+<!-- FLOW / STEPS (HGVC「当日の流れ」継承) -->
+<section class="steps" id="flow">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">HOW WE WORK</div>
+    <div class="sec-title reveal d1"><span class="en">From first call to ownership.</span><span class="lang-ja">ご相談から、ご所有まで。</span><span class="lang-en">From first enquiry to ownership.</span></div>
+    <p class="sec-lead"><span class="lang-ja">ANAWAK は JWDグループの各社と連携し、物件のご案内から現地視察、ご契約後の管理までを一貫してサポートします。ご相談は完全予約制です。</span><span class="lang-en">In partnership with the JWD Group companies, ANAWAK supports you end to end — from introducing residences and on-site visits to post-contract management. Consultations are strictly by appointment.</span></p>
+    <div class="step-row">
+      <div class="step"><div class="sn">STEP 01</div><div class="bar"></div><h4><span class="lang-ja">個別相談・オンライン説明</span><span class="lang-en">Consultation & online briefing</span></h4><p><span class="lang-ja">ご資産の状況とご意向をうかがい、最適な物件と所有プランをご提案。日本語で対応します。</span><span class="lang-en">We hear your asset situation and intentions and propose the best residence and ownership plan. Available in Japanese.</span></p></div>
+      <div class="step"><div class="sn">STEP 02</div><div class="bar"></div><h4><span class="lang-ja">物件のご提案・資料提供</span><span class="lang-en">Proposal & materials</span></h4><p><span class="lang-ja">The Heart of Europe の各物件を、価格・オーナー特典とあわせて詳細にご案内します。</span><span class="lang-en">We present each residence at The Heart of Europe in detail, together with pricing and owner privileges.</span></p></div>
+      <div class="step"><div class="sn">STEP 03</div><div class="bar"></div><h4><span class="lang-ja">ドバイ現地視察</span><span class="lang-en">On-site visit in Dubai</span></h4><p><span class="lang-ja">グループの旅行部門と連携し、実際に島とレジデンスをご体感いただく視察をご手配します。</span><span class="lang-en">With our group's travel division, we arrange a visit for you to experience the island and residences first-hand.</span></p></div>
+      <div class="step"><div class="sn">STEP 04</div><div class="bar"></div><h4><span class="lang-ja">ご契約・オーナーシップ開始</span><span class="lang-en">Contract & start of ownership</span></h4><p><span class="lang-ja">ご契約後の管理・運用までワンストップで。次世代へ受け継ぐ資産としてお守りします。</span><span class="lang-en">From contract through management and operation, all in one place — safeguarded as an asset to pass to the next generation.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="contact">
+  <div class="final-bg" id="finalBg">
+    <div class="final-inner reveal">
+      <div class="sec-eyebrow">BEGIN YOUR OWNERSHIP</div>
+      <h2><span class="lang-ja">世界で唯一無二の資産を、<br>あなたの物語に。</span><span class="lang-en">A one-of-a-kind asset,<br>written into your story.</span></h2>
+      <p><span class="lang-ja">The Heart of Europe のオーナーシップは、完全予約制・ご紹介制でご案内しています。まずは個別相談で、あなたのご意向に合わせた資産設計をお聞かせください。日本語で、丁寧にサポートいたします。</span><span class="lang-en">Ownership at The Heart of Europe is offered by appointment and by referral. Begin with a private consultation and share the asset design that suits your intentions. We support you attentively, in Japanese.</span></p>
+      <div class="hero-cta">
+        <div class="btn btn-gold" onclick="openModal('consult')"><span class="lang-ja">個別相談を予約する</span><span class="lang-en">Book a consultation</span></div>
+        
+      </div>
+      <div class="contactline"><span class="lang-ja">日本語対応 · ドバイ & 名古屋 · 1営業日以内にご返信します</span><span class="lang-en">Japanese support · Dubai & Nagoya · We reply within one business day</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="brand">ANAW<b>AK</b></div>
+      <p><span class="lang-ja">ANAWAK Real Estate L.L.C — ドバイ不動産の取得・所有・管理のサポート。JWDグループの一員として、日本の富裕層とドバイをつなぎます。</span><span class="lang-en">ANAWAK Real Estate L.L.C — support for acquiring, owning and managing Dubai real estate. As part of the JWD Group, we connect Japan's high-net-worth families with Dubai.</span></p>
+    </div>
+    <div class="foot-col">
+      <h5>PROPERTIES</h5>
+      <a onclick="scrollTo2('#portfolio')">Floating Seahorse</a>
+      <a onclick="scrollTo2('#portfolio')">Portofino Hotel</a>
+          <a onclick="scrollTo2('#portfolio')">Germany Villa</a>
+      <a onclick="scrollTo2('#portfolio')">Côte d'Azur Nice / St. Tropez</a>
+      <a onclick="scrollTo2('#location')">The Heart of Europe</a>
+    </div>
+    <div class="foot-col">
+      <h5>ABOUT</h5>
+      <a onclick="scrollTo2('#concept')"><span class="lang-ja">コンセプト</span><span class="lang-en">Concept</span></a>
+      <a onclick="scrollTo2('#why')"><span class="lang-ja">所有する理由</span><span class="lang-en">Why own</span></a>
+      <a onclick="scrollTo2('#ownership')"><span class="lang-ja">所有プラン</span><span class="lang-en">Ownership plans</span></a>
+      <a onclick="scrollTo2('#flow')"><span class="lang-ja">購入の流れ</span><span class="lang-en">The process</span></a>
+    </div>
+    <div class="foot-col">
+      <h5>CONTACT</h5>
+      <a onclick="openModal('consult')"><span class="lang-ja">個別相談を予約</span><span class="lang-en">Book a consultation</span></a>
+      
+      <a href="news/" target="_blank" rel="noopener"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></a>
+        <a href="ibiza/" target="_blank" rel="noopener"><span class="lang-ja">娯楽エリア（イビサ・フェスティバル）</span><span class="lang-en">Entertainment (Ibiza Festival)</span></a>
+        <a href="https://thoe.com/" target="_blank" rel="noopener"><span class="lang-ja">The Heart of Europe 公式</span><span class="lang-en">The Heart of Europe official</span></a>
+    </div>
+  </div>
+  <div class="foot-group">
+    <div class="wrap">
+      <span class="gl">JWD GROUP</span>
+      <a href="https://worldlink-dwc.com/" target="_blank" rel="noopener">Family Office</a>
+      <a href="https://jwd-investment.com/" target="_blank" rel="noopener">JWD Investment</a>
+      <a href="https://jwd-anawak.com/" target="_blank" rel="noopener">ANAWAK Real Estate</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 ANAWAK Real Estate L.L.C · JWD Group. All rights reserved.</span>
+    <span>Dubai · Nagoya</span>
+  </div>
+</footer>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <span class="lang-ja">重要事項：本ページに記載の価格・オーナー優待・特典・税制に関する記述は、情報提供を目的とした参考情報であり、金融商品の勧誘・助言・法的助言を構成するものではありません。物件の仕様・価格・提供条件は予告なく変更される場合があります。UAEの税制上の取り扱いは居住実態および現行法により異なります。ご検討にあたっては、確定情報を ANAWAK までお問い合わせのうえ、必要に応じて税務・法務の専門家にご相談ください。実物不動産の所有には価格変動等のリスクが伴います。</span><span class="lang-en">Important: The descriptions of prices, owner privileges, benefits and taxation on this page are reference information for informational purposes only and do not constitute a solicitation of, or advice on, financial products, nor legal advice. Specifications, prices and terms are subject to change without notice. UAE tax treatment varies with residency status and current law. Before proceeding, please contact ANAWAK for confirmed details and consult tax and legal professionals as needed. Ownership of physical real estate carries risks including price fluctuation.</span>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modalOv" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="eb" id="mEb">CONSULTATION</div>
+      <h3 id="mTitle">個別相談を予約する</h3>
+      <div class="x" onclick="closeModal()">×</div>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label><span class="lang-ja">お名前</span><span class="lang-en">Name</span></label><input id="mName" type="text" placeholder="山田 太郎"></div>
+      <div class="field"><label><span class="lang-ja">メールアドレス</span><span class="lang-en">Email</span></label><input type="email" placeholder="you@example.com"></div>
+      <div class="field"><label><span class="lang-ja">電話番号</span><span class="lang-en">Phone</span></label><input type="tel" placeholder="090-0000-0000"></div>
+      <div class="field" id="propField" style="display:none"><label><span class="lang-ja">ご関心のある物件</span><span class="lang-en">Residence of interest</span></label><input type="text" id="propInput" readonly></div>
+      <div class="field"><label><span class="lang-ja">ご検討中のご資産規模</span><span class="lang-en">Asset range under consideration</span></label>
+        <select id="assetSel"><option>選択してください</option><option>〜1億円</option><option>1〜5億円</option><option>5〜20億円</option><option>20億円以上</option></select>
+      </div>
+      <div class="field"><label><span class="lang-ja">ご質問・ご要望（任意）</span><span class="lang-en">Questions / requests (optional)</span></label><textarea id="mMsg" rows="3" placeholder="ご検討内容やご希望をお聞かせください"></textarea></div>
+      <div class="btn btn-gold" onclick="fakeSubmit()" id="mSubmit">予約を申し込む</div>
+      <p class="modal-note"><span class="lang-ja">※これはデモ用のフォームです。実際の送信は行われません。ご相談は完全予約制・日本語対応。1営業日以内にご返信します。</span><span class="lang-en">* This is a demo form; nothing is actually submitted. Consultations are by appointment, with Japanese support. We reply within one business day.</span></p>
+    </div>
+  </div>
+</div>
+
+<script>const IMG={"hero": "assets/img/hero.jpg", "heroIsland": "assets/img/heroIsland.jpg", "map": "assets/img/map.jpg", "cazurBed": "assets/img/cazurBed.jpg", "gLiving": "assets/img/gLiving.jpg", "gBath1": "assets/img/gBath1.jpg", "gBath2": "assets/img/gBath2.jpg", "gEntrance": "assets/img/gEntrance.jpg", "gBar": "assets/img/gBar.jpg", "gBed": "assets/img/gBed.jpg", "world": "assets/img/world.jpg", "seahorseExt": "assets/img/seahorseExt.jpg", "underwater": "assets/img/underwater.jpg", "cazurExt": "assets/img/cazurExt.jpg", "beach": "assets/img/beach.jpg", "ihgBrands": "assets/img/ihgBrands.jpg", "ihgLogo": "assets/img/ihgLogo.jpg", "mermaid": "assets/img/mermaid.jpg", "czBar": "assets/img/czBar.jpg", "gNight": "assets/img/gNight.jpg", "gPool": "assets/img/gPool.jpg", "czHall": "assets/img/czHall.jpg", "czPool": "assets/img/czPool.jpg", "czBath": "assets/img/czBath.jpg", "shDusk": "assets/img/shDusk.jpg", "shDeck": "assets/img/shDeck.jpg", "czLiving": "assets/img/czLiving.jpg", "gAerial": "assets/img/gAerial.jpg", "pAerialRow": "assets/img/pAerialRow.jpg", "pCoral2": "assets/img/pCoral2.jpg", "pDeck": "assets/img/pDeck.jpg", "pDiver": "assets/img/pDiver.jpg", "pHoney": "assets/img/pHoney.jpg", "pLounge": "assets/img/pLounge.jpg", "pNight": "assets/img/pNight.jpg", "pReef": "assets/img/pReef.jpg", "pSkyline": "assets/img/pSkyline.jpg", "pSnorkel": "assets/img/pSnorkel.jpg", "pVillaExt": "assets/img/pVillaExt.jpg", "pVillaSea": "assets/img/pVillaSea.jpg", "pVillaSun": "assets/img/pVillaSun.jpg", "pWorldAer": "assets/img/pWorldAer.jpg", "poAer1": "assets/img/poAer1.jpg", "poAer3": "assets/img/poAer3.jpg", "poBalcony": "assets/img/poBalcony.jpg", "poBed": "assets/img/poBed.jpg", "poCourt": "assets/img/poCourt.jpg", "poDive": "assets/img/poDive.jpg", "poLobby": "assets/img/poLobby.jpg", "poPalm": "assets/img/poPalm.jpg", "poTerrace": "assets/img/poTerrace.jpg", "shCutaway": "assets/img/shCutaway.jpg", "shUnderRoom": "assets/img/shUnderRoom.jpg"};</script>
+<script>
+// ---- 画像を各所へ流し込み ----
+function setBg(id,key){var e=document.getElementById(id);if(e&&IMG[key])e.style.backgroundImage="url("+IMG[key]+")";}
+function setImg(id,key){var e=document.getElementById(id);if(e&&IMG[key])e.src=IMG[key];}
+setBg('heroFallback','hero');            // 動画が読めない時のフォールバック
+setImg('imgWorld','world');
+setImg('imgSeahorseConcept','seahorseExt'); // 720空撮→1400夕景に格上げ
+setImg('imgMap','map');
+setImg('imgIhgBrands','ihgBrands');
+setImg('ihgLogoStmt','ihgLogo');
+setImg('ihgLogoShf','ihgLogo');
+setBg('uwBg','mermaid');                  // 動画フォールバック（人魚）
+setBg('finalBg','heroIsland');
+
+// ---- 物件カードのスライドショー（左右ボタン＋3秒自動送り）----
+var propSlides={
+  mSeahorse:['seahorseExt','pVillaExt','underwater','shUnderRoom','pVillaSea','shDeck','pDeck','shCutaway','shDusk','pVillaSun'],
+  mPortofino:['poAer1','poTerrace','poLobby','poBed','poAer3','poCourt','poBalcony','poPalm','poDive'],
+  mGermany:['gEntrance','gAerial','gLiving','gBed','gNight','gPool','gBar','gBath1'],
+  mCazur:['cazurExt','czPool','cazurBed','czBar','czBath','czLiving','czHall']
+};
+var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+Object.keys(propSlides).forEach(function(id){
+  var host=document.getElementById(id);
+  if(!host) return;
+  var keys=propSlides[id].filter(function(k){return IMG[k];});
+  if(keys.length===0) return;
+  // スライド要素を生成
+  var slidesWrap=document.createElement('div'); slidesWrap.className='slides';
+  keys.forEach(function(k,i){
+    var s=document.createElement('div'); s.className='slide'+(i===0?' active':'');
+    s.style.backgroundImage="url("+IMG[k]+")";
+    slidesWrap.appendChild(s);
+  });
+  host.insertBefore(slidesWrap, host.firstChild);
+  if(keys.length<2) return; // 1枚ならボタン等は不要
+  // 前後ボタン
+  var prev=document.createElement('button'); prev.className='slide-nav prev'; prev.setAttribute('aria-label','前の写真'); prev.innerHTML='‹';
+  var next=document.createElement('button'); next.className='slide-nav next'; next.setAttribute('aria-label','次の写真'); next.innerHTML='›';
+  host.appendChild(prev); host.appendChild(next);
+  // ドット
+  var dots=document.createElement('div'); dots.className='slide-dots';
+  keys.forEach(function(_,i){var d=document.createElement('div'); d.className='dot'+(i===0?' active':''); d.dataset.i=i; dots.appendChild(d);});
+  host.appendChild(dots);
+
+  var slideEls=slidesWrap.querySelectorAll('.slide');
+  var dotEls=dots.querySelectorAll('.dot');
+  var cur=0, timer=null;
+  function show(n){
+    cur=(n+keys.length)%keys.length;
+    slideEls.forEach(function(s,i){s.classList.toggle('active',i===cur);});
+    dotEls.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+  }
+  function nextSlide(){show(cur+1);}
+  function prevSlide(){show(cur-1);}
+  function start(){ if(reduceMotion) return; stop(); timer=setInterval(nextSlide,3000); }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  next.addEventListener('click',function(){nextSlide();start();});
+  prev.addEventListener('click',function(){prevSlide();start();});
+  dotEls.forEach(function(d){d.addEventListener('click',function(){show(parseInt(d.dataset.i));start();});});
+  // ホバー中は自動送りを一時停止
+  host.addEventListener('mouseenter',stop);
+  host.addEventListener('mouseleave',start);
+  start();
+});
+
+// ---- 物件マーキー（自動横スクロール）---- 高画質のみ
+var pfItems=[
+ {k:'seahorseExt',t:'Floating Seahorse',s:'水上ヴィラ 外観'},
+ {k:'underwater',t:'Floating Seahorse',s:'水中ベッドルーム'},
+  {k:'shCutaway',t:'Floating Seahorse',s:'3層構造'},
+ {k:'gLiving',t:'Germany Villa',s:'リビング'},
+ {k:'cazurExt',t:"Côte d'Azur Nice / St. Tropez",s:'外観'},
+ 
+ {k:'gBar',t:'Germany Villa',s:'ラウンジ'},
+ {k:'cazurBed',t:"Côte d'Azur Nice / St. Tropez",s:'ベッドルーム'},
+ {k:'gBath2',t:'Germany Villa',s:'スイート'},
+  {k:'pVillaExt',t:'Floating Seahorse',s:'水上ヴィラ 外観'},
+  {k:'pDeck',t:'Floating Seahorse',s:'サンデッキ'},
+  {k:'pVillaSea',t:'Floating Seahorse',s:'洋上のヴィラ'},
+  {k:'poLobby',t:'Portofino Hotel',s:'グランドロビー'},
+  {k:'poTerrace',t:'Portofino Hotel',s:'テラスダイニング'},
+  {k:'czBar',t:"Côte d'Azur Nice / St. Tropez",s:'バーカウンター'},
+  {k:'czBath',t:"Côte d'Azur Nice / St. Tropez",s:'バスルーム'},
+];
+var CAPTR={"水上ヴィラ 外観": "Floating villa · exterior", "水中ベッドルーム": "Underwater bedroom", "3層構造": "Three levels", "リビング": "Living room", "外観": "Exterior", "ラウンジ": "Lounge", "ベッドルーム": "Bedroom", "スイート": "Suite", "サンデッキ": "Sun deck", "洋上のヴィラ": "Villa at sea", "グランドロビー": "Grand lobby", "テラスダイニング": "Terrace dining", "バーカウンター": "Bar", "バスルーム": "Bathroom", "ビーチクラブ": "Beach club", "リーフに面したファサード": "Reef-facing facade", "中庭のアーケード": "Courtyard arcade", "ハート型の島 空撮": "Heart-shaped island · aerial", "島群 空撮": "The islands · aerial", "リーフ・スノーケリング": "Reef snorkelling", "ナイトライフ": "Nightlife", "対岸のスカイライン": "The skyline across the water", "水上ヴィラ群": "Floating villas", "プール": "Pool", "世界地図型アイランド": "Map-of-the-world island", "プールサイド": "Poolside", "アイランドマップ": "Island map", "回廊": "Corridor", "デッキ": "Deck", "夜のプール": "Pool at night", "眼下の珊瑚礁": "Coral reef below", "ラグーンを泳ぐ": "Swimming the lagoon", "珊瑚": "Coral"};
+function capS(x){return '<span class="lang-ja">'+x+'</span><span class="lang-en">'+(CAPTR[x]||x)+'</span>';}
+function mcard(o){return '<div class="mcard"><img src="'+(IMG[o.k]||'')+'" alt="'+o.t+' '+o.s+'"><div class="mlabel"><b>'+o.t+'</b><span>'+capS(o.s)+'</span></div></div>';}
+(function(){
+  var track=document.getElementById('pfMarquee');
+  var html=pfItems.map(mcard).join('');
+  track.innerHTML=html+html; // 無限ループ用に2倍
+})();
+
+// ---- 島の情景マーキー（逆方向）---- 高画質のみ（低画質のcazurPool/seahorseDayは除外）
+var lifeItems=[
+ {k:'beach',t:'Beach Club',s:'ビーチクラブ'},
+  {k:'poAer3',t:'Portofino Hotel',s:'リーフに面したファサード'},
+  {k:'poCourt',t:'Portofino Hotel',s:'中庭のアーケード'},
+  {k:'pHoney',t:'Honeymoon Island',s:'ハート型の島 空撮'},
+  {k:'pWorldAer',t:'The World Islands',s:'島群 空撮'},
+  {k:'pSnorkel',t:'The Heart of Europe',s:'リーフ・スノーケリング'},
+  {k:'pNight',t:'The Heart of Europe',s:'ナイトライフ'},
+  {k:'pSkyline',t:'Dubai',s:'対岸のスカイライン'},
+  {k:'pAerialRow',t:'The Heart of Europe',s:'水上ヴィラ群'},
+  {k:'czPool',t:"Côte d'Azur Nice / St. Tropez",s:'プール'},
+ {k:'cazurExt',t:"Côte d'Azur Nice / St. Tropez",s:'外観'},
+ {k:'gEntrance',t:'Germany Villa',s:'外観'},
+ {k:'world',t:'The World Islands',s:'世界地図型アイランド'},
+ {k:'gBath1',t:'Germany Villa',s:'プールサイド'},
+ 
+ {k:'map',t:'The Heart of Europe',s:'アイランドマップ'},
+ {k:'gBed',t:'Germany Villa',s:'ベッドルーム'},
+];
+(function(){
+  var track=document.getElementById('lifeMarquee');
+  var html=lifeItems.map(mcard).join('');
+  track.innerHTML=html+html;
+})();
+
+// gallery（Germany Villa 中心＋Côte D'Azur 客室）
+var gal=[
+ {k:'gLiving',t:'Germany Villa',s:'リビング'},
+ {k:'gBar',t:'Germany Villa',s:'ラウンジ'},
+ {k:'gBath1',t:'Germany Villa',s:'プールサイド'},
+ {k:'gEntrance',t:'Germany Villa',s:'外観'},
+ {k:'gBed',t:'Germany Villa',s:'ベッドルーム'},
+ {k:'gBath2',t:'Germany Villa',s:'スイート'},
+ {k:'cazurBed',t:"Côte d'Azur Nice / St. Tropez",s:'ベッドルーム'},
+ {k:'underwater',t:'Floating Seahorse',s:'水中ベッドルーム'},
+  {k:'shCutaway',t:'Floating Seahorse',s:'3層構造'},
+  {k:'czLiving',t:"Côte d'Azur Nice / St. Tropez",s:'リビング'},
+  {k:'czHall',t:"Côte d'Azur Nice / St. Tropez",s:'回廊'},
+  {k:'shDeck',t:'Floating Seahorse',s:'デッキ'},
+  {k:'gNight',t:'Germany Villa',s:'夜のプール'},
+  {k:'pReef',t:'Floating Seahorse',s:'眼下の珊瑚礁'},
+  {k:'pDiver',t:'The Heart of Europe',s:'ラグーンを泳ぐ'},
+  {k:'pCoral2',t:'The Heart of Europe',s:'珊瑚'},
+  {k:'pLounge',t:'The Heart of Europe',s:'ラウンジ'},
+];
+var gg=document.getElementById('galGrid');
+gal.forEach(function(o){
+  var d=document.createElement('div');d.className='g';
+  d.innerHTML='<img src="'+(IMG[o.k]||'')+'" alt="'+o.t+' '+o.s+'"><div class="glabel"><b>'+o.t+'</b>'+capS(o.s)+'</div>';
+  gg.appendChild(d);
+});
+
+// ---- scroll reveal (IntersectionObserver) ----
+(function(){
+  var els=document.querySelectorAll('.reveal, .reveal-img');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in','shown')});return;}
+  var io=new IntersectionObserver(function(ents){
+    ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in','shown');io.unobserve(en.target);}});
+  },{threshold:0.12});
+  els.forEach(function(e){io.observe(e);});
+  // benefits/steps などに段階ディレイを自動付与
+  document.querySelectorAll('.ben-grid .ben').forEach(function(b,i){b.classList.add('reveal','d'+((i%3)+1));io.observe(b);});
+  document.querySelectorAll('.step-row .step').forEach(function(s,i){s.classList.add('reveal','d'+((i%4)+1));io.observe(s);});
+  // 保険1: すでにビューポート内にある要素は即表示
+  requestAnimationFrame(function(){
+    els.forEach(function(e){
+      var r=e.getBoundingClientRect();
+      if(r.top < (window.innerHeight||document.documentElement.clientHeight) && r.bottom>0){e.classList.add('in','shown');}
+    });
+  });
+  // 保険2: 何らかの理由で隠れたままの要素を2.5秒後に強制表示
+  setTimeout(function(){els.forEach(function(e){e.classList.add('shown');});},2500);
+})();
+
+// ---- header scroll ----
+var hdr=document.getElementById('hdr');
+var floatCta=document.getElementById('floatCta');
+window.addEventListener('scroll',function(){
+  var y=window.scrollY;
+  hdr.classList.toggle('scrolled',y>60);
+  // フローティングCTAは少しスクロールしてから出す
+  floatCta.classList.toggle('hidden',y<400);
+});
+
+// ---- smooth scroll ----
+(function(){var root=document.documentElement;
+function setLang(l){l=(l==='en'?'en':'ja');root.setAttribute('data-lang',l);root.setAttribute('lang',l);
+var b=document.querySelectorAll('[data-lang-set]');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',String(b[i].getAttribute('data-lang-set')===l));}
+var ja='https://www.ihg.com/content/jp/ja/japan',en='https://www.ihgplc.com/en';var a=document.querySelectorAll('.ihg-official');for(var j=0;j<a.length;j++){a[j].setAttribute('href',l==='en'?en:ja);}
+var ph=function(id,ja,en){var e=document.getElementById(id);if(e)e.setAttribute('placeholder',l==='en'?en:ja);};ph('mName','山田 太郎','Full name');ph('mMsg','ご検討内容やご希望をお聞かせください','Tell us what you are considering');var sel=document.getElementById('assetSel');if(sel){var oj=['選択してください','〜1億円','1〜5億円','5〜20億円','20億円以上'],oe=['Please select','Up to \u00A5100M','\u00A5100M\u2013500M','\u00A5500M\u20132B','\u00A52B+'];for(var k=0;k<sel.options.length&&k<oj.length;k++){sel.options[k].textContent=(l==='en'?oe[k]:oj[k]);}}var mt=document.getElementById('mTitle'),ms=document.getElementById('mSubmit');if(mt)mt.textContent=(l==='en'?'Book a consultation':'個別相談を予約する');if(ms)ms.textContent=(l==='en'?'Send request':'予約を申し込む');try{localStorage.setItem('anawak_hoe_lang',l);}catch(e){}}
+window.setLang=setLang;var st=null;try{st=localStorage.getItem('anawak_hoe_lang');}catch(e){}
+setLang(st==='en'?'en':'ja');
+document.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.closest('[data-lang-set]');if(b)setLang(b.getAttribute('data-lang-set'));});})();
+function scrollTo2(sel){var el=document.querySelector(sel);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'});
+  document.querySelector('.nav').classList.remove('mobopen');}
+document.querySelectorAll('.nav a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h&&h.length>1){e.preventDefault();scrollTo2(h);}});
+});
+
+// ---- modal ----
+function openModal(type,prop){
+  var ov=document.getElementById('modalOv');
+  var _en=document.documentElement.getAttribute('data-lang')==='en';
+  if(type==='doc'){document.getElementById('mEb').textContent='REQUEST MATERIALS';document.getElementById('mTitle').textContent=_en?'Request materials':'資料を請求する';document.getElementById('mSubmit').textContent=_en?'Request materials':'資料を請求する';}
+  else{document.getElementById('mEb').textContent='PRIVATE CONSULTATION';document.getElementById('mTitle').textContent=_en?'Book a consultation':'個別相談を予約する';document.getElementById('mSubmit').textContent=_en?'Send request':'予約を申し込む';}
+  var pf=document.getElementById('propField');
+  if(prop){pf.style.display='block';document.getElementById('propInput').value=prop;}else{pf.style.display='none';}
+  ov.classList.add('open');document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modalOv').classList.remove('open');document.body.style.overflow='';}
+function fakeSubmit(){alert('（デモ）ありがとうございます。実際の運用では、ここで入力内容が ANAWAK に送信されます。');closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+<style>
+.nav.mobopen{display:flex;position:fixed;top:56px;left:0;right:0;flex-direction:column;background:rgba(15,32,56,.98);padding:20px 22px;gap:6px}
+.nav.mobopen a{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav.mobopen .btn-req{border:1px solid var(--gold-lt);text-align:center;margin-top:8px}
+</style>
+<script>
+/* ANAWAK_VIDEO_KEEPALIVE: 背景映像が止まったままにならないように */
+(function(){
+  var vids=[].slice.call(document.querySelectorAll("video"));
+  if(!vids.length) return;
+  function inView(v){ var b=v.getBoundingClientRect(); return b.top < innerHeight+300 && b.bottom > -300; }
+  function tryPlay(v){ var pr=v.play(); if(pr && pr.catch) pr.catch(function(){}); }
+  function sweep(){ for(var i=0;i<vids.length;i++){ var v=vids[i]; if(inView(v)) tryPlay(v); else v.pause(); } }
+  vids.forEach(function(v){
+    v.muted=true; v.setAttribute("muted","");
+    v.playsInline=true; v.setAttribute("playsinline","");
+    ["loadeddata","canplay","suspend","stalled"].forEach(function(ev){
+      v.addEventListener(ev, function(){ if(inView(v)) tryPlay(v); });
+    });
+  });
+  if(window.IntersectionObserver){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
+    },{rootMargin:"300px"});
+    vids.forEach(function(v){ io.observe(v); });
+  }
+  addEventListener("scroll", sweep, {passive:true});
+  addEventListener("pageshow", sweep);
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden) sweep(); });
+  setTimeout(sweep,300); setTimeout(sweep,1200); setTimeout(sweep,3500); sweep();
+})();
+</script>
+
+</body>
+</html>

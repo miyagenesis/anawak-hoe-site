@@ -1,0 +1,30 @@
+plugins = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/private/tmp/claude-501/-Users-macos-Claude-Code/c7aacc17-ee8b-4b39-a5c2-cc1c0a580c5f/scratchpad/repo"
+publishOrigin = "default"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Robots-Tag = "noindex, nofollow"
