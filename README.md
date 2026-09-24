@@ -3,6 +3,14 @@
 ドバイ沖の人工島 The Heart of Europe のレジデンス販売LP（ANAWAK Real Estate L.L.C / JWDグループ）。
 静的サイトです。ビルド工程はありません。`index.html` をブラウザで開けばそのまま表示されます。
 
+## 公開（正式・唯一）
+
+**🌐 https://miyagenesis.github.io/anawak-hoe-site/**
+
+- このリポジトリが本サイトの唯一の正式ソース（2026-09-25にGitHub Pagesへ一本化）。
+- 公開方式: GitHub Pages（deploy from branch: `main` / `/`）。`main` へ push すると1〜2分後に自動で反映されます。
+- `.nojekyll` 済み。リンク・アセットは全て相対パスなのでサブパス配信でそのまま動作します。
+
 ## 構成
 
 ```
