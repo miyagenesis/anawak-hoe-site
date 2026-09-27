@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ニュース｜ANAWAK — The Heart of Europe</title>
+<title>会社概要｜ANAWAK — The Heart of Europe</title>
 <meta name="description" content="ANAWAK Real Estate（JWDグループ）からのお知らせ。The Heart of Europe の物件販売、IPS への出展、イビサ・フェスティバルの開催情報。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -447,31 +447,33 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 .langtog button[aria-pressed="true"]{background:var(--gold-lt);color:#0f2038}
 </style>
 <style>
-/* ── news page ── */
-body.newspage{background:var(--paper)}
-.news-hero{padding:150px 0 46px;background:linear-gradient(180deg,var(--navy) 0%,#16304f 100%);color:#fff}
-.news-hero .eb{font-family:"Cormorant Garamond",serif;letter-spacing:.34em;font-size:12px;color:var(--gold-lt);margin-bottom:14px}
-.news-hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4.6vw,54px);font-weight:600;line-height:1.1;margin-bottom:10px}
-.news-hero .jp{font-family:"Shippori Mincho",serif;font-size:15px;color:rgba(255,255,255,.72)}
-.news-wrap{padding:60px 0 96px}
-.news-list{background:#eae9e0;border:1px solid #ddd9c9;padding:clamp(18px,3vw,34px)}
-.news-item{display:grid;gap:14px 26px;padding:24px 6px;border-bottom:1px solid rgba(15,32,56,.12)}
-.news-item:last-child{border-bottom:0}
-@media(min-width:820px){.news-item{grid-template-columns:104px minmax(0,1fr) 160px;align-items:start}}
-.news-meta{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
-.news-tag{background:#8a7c2f;color:#fff;font-size:12px;letter-spacing:.12em;padding:5px 12px;line-height:1.4}
-.news-date{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--ink);letter-spacing:.04em}
-.news-body{font-size:14.5px;line-height:2;color:var(--ink)}
-.news-body b{font-weight:700}
-.news-cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#8a7c2f;color:#fff;
-  font-size:13px;letter-spacing:.06em;padding:11px 16px;text-decoration:none;transition:.25s;white-space:nowrap}
-.news-cta:hover{background:#6f6425}
-@media(min-width:820px){.news-cta{justify-self:end}}
-.news-note{margin-top:22px;font-size:11.5px;color:var(--grey);line-height:1.9}
+/* ── company page ── */
+body.companypage{background:var(--paper)}
+.co-hero{padding:150px 0 46px;background:linear-gradient(180deg,var(--navy) 0%,#16304f 100%);color:#fff}
+.co-hero .eb{font-family:"Cormorant Garamond",serif;letter-spacing:.34em;font-size:12px;color:var(--gold-lt);margin-bottom:14px}
+.co-hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4.6vw,54px);font-weight:600;line-height:1.1;margin-bottom:10px}
+.co-hero .jp{font-family:"Shippori Mincho",serif;font-size:15px;color:rgba(255,255,255,.72)}
+.co-wrap{padding:60px 0 96px}
+.co-card{max-width:860px;margin:0 auto;background:linear-gradient(160deg,#132845 0%,#0f2038 60%);border:1px solid rgba(184,151,90,.30);border-radius:12px;padding:clamp(30px,5vw,60px);box-shadow:0 26px 60px rgba(15,32,56,.22)}
+.co-head{display:flex;align-items:center;gap:18px;padding-bottom:26px;margin-bottom:8px;border-bottom:1px solid rgba(184,151,90,.30)}
+.co-emblem{flex:none;width:54px;height:54px;border-radius:50%;border:1.5px solid var(--gold-lt);display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--gold-lt);letter-spacing:.02em}
+.co-name{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:.02em;line-height:1.2}
+.co-name .lt{color:var(--gold-lt)}
+.co-loc{font-family:"Shippori Mincho",serif;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:5px}
+.co-rows{margin-top:14px}
+.co-row{display:grid;grid-template-columns:1fr;gap:3px 24px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.co-row:last-child{border-bottom:0}
+@media(min-width:640px){.co-row{grid-template-columns:220px minmax(0,1fr);align-items:baseline}}
+.co-k{font-family:"Shippori Mincho",serif;font-size:12.5px;letter-spacing:.04em;color:var(--gold-lt)}
+:root[data-lang="en"] .co-k{font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.06em}
+.co-v{font-size:14.5px;line-height:1.85;color:#fff}
+.co-v .num{font-family:"Cormorant Garamond",serif;font-size:17px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.co-v .sub{color:rgba(255,255,255,.62);font-size:13px}
+.co-note{max-width:860px;margin:22px auto 0;font-size:11.5px;color:var(--grey);line-height:1.9}
 .nav a.cur{color:var(--gold-lt)}
 </style>
 </head>
-<body class="newspage">
+<body class="companypage">
 
 <header id="hdr">
   <a href="../" class="brand">ANAW<b>AK</b><small>REAL ESTATE · DUBAI</small></a>
@@ -481,8 +483,8 @@ body.newspage{background:var(--paper)}
     <a href="../#location"><span class="lang-ja">ロケーション</span><span class="lang-en">Location</span></a>
     <a href="../#portfolio"><span class="lang-ja">物件</span><span class="lang-en">Residences</span></a>
     <a href="../#ownership"><span class="lang-ja">所有プラン</span><span class="lang-en">Ownership</span></a>
-    <a href="./" class="cur"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></a>
-    <a href="../company/"><span class="lang-ja">会社概要</span><span class="lang-en">Company</span></a>
+    <a href="../news/"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></a>
+    <a href="./" class="cur"><span class="lang-ja">会社概要</span><span class="lang-en">Company</span></a>
     <a href="../ibiza/" target="_blank" rel="noopener"><span class="lang-ja">娯楽エリア</span><span class="lang-en">Entertainment</span></a>
     <span class="langtog" role="group" aria-label="Language"><button type="button" data-lang-set="en">English</button><button type="button" data-lang-set="ja">日本語</button></span>
     <a class="btn-req" href="../#contact"><span class="lang-ja">個別相談</span><span class="lang-en">Consultation</span></a>
@@ -490,47 +492,61 @@ body.newspage{background:var(--paper)}
   <div class="burger" onclick="document.querySelector('.nav').classList.toggle('mobopen');this.classList.toggle('on')"><span></span><span></span><span></span></div>
 </header>
 
-<section class="news-hero">
+<section class="co-hero">
   <div class="wrap">
-    <div class="eb">NEWS</div>
-    <h1>News</h1>
-    <div class="jp"><span class="lang-ja">ニュース ── ANAWAK Real Estate からのお知らせ</span><span class="lang-en">News ── announcements from ANAWAK Real Estate</span></div>
+    <div class="eb">COMPANY</div>
+    <h1>Company Profile</h1>
+    <div class="jp"><span class="lang-ja">会社概要 ── ANAWAK Real Estate L.L.C.</span><span class="lang-en">Company Profile ── ANAWAK Real Estate L.L.C.</span></div>
   </div>
 </section>
 
-<div class="news-wrap">
+<div class="co-wrap">
   <div class="wrap">
-    <div class="news-list">
-
-      <article class="news-item">
-        <div class="news-meta">
-          <span class="news-tag"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></span>
-          <span class="news-date">2026 Sept.</span>
+    <div class="co-card">
+      <div class="co-head">
+        <div class="co-emblem">A</div>
+        <div>
+          <div class="co-name">ANAWAK <span class="lt">REAL ESTATE</span> L.L.C.</div>
+          <div class="co-loc"><span class="lang-ja">アラブ首長国連邦（UAE）・ドバイ</span><span class="lang-en">Dubai, United Arab Emirates</span></div>
         </div>
-        <div class="news-body"><span class="lang-ja">第22回を迎える<b>IPS</b>には、不動産デベロッパー、投資家、各種機関・団体、イノベーターなどが一堂に集まり、新たな投資機会の発掘、プロジェクトの紹介・展示、そして戦略的パートナーシップの構築を促進する、活気あるビジネス交流の場となった。</span><span class="lang-en">The 22nd <b>IPS</b> brought together real-estate developers, investors, institutions and innovators — a vibrant business forum fostering new investment opportunities, project showcases and strategic partnerships.</span></div>
-        <a class="news-cta" href="https://www.instagram.com/reel/DdCUkxPmZSF/" target="_blank" rel="noopener">▶ Instagram</a>
-      </article>
+      </div>
 
-      <article class="news-item">
-        <div class="news-meta">
-          <span class="news-tag"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></span>
-          <span class="news-date">2026 Sept.</span>
+      <div class="co-rows">
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">商業ライセンス番号</span><span class="lang-en">Trade License No.</span></div>
+          <div class="co-v"><span class="num">1124264</span></div>
         </div>
-        <div class="news-body"><span class="lang-ja">JWD ANAWAKは、家賃保証付き（年間4%×12年間）で、Dubai, Heart of IslandのSeahorseをはじめ、Portofino, Germany Island, Cote d'Azur内の12物件の販売を開始。</span><span class="lang-en">JWD ANAWAK has released 12 residences for sale — with a rental guarantee (4% per year for 12 years) — across Dubai's Heart of Europe, including the Seahorse, Portofino, Germany Island and Cote d'Azur.</span></div>
-        <a class="news-cta" href="https://www.jwd-anawak.com/heart-of-europe/seahorse" target="_blank" rel="noopener">▶ <span class="lang-ja">物件情報</span><span class="lang-en">Property details</span></a>
-      </article>
-
-      <article class="news-item">
-        <div class="news-meta">
-          <span class="news-tag"><span class="lang-ja">ニュース</span><span class="lang-en">News</span></span>
-          <span class="news-date">2026 Sept.</span>
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">ライセンス発行機関</span><span class="lang-en">Licensing Authority</span></div>
+          <div class="co-v"><span class="lang-ja">ドバイ経済観光庁（DET）</span><span class="lang-en">Dubai Department of Economy and Tourism (DET)</span></div>
         </div>
-        <div class="news-body"><span class="lang-ja">ハート・オブ・ヨーロッパでは、シーズンイベント「<b>IBIZA FESTIVAL</b>」を開催中。朝9時のアフターパーティ・ブレックファストショーからプールパーティ、フラワーパワー・ガラディナー、ノクターナ・カバレエ、そして翌朝7時のパーティスイートまで、6つのプログラムが切れ目なく続く。7月31日から10月15日までの77日間、4人のレジデントDJがプールサイドとカバレエのブースに立つ。</span><span class="lang-en">The Heart of Europe is hosting its seasonal event, the <b>IBIZA FESTIVAL</b>. From the 9am after-party breakfast show through the pool party, Flower Power Gala Dinner, Nocturna Cabaret and, at 7am the next morning, the party suites, six programmes run back to back. Across the 77 days from 31 July to 15 October, four resident DJs take the booth at the pool and the cabaret.</span></div>
-        <a class="news-cta" href="../ibiza/" target="_blank" rel="noopener">▶ <span class="lang-ja">詳細・イメージ</span><span class="lang-en">Details & gallery</span></a>
-      </article>
-
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">RERA / ORN 番号</span><span class="lang-en">RERA / ORN No.</span></div>
+          <div class="co-v"><span class="num">1162605</span></div>
+        </div>
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">監督機関</span><span class="lang-en">Regulated by</span></div>
+          <div class="co-v"><span class="lang-ja">ドバイ土地局（DLD）・不動産規制庁（RERA）</span><span class="lang-en">Dubai Land Department (DLD) · Real Estate Regulatory Agency (RERA)</span></div>
+        </div>
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">資本金</span><span class="lang-en">Capital</span></div>
+          <div class="co-v"><span class="num">USD 483,500</span> <span class="sub"><span class="lang-ja">（¥75,000,000）</span><span class="lang-en">(JPY 75,000,000)</span></span></div>
+        </div>
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">総資産額</span><span class="lang-en">Total Assets</span></div>
+          <div class="co-v"><span class="num">USD 46,500,000</span> <span class="sub"><span class="lang-ja">（¥7,200,000,000）</span><span class="lang-en">(JPY 7,200,000,000)</span></span></div>
+        </div>
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">代表者</span><span class="lang-en">Representative</span></div>
+          <div class="co-v"><span class="lang-ja">ハミット・ギュルビュズ</span><span class="lang-en">Hamit Gurbuz</span></div>
+        </div>
+        <div class="co-row">
+          <div class="co-k"><span class="lang-ja">登記住所</span><span class="lang-en">Registered Address</span></div>
+          <div class="co-v">Unit 806, Makateb Building, Port Saeed, Deira, Dubai, U.A.E. — P.O. Box 237551</div>
+        </div>
+      </div>
     </div>
-    <p class="news-note"><span class="lang-ja">※ 掲載内容は発表時点の情報です。価格・仕様・開催内容は変更となる場合があります。</span><span class="lang-en">* Information is current as of the announcement date. Prices, specifications and event details are subject to change.</span></p>
+    <p class="co-note"><span class="lang-ja">※ 本ページの情報は発表時点のものです。ANAWAK Real Estate L.L.C. は JWD グループの一員として、ドバイ不動産の取得・所有・管理をサポートします。</span><span class="lang-en">* Information on this page is current as of the date of publication. ANAWAK Real Estate L.L.C., a member of the JWD Group, supports the acquisition, ownership and management of Dubai real estate.</span></p>
   </div>
 </div>
 
@@ -550,7 +566,7 @@ body.newspage{background:var(--paper)}
     </div>
     <div class="foot-col">
       <h5>ABOUT</h5>
-      <a href="../company/"><span class="lang-ja">会社概要</span><span class="lang-en">Company profile</span></a>
+      <a href="./"><span class="lang-ja">会社概要</span><span class="lang-en">Company profile</span></a>
       <a href="../#concept"><span class="lang-ja">コンセプト</span><span class="lang-en">Concept</span></a>
       <a href="../#why"><span class="lang-ja">所有する理由</span><span class="lang-en">Why own</span></a>
       <a href="../#ownership"><span class="lang-ja">所有プラン</span><span class="lang-en">Ownership plans</span></a>
