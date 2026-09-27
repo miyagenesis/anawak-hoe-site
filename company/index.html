@@ -455,8 +455,9 @@ body.companypage{background:var(--paper)}
 .co-hero .jp{font-family:"Shippori Mincho",serif;font-size:15px;color:rgba(255,255,255,.72)}
 .co-wrap{padding:60px 0 96px}
 .co-card{max-width:860px;margin:0 auto;background:linear-gradient(160deg,#132845 0%,#0f2038 60%);border:1px solid rgba(184,151,90,.30);border-radius:12px;padding:clamp(30px,5vw,60px);box-shadow:0 26px 60px rgba(15,32,56,.22)}
-.co-head{display:flex;align-items:center;gap:18px;padding-bottom:26px;margin-bottom:8px;border-bottom:1px solid rgba(184,151,90,.30)}
-.co-emblem{flex:none;width:54px;height:54px;border-radius:50%;border:1.5px solid var(--gold-lt);display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--gold-lt);letter-spacing:.02em}
+.co-head{display:flex;align-items:center;gap:22px;padding-bottom:26px;margin-bottom:8px;border-bottom:1px solid rgba(184,151,90,.30);flex-wrap:wrap}
+.co-logo{flex:none;width:136px;height:auto;display:block}
+@media(max-width:520px){.co-logo{width:108px}}
 .co-name{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:.02em;line-height:1.2}
 .co-name .lt{color:var(--gold-lt)}
 .co-loc{font-family:"Shippori Mincho",serif;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:5px}
@@ -504,7 +505,7 @@ body.companypage{background:var(--paper)}
   <div class="wrap">
     <div class="co-card">
       <div class="co-head">
-        <div class="co-emblem">A</div>
+        <img class="co-logo" src="../assets/img/anawak-emblem.png" alt="ANAWAK Real Estate" width="600" height="300">
         <div>
           <div class="co-name">ANAWAK <span class="lt">REAL ESTATE</span> L.L.C.</div>
           <div class="co-loc"><span class="lang-ja">アラブ首長国連邦（UAE）・ドバイ</span><span class="lang-en">Dubai, United Arab Emirates</span></div>
