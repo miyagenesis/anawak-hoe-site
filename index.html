@@ -93,6 +93,21 @@ header.scrolled{background:rgba(15,32,56,.94);backdrop-filter:blur(10px);padding
 .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.3em;font-family:"Cormorant Garamond",serif;text-align:center}
 .hero-scroll .line{width:1px;height:44px;background:rgba(255,255,255,.4);margin:10px auto 0;animation:scrollLine 2s infinite}
 @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* hero cinema slideshow */
+.hero-cine{position:absolute;inset:0;z-index:1;overflow:hidden;background:var(--navy)}
+.hero-cine .cine-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;will-change:opacity}
+.hero-cine .cine-slide.on{opacity:1}
+.hero-cine .cine-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.03)}
+.hero-cine .cine-slide.on .cine-img{animation:kenBurns 3.6s ease-out forwards}
+.hero-cine .cine-slide:nth-child(2n).on .cine-img{animation-name:kenBurns2}
+.hero-cine .cine-slide:nth-child(3n).on .cine-img{animation-name:kenBurns3}
+@keyframes kenBurns{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.17) translate(-2.5%,-1.5%)}}
+@keyframes kenBurns2{from{transform:scale(1.17) translate(-2%,0)}to{transform:scale(1.03) translate(1.5%,-1.2%)}}
+@keyframes kenBurns3{from{transform:scale(1.05) translate(2%,-1%)}to{transform:scale(1.18) translate(-1%,1.6%)}}
+.hero-cine .cine-vid video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-cine .cine-duo{display:flex;gap:2px}
+.hero-cine .cine-duo video{width:50%;height:100%;object-fit:cover;display:block}
+@media(prefers-reduced-motion:reduce){.hero-cine .cine-slide.on .cine-img{animation:none}}
 
 /* ---------- trust bar ---------- */
 .trustbar{background:var(--navy);color:#fff;padding:0}
@@ -522,10 +537,21 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 <div id="top"></div>
 <section class="hero">
   <div class="hero-fallback" id="heroFallback"></div>
-  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
-    
-    <source src="assets/video/hero.mp4" type="video/mp4">
-  </video>
+  <div class="hero-cine" id="heroCine">
+    <div class="cine-slide on"><div class="cine-img" style="background-image:url(assets/img/shCutaway.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shUnderRoom.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/underwater.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/pVillaExt.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/pVillaSea.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shDeck.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shDusk.jpg)"></div></div>
+    <div class="cine-slide cine-duo">
+      <video muted loop playsinline preload="none" data-src="ibiza/assets/video/vSalon.mp4" poster="ibiza/assets/img/p_vSalon.jpg"></video>
+      <video muted loop playsinline preload="none" data-src="ibiza/assets/video/vBooth.mp4" poster="ibiza/assets/img/p_vBooth.jpg"></video>
+    </div>
+    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="assets/video/underwater.mp4" poster="assets/img/underwater-poster.jpg"></video></div>
+    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="assets/video/hero.mp4" poster="assets/img/hero-poster.jpg"></video></div>
+  </div>
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-inner">
     <div class="eyebrow">MANAGED BY IHG GROUP · THE HEART OF EUROPE, DUBAI</div>
@@ -1024,7 +1050,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 // ---- 画像を各所へ流し込み ----
 function setBg(id,key){var e=document.getElementById(id);if(e&&IMG[key])e.style.backgroundImage="url("+IMG[key]+")";}
 function setImg(id,key){var e=document.getElementById(id);if(e&&IMG[key])e.src=IMG[key];}
-setBg('heroFallback','hero');            // 動画が読めない時のフォールバック
+setBg('heroFallback','shCutaway');       // 最初のカット（シーホース）を即時フォールバック表示
 setImg('imgWorld','world');
 setImg('imgSeahorseConcept','seahorseExt'); // 720空撮→1400夕景に格上げ
 setImg('imgMap','map');
@@ -1258,6 +1284,30 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
   addEventListener("pageshow", sweep);
   document.addEventListener("visibilitychange", function(){ if(!document.hidden) sweep(); });
   setTimeout(sweep,300); setTimeout(sweep,1200); setTimeout(sweep,3500); sweep();
+})();
+/* ---- hero cinema: 各カット約2秒で順送り（静止画はKen Burns、縦動画2本は左右並び） ---- */
+(function(){
+  var cine=document.getElementById('heroCine'); if(!cine) return;
+  var slides=[].slice.call(cine.querySelectorAll('.cine-slide'));
+  if(slides.length<2) return;
+  function loadVids(sl){ [].forEach.call(sl.querySelectorAll('video[data-src]'),function(v){ if(!v.getAttribute('src')){ v.setAttribute('src', v.getAttribute('data-src')); v.load&&v.load(); } }); }
+  function playVids(sl){ [].forEach.call(sl.querySelectorAll('video'),function(v){ try{v.currentTime=0;}catch(e){} var p=v.play&&v.play(); if(p&&p.catch){p.catch(function(){});} }); }
+  function pauseVids(sl){ [].forEach.call(sl.querySelectorAll('video'),function(v){ try{v.pause();}catch(e){} }); }
+  var cur=0, DUR=2000, timer=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function show(n){
+    for(var j=0;j<slides.length;j++){
+      if(j===n){ slides[j].classList.add('on'); loadVids(slides[j]); playVids(slides[j]); }
+      else { if(slides[j].classList.contains('on')) pauseVids(slides[j]); slides[j].classList.remove('on'); }
+    }
+    loadVids(slides[(n+1)%slides.length]);
+  }
+  show(0);
+  if(reduce) return;
+  function tick(){ cur=(cur+1)%slides.length; show(cur); }
+  function start(){ clearInterval(timer); timer=setInterval(tick,DUR); }
+  start();
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){clearInterval(timer);} else {start();} });
 })();
 </script>
 
