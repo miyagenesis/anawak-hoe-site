@@ -232,7 +232,7 @@ section{padding:110px 0}
 .own-col li{padding:11px 0 11px 26px;position:relative;font-size:14.5px;line-height:1.75;border-top:1px solid var(--line)}
 .own-col .perk{margin:20px 0;padding:16px 20px;background:linear-gradient(120deg,rgba(184,151,90,.14),rgba(184,151,90,.05));border:1px solid var(--gold);border-radius:4px;display:flex;align-items:center;gap:14px}
 .own-col.alt .perk{background:linear-gradient(120deg,rgba(203,181,131,.22),rgba(203,181,131,.06));border-color:var(--gold-lt)}
-.own-col .perk .pn{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600;color:var(--gold-deep);line-height:1;white-space:nowrap}
+.own-col .perk .pn{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-size:32px;font-weight:600;color:var(--gold-deep);line-height:1;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
 .own-col.alt .perk .pn{color:var(--gold-lt)}
 .own-col .perk .pt{font-size:13.5px;line-height:1.55}
 .own-col .perk .pt b{display:block;font-size:15px;color:var(--navy);margin-bottom:2px}
@@ -248,7 +248,7 @@ section{padding:110px 0}
 .steps{background:var(--paper)}
 .step-row{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px;counter-reset:s}
 .step{position:relative;padding-top:22px}
-.step .sn{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--gold-deep);letter-spacing:.1em;margin-bottom:14px}
+.step .sn{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-size:14px;color:var(--gold-deep);letter-spacing:.1em;margin-bottom:14px;font-variant-numeric:lining-nums}
 .step .bar{height:2px;background:var(--line);position:relative;margin-bottom:22px}
 .step .bar::after{content:"";position:absolute;left:0;top:0;height:2px;width:34px;background:var(--gold)}
 .step h4{font-family:"Shippori Mincho",serif;font-size:18px;color:var(--navy);margin-bottom:10px;font-weight:600}
@@ -402,7 +402,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 .split-txt h2{font-family:"Shippori Mincho",serif;font-size:clamp(24px,3vw,34px);line-height:1.5;color:var(--navy);font-weight:600;margin:14px 0 22px}
 .split-txt p{color:var(--grey);line-height:2.05;margin-bottom:16px}
 .split-badge{display:inline-flex;align-items:baseline;gap:8px;margin-top:10px;padding:12px 20px;background:var(--navy);color:#fff;border-radius:3px}
-.split-badge b{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--gold-lt)}
+.split-badge b{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-size:24px;color:var(--gold-lt);font-variant-numeric:lining-nums tabular-nums}
 .split-badge span{font-size:12px;color:rgba(255,255,255,.75)}
 @media(max-width:960px){.split .wrap{grid-template-columns:1fr;gap:30px}.split.rev .wrap{direction:ltr}}
 
@@ -545,10 +545,9 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/pVillaSea.jpg)"></div></div>
     <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shDeck.jpg)"></div></div>
     <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shDusk.jpg)"></div></div>
-    <div class="cine-slide cine-duo">
-      <video muted loop playsinline preload="none" data-src="ibiza/assets/video/vSalon.mp4" poster="ibiza/assets/img/p_vSalon.jpg"></video>
-      <video muted loop playsinline preload="none" data-src="ibiza/assets/video/vBooth.mp4" poster="ibiza/assets/img/p_vBooth.jpg"></video>
-    </div>
+    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vSalon.mp4" poster="ibiza/assets/img/p_vSalon.jpg"></video></div>
+    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vBooth.mp4" poster="ibiza/assets/img/p_vBooth.jpg"></video></div>
+    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vFoam.mp4" poster="ibiza/assets/img/p_vFoam.jpg"></video></div>
     <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="assets/video/underwater.mp4" poster="assets/img/underwater-poster.jpg"></video></div>
     <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="assets/video/hero.mp4" poster="assets/img/hero-poster.jpg"></video></div>
   </div>
@@ -1293,8 +1292,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
   function loadVids(sl){ [].forEach.call(sl.querySelectorAll('video[data-src]'),function(v){ if(!v.getAttribute('src')){ v.setAttribute('src', v.getAttribute('data-src')); v.load&&v.load(); } }); }
   function playVids(sl){ [].forEach.call(sl.querySelectorAll('video'),function(v){ try{v.currentTime=0;}catch(e){} var p=v.play&&v.play(); if(p&&p.catch){p.catch(function(){});} }); }
   function pauseVids(sl){ [].forEach.call(sl.querySelectorAll('video'),function(v){ try{v.pause();}catch(e){} }); }
-  var cur=0, DUR=2000, timer=null;
+  var cur=0, timer=null;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function durOf(n){ return slides[n].querySelector('video') ? 3000 : 2000; } // 動画3秒・画像2秒
   function show(n){
     for(var j=0;j<slides.length;j++){
       if(j===n){ slides[j].classList.add('on'); loadVids(slides[j]); playVids(slides[j]); }
@@ -1304,10 +1304,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
   }
   show(0);
   if(reduce) return;
-  function tick(){ cur=(cur+1)%slides.length; show(cur); }
-  function start(){ clearInterval(timer); timer=setInterval(tick,DUR); }
-  start();
-  document.addEventListener('visibilitychange',function(){ if(document.hidden){clearInterval(timer);} else {start();} });
+  function tick(){ cur=(cur+1)%slides.length; show(cur); schedule(); }
+  function schedule(){ clearTimeout(timer); timer=setTimeout(tick, durOf(cur)); }
+  schedule();
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){clearTimeout(timer);} else {schedule();} });
 })();
 </script>
 
