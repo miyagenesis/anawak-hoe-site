@@ -97,13 +97,9 @@ header.scrolled{background:rgba(15,32,56,.94);backdrop-filter:blur(10px);padding
 .hero-cine{position:absolute;inset:0;z-index:1;overflow:hidden;background:var(--navy)}
 .hero-cine .cine-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;will-change:opacity}
 .hero-cine .cine-slide.on{opacity:1}
-.hero-cine .cine-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.03)}
-.hero-cine .cine-slide.on .cine-img{animation:kenBurns 3.6s ease-out forwards}
-.hero-cine .cine-slide:nth-child(2n).on .cine-img{animation-name:kenBurns2}
-.hero-cine .cine-slide:nth-child(3n).on .cine-img{animation-name:kenBurns3}
-@keyframes kenBurns{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.17) translate(-2.5%,-1.5%)}}
-@keyframes kenBurns2{from{transform:scale(1.17) translate(-2%,0)}to{transform:scale(1.03) translate(1.5%,-1.2%)}}
-@keyframes kenBurns3{from{transform:scale(1.05) translate(2%,-1%)}to{transform:scale(1.18) translate(-1%,1.6%)}}
+.hero-cine .cine-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1)}
+.hero-cine .cine-slide.on .cine-img{animation:kenZoomOut 2s ease-out forwards}
+@keyframes kenZoomOut{from{transform:scale(1.16)}to{transform:scale(1)}}
 .hero-cine .cine-vid video{width:100%;height:100%;object-fit:cover;display:block}
 .hero-cine .cine-duo{display:flex;gap:2px}
 .hero-cine .cine-duo video{width:50%;height:100%;object-fit:cover;display:block}
@@ -436,8 +432,8 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 /* ===== Seahorse signature feature ===== */.shf{background:var(--navy);color:#fff;position:relative;overflow:hidden}
 .shf .wrap{position:relative;z-index:2}
 .shf-head{text-align:center;max-width:900px;margin:0 auto 56px}
-.shf-head .ihg-line{display:inline-flex;align-items:center;gap:12px;margin-bottom:24px;padding:8px 20px;background:#fff;border-radius:3px}
-.shf-head .ihg-line img{height:26px}
+.shf-head .ihg-line{display:inline-flex;align-items:center;justify-content:center;margin-bottom:24px;padding:14px 20px;background:#fff;border-radius:4px}
+.shf-head .ihg-line img{width:220px;max-width:82vw;height:auto;display:block}
 .shf-head .eb{font-family:"Cormorant Garamond",serif;letter-spacing:.28em;font-size:12px;color:var(--gold-lt);margin-bottom:16px}
 .shf-head h2{font-family:"Shippori Mincho",serif;font-size:clamp(24px,3.4vw,40px);line-height:1.5;font-weight:600;margin-bottom:24px}
 .shf-head h2 .hl{color:var(--gold-lt)}
@@ -538,7 +534,8 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 <section class="hero">
   <div class="hero-fallback" id="heroFallback"></div>
   <div class="hero-cine" id="heroCine">
-    <div class="cine-slide on"><div class="cine-img" style="background-image:url(assets/img/shCutaway.jpg)"></div></div>
+    <div class="cine-slide on"><div class="cine-img" style="background-image:url(assets/img/shHero.jpg)"></div></div>
+    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shCutaway.jpg)"></div></div>
     <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shUnderRoom.jpg)"></div></div>
     <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/underwater.jpg)"></div></div>
     <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/pVillaExt.jpg)"></div></div>
@@ -568,7 +565,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 <!-- TRUST BAR -->
 <div class="trustbar">
   <div class="trust-grid">
-    <div class="t"><div class="num">12<small style="font-size:20px"><span class="lang-ja">年</span><span class="lang-en">yrs</span></small></div><div class="lb"><span class="lang-ja">家賃保証（4%）・<br><span style="opacity:.6">運営サポート体制</span></span><span class="lang-en">Rental guarantee (4%) &<br><span style="opacity:.6">operational support</span></span></div></div>
+    <div class="t"><div class="num">12<small style="font-size:20px"><span class="lang-ja">年</span><span class="lang-en">yrs</span></small></div><div class="lb"><span class="lang-ja">家賃保証（年間4%）・<br><span style="opacity:.6">運営サポート体制</span></span><span class="lang-en">Rental guarantee (4%) &<br><span style="opacity:.6">operational support</span></span></div></div>
     <div class="t"><div class="num">0<small style="font-size:20px">%</small></div><div class="lb"><span class="lang-ja">UAEの所得税・<br>相続税・譲渡益税</span><span class="lang-en">UAE income, inheritance<br>& capital-gains tax</span></div></div>
     <div class="t"><div class="num">~4<small style="font-size:20px">km</small></div><div class="lb"><span class="lang-ja">ドバイ本土沖<br><span style="opacity:.6">プライベートアイランド</span></span><span class="lang-en">Off mainland Dubai<br><span style="opacity:.6">a private island</span></span></div></div>
     <div class="t"><div class="num">13</div><div class="lb"><span class="lang-ja">ANAWAK厳選<br>販売中の物件</span><span class="lang-en">ANAWAK-curated<br>residences for sale</span></div></div>
@@ -585,7 +582,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     <h2><span class="lang-ja">自分のために、世界の一部を所有する。<br><span class="hl">IHGグループの安心</span>と、ドバイの海がもたらす<span class="hl">極上のラグジュアリー</span>。</span><span class="lang-en">Own a piece of the world, for yourself.<br>The reassurance of <span class="hl">the IHG Group</span>, and the <span class="hl">consummate luxury</span> the Dubai sea brings.</span></h2>
     <p class="lead-lg"><span class="lang-ja">── 海上に浮かぶヨーロッパ。それは、人生の誇りとなる「究極の資産」。</span><span class="lang-en">── A Europe afloat on the sea — the "ultimate asset," a pride of a lifetime.</span></p>
     <p><span class="lang-ja">ドバイ沖約4kmに広がる、世界で唯一無二のプライベートアイランド・リゾート「The Heart of Europe」。ここで展開されるレジデンスは、単なる不動産にとどまりません。世界最速で成長を続けるドバイの圧倒的な経済価値と、ヨーロッパの文化を凝縮した類まれな美しさが融合した、次世代へ継ぐべきライフスタイル資産です。</span><span class="lang-en">About 4km off the coast of Dubai lies The Heart of Europe, a private-island resort unlike any other in the world. The residences here are far more than real estate. Uniting the overwhelming economic momentum of the world's fastest-growing city with the rare beauty of a concentrated Europe, they are lifestyle assets to be passed on to the next generation.</span></p>
-    <p><span class="lang-ja">そして何より、世界的な信頼を誇る<span class="em">「IHGグループ」がプロジェクトを手がけ</span>、さらに<span class="em">12年間にわたる家賃保証（4%）・運営サポート</span>を継続。持つことのステイタスと、円安やインフレに備える実物資産としての確かさを同時に叶える、新しい所有のかたちがここにあります。</span><span class="lang-en">Above all, the globally trusted <span class="em">IHG Group is behind the project</span>, with a <span class="em">12-year rental guarantee (4%) and operational support</span>. Here is a new form of ownership that delivers both the status of holding it and the assurance of a tangible asset — a hedge against a weak yen and inflation.</span></p>
+    <p><span class="lang-ja">そして何より、世界的な信頼を誇る<span class="em">「IHGグループ」がプロジェクトを手がけ</span>、さらに<span class="em">12年間にわたる家賃保証（年間4%）・運営サポート</span>を継続。持つことのステイタスと、円安やインフレに備える実物資産としての確かさを同時に叶える、新しい所有のかたちがここにあります。</span><span class="lang-en">Above all, the globally trusted <span class="em">IHG Group is behind the project</span>, with a <span class="em">12-year rental guarantee (4% p.a.) and operational support</span>. Here is a new form of ownership that delivers both the status of holding it and the assurance of a tangible asset — a hedge against a weak yen and inflation.</span></p>
   </div>
 </section>
 
@@ -668,7 +665,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
       <div class="ben"><div class="n">— 01</div><h3><span class="lang-ja">IHGグループによるプロデュース</span><span class="lang-en">Produced by the IHG Group</span></h3><p><span class="lang-ja">世界最高峰のホスピタリティを誇る IHGグループがプロジェクトを手掛け、品質と価値の維持を全面的にバックアップ。揺るぎない信頼が価値を支えます。</span><span class="lang-en">The IHG Group, renowned for world-class hospitality, is behind the project and fully backs the preservation of quality and value. Unshakeable trust supports that value.</span></p></div>
       <div class="ben"><div class="n">— 02</div><h3><span class="lang-ja">ウォーターフロントの希少性</span><span class="lang-en">Waterfront scarcity</span></h3><p><span class="lang-ja">海上・人工島という物理的に限られた供給。海に面した土地はこれ以上簡単には生まれません。希少性が価値を支えます。</span><span class="lang-en">A physically limited supply of sea-borne, man-made land. Waterfront land like this will not easily be created again. Scarcity supports value.</span></p></div>
       <div class="ben"><div class="n">— 03</div><h3><span class="lang-ja">世界的都市での不動産の所有</span><span class="lang-en">Real estate in a global city</span></h3><p><span class="lang-ja">単なる「部屋」ではなく、「ヨーロッパの文化を所有する」というストーリー性。世界的都市における不動産の所有と、価値の維持を見据えた実物資産です。</span><span class="lang-en">Not merely a "room," but the narrative of "owning European culture." A tangible asset — real estate in a world city, held with the preservation of value in mind.</span></p></div>
-      <div class="ben"><div class="n">— 04</div><h3><span class="lang-ja">12年間家賃保証（4%）・運営サポート</span><span class="lang-en">12-year rental guarantee (4%) & operational support</span></h3><p><span class="lang-ja">対象の全物件で、12年間継続の家賃保証（4%）と運営サポート体制。保有中も安心してお任せいただける仕組みを整えています。</span><span class="lang-en">Every eligible residence comes with a rental guarantee (4%) and an operational-support structure that continue for 12 years — a framework you can entrust with confidence throughout ownership.</span></p></div>
+      <div class="ben"><div class="n">— 04</div><h3><span class="lang-ja">12年間家賃保証（年間4%）・運営サポート</span><span class="lang-en">12-year rental guarantee (4% p.a.) & operational support</span></h3><p><span class="lang-ja">対象の全物件で、12年間継続の家賃保証（年間4%）と運営サポート体制。保有中も安心してお任せいただける仕組みを整えています。</span><span class="lang-en">Every eligible residence comes with a rental guarantee (4% p.a.) and an operational-support structure that continue for 12 years — a framework you can entrust with confidence throughout ownership.</span></p></div>
       <div class="ben"><div class="n">— 05</div><h3><span class="lang-ja">税制メリット</span><span class="lang-en">Tax advantages</span></h3><p><span class="lang-ja">UAEでは個人所得税・相続税・譲渡益税が 0%（税務上の居住実態が前提）。円安やインフレに備える実物資産の保全を支えます。</span><span class="lang-en">In the UAE, personal income, inheritance and capital-gains taxes are 0% (subject to bona-fide tax residency), supporting the preservation of a tangible asset against a weak yen and inflation.</span></p></div>
       <div class="ben"><div class="n">— 06</div><h3><span class="lang-ja">家具付きレジデンス</span><span class="lang-en">Fully furnished residences</span></h3><p><span class="lang-ja">対象物件はすべて家具付き。とりわけ Floating Seahorse は、全ての家具が Bentley 社製という贅を尽くした仕様です。</span><span class="lang-en">All eligible residences come fully furnished. The Floating Seahorse, in particular, is appointed to the highest indulgence — every piece of furniture by Bentley.</span></p></div>
     </div>
@@ -708,7 +705,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <div class="prop-facts">
           <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv">$7,352,000</div></div>
           <div class="f"><div class="fk">Type</div><div class="fv" style="font-size:16px"><span class="lang-ja">水上ヴィラ / 家具付き</span><span class="lang-en">Floating villa / furnished</span></div></div>
-          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（4%）</span><span class="lang-en">12-year rental guarantee (4%)</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（年間4%）</span><span class="lang-en">12-year rental guarantee (4% p.a.)</span></div></div>
         </div>
         <div class="cta-row">
           <div class="btn-sm solid" onclick="openModal('consult','Floating Seahorse')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
@@ -728,7 +725,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <div class="prop-facts">
           <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv" style="font-size:20px">$845,000〜$1,263,000</div></div>
           <div class="f"><div class="fk">Type</div><div class="fv" style="font-size:16px"><span class="lang-ja">5部屋 / 家具付き</span><span class="lang-en">5 units / furnished</span></div></div>
-          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（4%）</span><span class="lang-en">12-year rental guarantee (4%)</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（年間4%）</span><span class="lang-en">12-year rental guarantee (4% p.a.)</span></div></div>
         </div>
         <div class="cta-row">
           <div class="btn-sm solid" onclick="openModal('consult','Portofino Hotel')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
@@ -755,7 +752,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <div class="prop-facts">
           <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv">$8,170,000</div></div>
           <div class="f"><div class="fk">Type</div><div class="fv" style="font-size:16px"><span class="lang-ja">一棟ヴィラ / 家具付き</span><span class="lang-en">Standalone villa / furnished</span></div></div>
-          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（4%）</span><span class="lang-en">12-year rental guarantee (4%)</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（年間4%）</span><span class="lang-en">12-year rental guarantee (4% p.a.)</span></div></div>
         </div>
         <div class="cta-row">
           <div class="btn-sm solid" onclick="openModal('consult','Germany Villa')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
@@ -787,7 +784,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <div class="prop-facts">
           <div class="f"><div class="fk"><span class="lang-ja">参考価格</span><span class="lang-en">Indicative price</span></div><div class="fv" style="font-size:19px">$681,000〜$860,000</div></div>
           <div class="f"><div class="fk"><span class="lang-ja">取扱</span><span class="lang-en">Availability</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">5部屋 / 家具付き</span><span class="lang-en">5 units / furnished</span></div></div>
-          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（4%）</span><span class="lang-en">12-year rental guarantee (4%)</span></div></div>
+          <div class="f"><div class="fk"><span class="lang-ja">オーナー優待</span><span class="lang-en">Owner privileges</span></div><div class="fv" style="font-size:16px"><span class="lang-ja">12年間家賃保証（年間4%）</span><span class="lang-en">12-year rental guarantee (4% p.a.)</span></div></div>
         </div>
         <div class="cta-row">
           <div class="btn-sm solid" onclick="openModal('consult','Côte d’Azur Nice / St. Tropez')"><span class="lang-ja">この物件を相談する</span><span class="lang-en">Enquire about this residence</span></div>
@@ -833,14 +830,14 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     <div class="shf-lead reveal d1">
       <p><span class="lang-ja">── そこは、地図のどこにもない、世界で最も美しい場所。</span><span class="lang-en">── A place found on no map, the most beautiful in the world.</span></p>
       <p><span class="lang-ja">ドバイ沖約4km、碧く輝くペルシャ湾の洋上に、ヨーロッパの美しい街並みをそのままに再現したリゾートアイランド「The Heart of Europe」。島へと渡る手段は、プライベート・クルーザー。喧騒から完全に切り離されたこの特別な空間は、選ばれし者だけが許される<span class="gold">究極のプライベートアイランド</span>です。</span><span class="lang-en">About 4km off Dubai, on the shimmering azure of the Persian Gulf, The Heart of Europe recreates the beautiful streetscapes of Europe. You reach it by private cruiser. Completely severed from the clamour, this special place is <span class="gold">the ultimate private island</span> — permitted only to the chosen few.</span></p>
-      <p><span class="lang-ja">世界最高峰のホスピタリティを誇る<span class="gold">「IHGグループ」</span>が手掛け、すべてのレジデンスにおいて<span class="gold">12年間にわたる家賃保証（4%）・運営サポート</span>を継続。満ち足りた歓びと、揺るぎない価値の維持が調和する、かつてないラグジュアリー体験が、いま幕を開けます。</span><span class="lang-en">Crafted by <span class="gold">the IHG Group</span>, renowned for world-class hospitality, every residence carries <span class="gold">a 12-year rental guarantee (4%) and operational support</span>. An unprecedented luxury experience — where profound delight and the steadfast preservation of value are in harmony — now begins.</span></p>
+      <p><span class="lang-ja">世界最高峰のホスピタリティを誇る<span class="gold">「IHGグループ」</span>が手掛け、すべてのレジデンスにおいて<span class="gold">12年間にわたる家賃保証（年間4%）・運営サポート</span>を継続。満ち足りた歓びと、揺るぎない価値の維持が調和する、かつてないラグジュアリー体験が、いま幕を開けます。</span><span class="lang-en">Crafted by <span class="gold">the IHG Group</span>, renowned for world-class hospitality, every residence carries <span class="gold">a 12-year rental guarantee (4% p.a.) and operational support</span>. An unprecedented luxury experience — where profound delight and the steadfast preservation of value are in harmony — now begins.</span></p>
     </div>
 
     <div class="shf-privileges">
       <div class="shf-priv reveal d1">
         <div class="pnum">01</div>
         <h3><span class="lang-ja">IHGグループが手掛ける、比類なきホスピタリティと運営サポート</span><span class="lang-en">Unrivalled hospitality and operational support by the IHG Group</span></h3>
-        <p><span class="lang-ja">世界中の要人やセレブリティを魅了し続ける IHGグループが、このリゾートの品質と価値を全面バックアップ。さらに12年間にわたる家賃保証（4%）・運営サポートにより、オーナーの皆様に優美な時間と、円安やインフレに備える実物資産としての安心をお届けします。</span><span class="lang-en">The IHG Group, which continues to captivate dignitaries and celebrities worldwide, fully backs the quality and value of this resort. With a 12-year rental guarantee (4%) and operational support, owners are assured of gracious time and the security of a tangible asset — a hedge against a weak yen and inflation.</span></p>
+        <p><span class="lang-ja">世界中の要人やセレブリティを魅了し続ける IHGグループが、このリゾートの品質と価値を全面バックアップ。さらに12年間にわたる家賃保証（年間4%）・運営サポートにより、オーナーの皆様に優美な時間と、円安やインフレに備える実物資産としての安心をお届けします。</span><span class="lang-en">The IHG Group, which continues to captivate dignitaries and celebrities worldwide, fully backs the quality and value of this resort. With a 12-year rental guarantee (4% p.a.) and operational support, owners are assured of gracious time and the security of a tangible asset — a hedge against a weak yen and inflation.</span></p>
       </div>
       <div class="shf-priv reveal d2">
         <div class="pnum">02</div>
@@ -916,7 +913,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <ul>
           <li><span class="lang-ja">物件を単独で所有する、最も自由度の高いかたち</span><span class="lang-en">Sole ownership of a residence — the most flexible form</span></li>
           <li><span class="lang-ja">対象物件はすべて家具付き</span><span class="lang-en">All eligible residences are fully furnished</span></li>
-          <li><span class="lang-ja">12年間家賃保証（4%）・運営サポート体制</span><span class="lang-en">12-year rental guarantee (4%) and operational support</span></li>
+          <li><span class="lang-ja">12年間家賃保証（年間4%）・運営サポート体制</span><span class="lang-en">12-year rental guarantee (4% p.a.) and operational support</span></li>
           <li><span class="lang-ja">資産の承継・再配分を見据えた保有に</span><span class="lang-en">For holdings with succession and reallocation in view</span></li>
         </ul>
       </div>
@@ -929,7 +926,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <ul>
           <li><span class="lang-ja">1口 $65,000（約¥10,000,000）で、グループでのオーナー権利を獲得</span><span class="lang-en">Acquire group ownership rights at $65,000 (approx. ¥10,000,000) per share</span></li>
           <li><span class="lang-ja">超高級物件へ、より始めやすい規模から参画</span><span class="lang-en">Enter an ultra-luxury asset at a more accessible scale</span></li>
-          <li><span class="lang-ja">12年間家賃保証（4%）・運営サポート体制</span><span class="lang-en">12-year rental guarantee (4%) and operational support</span></li>
+          <li><span class="lang-ja">12年間家賃保証（年間4%）・運営サポート体制</span><span class="lang-en">12-year rental guarantee (4% p.a.) and operational support</span></li>
           <li><span class="lang-ja">まずは個別相談で、条件と参加方法をご案内します</span><span class="lang-en">We first explain the terms and how to join at a private consultation</span></li>
         </ul>
       </div>
@@ -964,7 +961,6 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
         <div class="btn btn-gold" onclick="openModal('consult')"><span class="lang-ja">個別相談を予約する</span><span class="lang-en">Book a consultation</span></div>
         
       </div>
-      <div class="contactline"><span class="lang-ja">日本語対応 · ドバイ & 名古屋 · 1営業日以内にご返信します</span><span class="lang-en">Japanese support · Dubai & Nagoya · We reply within one business day</span></div>
     </div>
   </div>
 </section>
@@ -1044,12 +1040,12 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
   </div>
 </div>
 
-<script>const IMG={"hero": "assets/img/hero.jpg", "heroIsland": "assets/img/heroIsland.jpg", "map": "assets/img/map.jpg", "cazurBed": "assets/img/cazurBed.jpg", "gLiving": "assets/img/gLiving.jpg", "gBath1": "assets/img/gBath1.jpg", "gBath2": "assets/img/gBath2.jpg", "gEntrance": "assets/img/gEntrance.jpg", "gBar": "assets/img/gBar.jpg", "gBed": "assets/img/gBed.jpg", "world": "assets/img/world.jpg", "seahorseExt": "assets/img/seahorseExt.jpg", "underwater": "assets/img/underwater.jpg", "cazurExt": "assets/img/cazurExt.jpg", "beach": "assets/img/beach.jpg", "ihgBrands": "assets/img/ihgBrands.jpg", "ihgLogo": "assets/img/ihgLogo.jpg", "mermaid": "assets/img/mermaid.jpg", "czBar": "assets/img/czBar.jpg", "gNight": "assets/img/gNight.jpg", "gPool": "assets/img/gPool.jpg", "czHall": "assets/img/czHall.jpg", "czPool": "assets/img/czPool.jpg", "czBath": "assets/img/czBath.jpg", "shDusk": "assets/img/shDusk.jpg", "shDeck": "assets/img/shDeck.jpg", "czLiving": "assets/img/czLiving.jpg", "gAerial": "assets/img/gAerial.jpg", "pAerialRow": "assets/img/pAerialRow.jpg", "pCoral2": "assets/img/pCoral2.jpg", "pDeck": "assets/img/pDeck.jpg", "pDiver": "assets/img/pDiver.jpg", "pHoney": "assets/img/pHoney.jpg", "pLounge": "assets/img/pLounge.jpg", "pNight": "assets/img/pNight.jpg", "pReef": "assets/img/pReef.jpg", "pSkyline": "assets/img/pSkyline.jpg", "pSnorkel": "assets/img/pSnorkel.jpg", "pVillaExt": "assets/img/pVillaExt.jpg", "pVillaSea": "assets/img/pVillaSea.jpg", "pVillaSun": "assets/img/pVillaSun.jpg", "pWorldAer": "assets/img/pWorldAer.jpg", "poAer1": "assets/img/poAer1.jpg", "poAer3": "assets/img/poAer3.jpg", "poBalcony": "assets/img/poBalcony.jpg", "poBed": "assets/img/poBed.jpg", "poCourt": "assets/img/poCourt.jpg", "poDive": "assets/img/poDive.jpg", "poLobby": "assets/img/poLobby.jpg", "poPalm": "assets/img/poPalm.jpg", "poTerrace": "assets/img/poTerrace.jpg", "shCutaway": "assets/img/shCutaway.jpg", "shUnderRoom": "assets/img/shUnderRoom.jpg"};</script>
+<script>const IMG={"shHero": "assets/img/shHero.jpg", "hero": "assets/img/hero.jpg", "heroIsland": "assets/img/heroIsland.jpg", "map": "assets/img/map.jpg", "cazurBed": "assets/img/cazurBed.jpg", "gLiving": "assets/img/gLiving.jpg", "gBath1": "assets/img/gBath1.jpg", "gBath2": "assets/img/gBath2.jpg", "gEntrance": "assets/img/gEntrance.jpg", "gBar": "assets/img/gBar.jpg", "gBed": "assets/img/gBed.jpg", "world": "assets/img/world.jpg", "seahorseExt": "assets/img/seahorseExt.jpg", "underwater": "assets/img/underwater.jpg", "cazurExt": "assets/img/cazurExt.jpg", "beach": "assets/img/beach.jpg", "ihgBrands": "assets/img/ihgBrands.jpg", "ihgLogo": "assets/img/ihgLogo.jpg", "mermaid": "assets/img/mermaid.jpg", "czBar": "assets/img/czBar.jpg", "gNight": "assets/img/gNight.jpg", "gPool": "assets/img/gPool.jpg", "czHall": "assets/img/czHall.jpg", "czPool": "assets/img/czPool.jpg", "czBath": "assets/img/czBath.jpg", "shDusk": "assets/img/shDusk.jpg", "shDeck": "assets/img/shDeck.jpg", "czLiving": "assets/img/czLiving.jpg", "gAerial": "assets/img/gAerial.jpg", "pAerialRow": "assets/img/pAerialRow.jpg", "pCoral2": "assets/img/pCoral2.jpg", "pDeck": "assets/img/pDeck.jpg", "pDiver": "assets/img/pDiver.jpg", "pHoney": "assets/img/pHoney.jpg", "pLounge": "assets/img/pLounge.jpg", "pNight": "assets/img/pNight.jpg", "pReef": "assets/img/pReef.jpg", "pSkyline": "assets/img/pSkyline.jpg", "pSnorkel": "assets/img/pSnorkel.jpg", "pVillaExt": "assets/img/pVillaExt.jpg", "pVillaSea": "assets/img/pVillaSea.jpg", "pVillaSun": "assets/img/pVillaSun.jpg", "pWorldAer": "assets/img/pWorldAer.jpg", "poAer1": "assets/img/poAer1.jpg", "poAer3": "assets/img/poAer3.jpg", "poBalcony": "assets/img/poBalcony.jpg", "poBed": "assets/img/poBed.jpg", "poCourt": "assets/img/poCourt.jpg", "poDive": "assets/img/poDive.jpg", "poLobby": "assets/img/poLobby.jpg", "poPalm": "assets/img/poPalm.jpg", "poTerrace": "assets/img/poTerrace.jpg", "shCutaway": "assets/img/shCutaway.jpg", "shUnderRoom": "assets/img/shUnderRoom.jpg"};</script>
 <script>
 // ---- 画像を各所へ流し込み ----
 function setBg(id,key){var e=document.getElementById(id);if(e&&IMG[key])e.style.backgroundImage="url("+IMG[key]+")";}
 function setImg(id,key){var e=document.getElementById(id);if(e&&IMG[key])e.src=IMG[key];}
-setBg('heroFallback','shCutaway');       // 最初のカット（シーホース）を即時フォールバック表示
+setBg('heroFallback','shHero');          // 最初のカット（シーホース）を即時フォールバック表示
 setImg('imgWorld','world');
 setImg('imgSeahorseConcept','seahorseExt'); // 720空撮→1400夕景に格上げ
 setImg('imgMap','map');
