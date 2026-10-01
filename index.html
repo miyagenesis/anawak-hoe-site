@@ -104,13 +104,11 @@ header.scrolled{background:rgba(15,32,56,.94);backdrop-filter:blur(10px);padding
 .hero-cine .cine-duo{display:flex;gap:2px}
 .hero-cine .cine-duo video{width:50%;height:100%;object-fit:cover;display:block}
 @media(prefers-reduced-motion:reduce){.hero-cine .cine-slide.on .cine-img{animation:none}}
-/* 1枚目(低解像度) : 高さフィットの鮮明前景 + 同画像のボケ背景 + ゆっくりドリフト */
-.hero-cine .cine-hero::before{content:"";position:absolute;inset:-6%;background:url(assets/img/shHero.jpg) center/cover;filter:blur(20px) brightness(.8) saturate(1.12);transform:scale(1.08)}
-.hero-cine .cine-hero.on::before{animation:heroDrift 7s ease-out forwards}
-@keyframes heroDrift{from{transform:scale(1.08)}to{transform:scale(1.17)}}
-.hero-cine .cine-hero::after{content:"";position:absolute;inset:0;background:url(assets/img/shHero.jpg) right center/auto 100% no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.4) 18%,#000 34%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.4) 18%,#000 34%)}
-@media(max-width:760px){.hero-cine .cine-hero::after{background-position:center}}
-@media(prefers-reduced-motion:reduce){.hero-cine .cine-hero.on::before{animation:none}}
+/* 1枚目: 2分割(シーホース合成 + 空撮)。半分表示で高画質感 + ゆるやかズームアウト */
+.hero-cine .cine-split{display:flex;gap:2px}
+.hero-cine .cine-half{flex:1;min-width:0;background-size:cover;background-position:center;transform:scale(1);will-change:transform}
+.hero-cine .cine-split.on .cine-half{animation:kenZoomOut 2.6s ease-out forwards}
+@media(prefers-reduced-motion:reduce){.hero-cine .cine-split.on .cine-half{animation:none}}
 
 /* ---------- trust bar ---------- */
 .trustbar{background:var(--navy);color:#fff;padding:0}
@@ -542,8 +540,10 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 <section class="hero" id="top">
   <div class="hero-fallback" id="heroFallback"></div>
   <div class="hero-cine" id="heroCine">
-    <div class="cine-slide on cine-hero" data-dur="2800"></div>
-    <div class="cine-slide" data-dur="1900"><div class="cine-img" style="background-image:url(assets/img/shCutaway.jpg)"></div></div>
+    <div class="cine-slide on cine-split" data-dur="3000">
+      <div class="cine-half" style="background-image:url(assets/img/shHero.jpg)"></div>
+      <div class="cine-half" style="background-image:url(assets/img/shCutaway.jpg)"></div>
+    </div>
     <div class="cine-slide" data-dur="2200"><div class="cine-img" style="background-image:url(assets/img/shUnderRoom.jpg)"></div></div>
     <div class="cine-slide" data-dur="1700"><div class="cine-img" style="background-image:url(assets/img/pVillaSea.jpg)"></div></div>
     <div class="cine-slide" data-dur="2400"><div class="cine-img" style="background-image:url(assets/img/shDusk.jpg)"></div></div>
