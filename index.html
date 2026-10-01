@@ -159,7 +159,7 @@ section{padding:110px 0}
 .portfolio{background:var(--cream)}
 .pf-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:14px}
 .pf-note{font-size:13px;color:var(--grey);max-width:420px;text-align:right}
-.prop{display:grid;grid-template-columns:1.05fr 1fr;gap:0;margin-top:46px;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:0 18px 44px rgba(15,32,56,.08)}
+.prop{display:grid;grid-template-columns:1.05fr 1fr;gap:0;margin-top:46px;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:0 18px 44px rgba(15,32,56,.08);scroll-margin-top:90px}
 .prop.rev{grid-template-columns:1fr 1.05fr}
 .prop-media{position:relative;min-height:420px;background:#dcd6c9 center/cover no-repeat;overflow:hidden}
 .prop-media .tag{position:absolute;top:20px;left:20px;z-index:4;background:var(--navy);color:#fff;padding:7px 15px;font-size:11px;letter-spacing:.14em;font-family:"Cormorant Garamond",serif}
@@ -510,6 +510,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 <header id="hdr">
   <a href="#top" class="brand">ANAW<b>AK</b><small>REAL ESTATE · DUBAI</small></a>
   <nav class="nav">
+    <a href="#top"><span class="lang-ja">ホーム</span><span class="lang-en">Home</span></a>
     <a href="company/"><span class="lang-ja">会社概要</span><span class="lang-en">Company</span></a>
     <a href="#ihg"><span class="lang-ja">IHGグループ</span><span class="lang-en">IHG Group</span></a>
     <a href="#world">The World</a>
@@ -531,7 +532,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 
 <!-- HERO -->
 <div id="top"></div>
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-fallback" id="heroFallback"></div>
   <div class="hero-cine" id="heroCine">
     <div class="cine-slide on"><div class="cine-img" style="background-image:url(assets/img/shHero.jpg)"></div></div>
@@ -691,7 +692,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     <p class="loc-note" style="color:var(--grey);text-align:center;margin-bottom:8px"><span class="lang-ja">写真の上にカーソルを置くと停止します</span><span class="lang-en">Hover over a photo to pause</span></p>
 
     <!-- Floating Seahorse -->
-    <div class="prop">
+    <div class="prop" id="prop-seahorse">
       <div class="prop-media" id="mSeahorse"><span class="tag sea">FLOATING SEAHORSE</span><div class="card-prices">
           <div class="cp-head"><span class="lang-ja">価格表</span><span class="lang-en">Price list</span></div>
           <div class="cp-row"><span class="cp-t">Type 1</span><span class="cp-p">$7,352,000</span></div>
@@ -715,7 +716,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     </div>
 
     <!-- Portofino Hotel -->
-    <div class="prop rev">
+    <div class="prop rev" id="prop-portofino">
       <div class="prop-body">
         <div class="prop-brand ic"><img src="assets/img/intercontinentalLogo.jpg" alt="InterContinental Hotels & Resorts"></div>
         <div class="cat">BOUTIQUE HOTEL RESIDENCE · PORTOFINO</div>
@@ -742,7 +743,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     </div>
 
     <!-- Germany Villa -->
-    <div class="prop rev">
+    <div class="prop rev" id="prop-germany">
       <div class="prop-body">
         <div class="prop-brand"><img src="assets/img/ihgLogo.jpg" alt="IHG Hotels & Resorts"></div>
         <div class="cat">ISLAND VILLA · GERMANY</div>
@@ -766,7 +767,7 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     </div>
 
     <!-- Cote D'Azur -->
-    <div class="prop">
+    <div class="prop" id="prop-cazur">
       <div class="prop-media" id="mCazur"><span class="tag cazur">Côte d'Azur Nice / St. Tropez</span><div class="card-prices">
           <div class="cp-head"><span class="lang-ja">価格表</span><span class="lang-en">Price list</span></div>
           <div class="cp-row"><span class="cp-t">Type 1</span><span class="cp-p">$681,000</span></div>
@@ -974,10 +975,10 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     </div>
     <div class="foot-col">
       <h5>PROPERTIES</h5>
-      <a onclick="scrollTo2('#portfolio')">Floating Seahorse</a>
-      <a onclick="scrollTo2('#portfolio')">Portofino Hotel</a>
-          <a onclick="scrollTo2('#portfolio')">Germany Villa</a>
-      <a onclick="scrollTo2('#portfolio')">Côte d'Azur Nice / St. Tropez</a>
+      <a onclick="scrollTo2('#prop-seahorse')">Floating Seahorse</a>
+      <a onclick="scrollTo2('#prop-portofino')">Portofino Hotel</a>
+          <a onclick="scrollTo2('#prop-germany')">Germany Villa</a>
+      <a onclick="scrollTo2('#prop-cazur')">Côte d'Azur Nice / St. Tropez</a>
       <a onclick="scrollTo2('#location')">The Heart of Europe</a>
     </div>
     <div class="foot-col">
