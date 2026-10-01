@@ -98,7 +98,7 @@ header.scrolled{background:rgba(15,32,56,.94);backdrop-filter:blur(10px);padding
 .hero-cine .cine-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;will-change:opacity}
 .hero-cine .cine-slide.on{opacity:1}
 .hero-cine .cine-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1)}
-.hero-cine .cine-slide.on .cine-img{animation:kenZoomOut 2s ease-out forwards}
+.hero-cine .cine-slide.on .cine-img{animation:kenZoomOut 1.6s ease-out forwards}
 @keyframes kenZoomOut{from{transform:scale(1.16)}to{transform:scale(1)}}
 .hero-cine .cine-vid video{width:100%;height:100%;object-fit:cover;display:block}
 .hero-cine .cine-duo{display:flex;gap:2px}
@@ -535,19 +535,16 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 <section class="hero" id="top">
   <div class="hero-fallback" id="heroFallback"></div>
   <div class="hero-cine" id="heroCine">
-    <div class="cine-slide on"><div class="cine-img" style="background-image:url(assets/img/shHero.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shCutaway.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shUnderRoom.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/underwater.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/pVillaExt.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/pVillaSea.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shDeck.jpg)"></div></div>
-    <div class="cine-slide"><div class="cine-img" style="background-image:url(assets/img/shDusk.jpg)"></div></div>
-    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vSalon.mp4" poster="ibiza/assets/img/p_vSalon.jpg"></video></div>
-    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vBooth.mp4" poster="ibiza/assets/img/p_vBooth.jpg"></video></div>
-    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vFoam.mp4" poster="ibiza/assets/img/p_vFoam.jpg"></video></div>
-    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="assets/video/underwater.mp4" poster="assets/img/underwater-poster.jpg"></video></div>
-    <div class="cine-slide cine-vid"><video muted loop playsinline preload="none" data-src="assets/video/hero.mp4" poster="assets/img/hero-poster.jpg"></video></div>
+    <div class="cine-slide on" data-dur="2800"><div class="cine-img" style="background-image:url(assets/img/shHero.jpg)"></div></div>
+    <div class="cine-slide" data-dur="1900"><div class="cine-img" style="background-image:url(assets/img/shCutaway.jpg)"></div></div>
+    <div class="cine-slide" data-dur="2200"><div class="cine-img" style="background-image:url(assets/img/shUnderRoom.jpg)"></div></div>
+    <div class="cine-slide" data-dur="1700"><div class="cine-img" style="background-image:url(assets/img/pVillaSea.jpg)"></div></div>
+    <div class="cine-slide" data-dur="2400"><div class="cine-img" style="background-image:url(assets/img/shDusk.jpg)"></div></div>
+    <div class="cine-slide cine-vid" data-dur="1900"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vSalon.mp4" poster="ibiza/assets/img/p_vSalon.jpg"></video></div>
+    <div class="cine-slide cine-vid" data-dur="1900"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vBooth.mp4" poster="ibiza/assets/img/p_vBooth.jpg"></video></div>
+    <div class="cine-slide cine-vid" data-dur="2600"><video muted loop playsinline preload="none" data-src="ibiza/assets/video/vFoam.mp4" poster="ibiza/assets/img/p_vFoam.jpg"></video></div>
+    <div class="cine-slide cine-vid" data-dur="3000"><video muted loop playsinline preload="none" data-src="assets/video/underwater.mp4" poster="assets/img/underwater-poster.jpg"></video></div>
+    <div class="cine-slide cine-vid" data-dur="2600"><video muted loop playsinline preload="none" data-src="assets/video/hero.mp4" poster="assets/img/hero-poster.jpg"></video></div>
   </div>
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-inner">
@@ -1291,7 +1288,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
   function pauseVids(sl){ [].forEach.call(sl.querySelectorAll('video'),function(v){ try{v.pause();}catch(e){} }); }
   var cur=0, timer=null;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  function durOf(n){ return slides[n].querySelector('video') ? 3000 : 2000; } // 動画3秒・画像2秒
+  function durOf(n){ var d=parseInt(slides[n].getAttribute('data-dur'),10); return d||(slides[n].querySelector('video')?3000:2000); } // カット毎の尺(data-dur)
   function show(n){
     for(var j=0;j<slides.length;j++){
       if(j===n){ slides[j].classList.add('on'); loadVids(slides[j]); playVids(slides[j]); }
