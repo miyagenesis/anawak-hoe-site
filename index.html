@@ -1072,17 +1072,19 @@ setBg('finalBg','heroIsland');
   var stills=document.querySelectorAll('#underwater .uw-still');
   if(!stills.length) return;
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){stills[0].classList.add('on');return;}
-  var VIDEO_MS=5000, STILL_MS=3200, n=0;
+  // 動画 → 静止画1 → 静止画2 → 動画 … の順
+  var VIDEO_MS=5000, STILL_MS=3200;
   function showVideo(){
     for(var i=0;i<stills.length;i++) stills[i].classList.remove('on');
-    setTimeout(showStill,VIDEO_MS);
+    setTimeout(function(){ showStill(0); },VIDEO_MS);
   }
-  function showStill(){
-    stills[n%stills.length].classList.add('on'); n++;
-    setTimeout(showVideo,STILL_MS);
+  function showStill(k){
+    stills[k].classList.add('on');
+    if(k>0) setTimeout(function(){ stills[k-1].classList.remove('on'); },1200);
+    setTimeout(k+1<stills.length ? function(){ showStill(k+1); } : showVideo, STILL_MS);
   }
   var started=false;
-  function start(){ if(started) return; started=true; setTimeout(showStill,3000); }
+  function start(){ if(started) return; started=true; setTimeout(function(){ showStill(0); },3000); }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ start(); io.disconnect(); } },{threshold:.25});
     io.observe(document.getElementById('underwater'));
