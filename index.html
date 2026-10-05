@@ -371,6 +371,10 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
 .uw{position:relative;color:#fff;overflow:hidden}
 .uw-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
 .uw-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+/* 海中ベッドルーム静止画: 動画の流れに挟み込む（クロスフェード） */
+.uw-still{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 4.5s ease-out;pointer-events:none}
+.uw-still.on{opacity:1;transform:scale(1)}
+@media(prefers-reduced-motion:reduce){.uw-still{transition:none;transform:none}}
 .uw-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(9,20,38,.92) 0%,rgba(9,20,38,.62) 50%,rgba(9,20,38,.32) 100%)}
 .uw-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,20,38,.9) 0%,rgba(9,20,38,.55) 50%,rgba(9,20,38,.2) 100%)}
 .uw-inner{position:relative;z-index:3;max-width:1180px;margin:0 auto;padding:130px 44px}
@@ -810,6 +814,8 @@ footer{background:#0a1526;color:rgba(255,255,255,.7)}
     
     <source src="assets/video/underwater.mp4" type="video/mp4">
   </video>
+  <div class="uw-still" style="background-image:url(assets/img/shUwSuite.jpg);background-position:60% center"></div>
+  <div class="uw-still" style="background-image:url(assets/img/shUnderRoom.jpg);background-position:70% center"></div>
   <div class="uw-overlay"></div>
   <div class="uw-inner">
     <div class="box reveal">
@@ -1060,6 +1066,28 @@ setImg('ihgLogoStmt','ihgLogo');
 setImg('ihgLogoShf','ihgLogo');
 setBg('uwBg','mermaid');                  // 動画フォールバック（人魚）
 setBg('finalBg','heroIsland');
+
+// ---- 海中ベッドルーム帯: 動画 → ベッドルーム静止画 → 動画 → 静止画… と挟み込む ----
+(function(){
+  var stills=document.querySelectorAll('#underwater .uw-still');
+  if(!stills.length) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){stills[0].classList.add('on');return;}
+  var VIDEO_MS=5000, STILL_MS=3200, n=0;
+  function showVideo(){
+    for(var i=0;i<stills.length;i++) stills[i].classList.remove('on');
+    setTimeout(showStill,VIDEO_MS);
+  }
+  function showStill(){
+    stills[n%stills.length].classList.add('on'); n++;
+    setTimeout(showVideo,STILL_MS);
+  }
+  var started=false;
+  function start(){ if(started) return; started=true; setTimeout(showStill,3000); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ start(); io.disconnect(); } },{threshold:.25});
+    io.observe(document.getElementById('underwater'));
+  } else start();
+})();
 
 // ---- 物件カードのスライドショー（左右ボタン＋3秒自動送り）----
 var propSlides={
