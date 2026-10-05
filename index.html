@@ -1067,27 +1067,48 @@ setImg('ihgLogoShf','ihgLogo');
 setBg('uwBg','mermaid');                  // 動画フォールバック（人魚）
 setBg('finalBg','heroIsland');
 
-// ---- 海中ベッドルーム帯: 動画 → ベッドルーム静止画 → 動画 → 静止画… と挟み込む ----
+// ---- 海中ベッドルーム帯: 動画の前半 → 静止画2枚 → 動画の後半 → 静止画2枚 で一巡 ----
 (function(){
-  var stills=document.querySelectorAll('#underwater .uw-still');
+  var sec=document.getElementById('underwater');
+  var stills=sec?sec.querySelectorAll('.uw-still'):[];
   if(!stills.length) return;
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches){stills[0].classList.add('on');return;}
-  // 動画 → 静止画1 → 静止画2 → 動画 … の順
-  var VIDEO_MS=5000, STILL_MS=3200;
-  function showVideo(){
-    for(var i=0;i<stills.length;i++) stills[i].classList.remove('on');
-    setTimeout(function(){ showStill(0); },VIDEO_MS);
+  var vid=document.getElementById('reefVideo');
+  var STILL_MS=3200, FALLBACK_MS=18000;
+  function vidOK(){ return vid&&!vid.paused&&vid.readyState>=2&&isFinite(vid.duration)&&vid.duration>4&&vid.offsetWidth>0; }
+  // 次の区切り（動画の中間 or 終わり）まで待つ。静止画を出している間は動画を止める
+  function waitVideo(){
+    if(!vidOK()){ setTimeout(function(){ showStills(false); },FALLBACK_MS); return; }
+    var half=vid.duration/2, end=vid.duration-0.5;
+    var target=vid.currentTime<half-0.5?half:end, last=vid.currentTime;
+    function tick(){
+      var t=vid.currentTime, wrapped=t<last-1; last=t;
+      if(t>=target||wrapped){
+        vid.removeEventListener('timeupdate',tick);
+        vid.pause();
+        showStills(target===end&&!wrapped);
+      }
+    }
+    vid.addEventListener('timeupdate',tick);
   }
-  function showStill(k){
-    stills[k].classList.add('on');
-    if(k>0) setTimeout(function(){ stills[k-1].classList.remove('on'); },1200);
-    setTimeout(k+1<stills.length ? function(){ showStill(k+1); } : showVideo, STILL_MS);
+  function showStills(rewind){
+    var k=0;
+    (function next(){
+      stills[k].classList.add('on');
+      if(k>0){ var prev=stills[k-1]; setTimeout(function(){ prev.classList.remove('on'); },1200); }
+      k++;
+      setTimeout(k<stills.length?next:function(){
+        for(var i=0;i<stills.length;i++) stills[i].classList.remove('on');
+        if(vid){ if(rewind) vid.currentTime=0; var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){}); }
+        setTimeout(waitVideo,300);
+      },STILL_MS);
+    })();
   }
   var started=false;
-  function start(){ if(started) return; started=true; setTimeout(function(){ showStill(0); },3000); }
+  function start(){ if(started) return; started=true; waitVideo(); }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ start(); io.disconnect(); } },{threshold:.25});
-    io.observe(document.getElementById('underwater'));
+    io.observe(sec);
   } else start();
 })();
 
